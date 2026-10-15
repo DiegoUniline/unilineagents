@@ -1,4 +1,5 @@
 ---
+name: estado
 description: Estado del proyecto — % de conocimiento por módulo, fase, preguntas abiertas y riesgos
 ---
 # CONVENCIONES COMPARTIDAS (arquitecto + auditor)

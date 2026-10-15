@@ -44,6 +44,7 @@ Entrevista (una pregunta a la vez) sobre:
 - Dinero: moneda(s), impuestos, ¿facturación CFDI?, métodos de pago.
 - Qué problema hace que el cliente pague. Qué NO entra en la v1.
 - Integraciones externas obligatorias.
+- Tecnología: dónde vivirá el sistema (Supabase + React, AppSheet / Apps Script, otro). Es una pregunta al dueño con tu recomendación y su porqué; NUNCA la eliges tú.
 Salida: /docs/00-vision.md, /docs/glosario.md y lista de módulos con orden recomendado (primero los que otros necesitan: empresas/usuarios/catálogos base).
 
 ### FASE 1 — Entrevista por módulo

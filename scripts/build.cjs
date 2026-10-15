@@ -110,7 +110,17 @@ wr('dist/AGENTS.md', `# AGENTS.md — Reglas Uniline\n\n${conocimiento.replace(/
 // ---------- Versión por proyecto (.claude/ dentro del repo; sirve en Claude Code web, app y terminal sin plugins) ----------
 const P = 'dist/proyecto/.claude';
 for (const n of ROLES) wr(`${P}/agents/${n}.md`, rd(`agents/${n}.md`));
-for (const f of fs.readdirSync(path.join(R, 'commands'))) wr(`${P}/commands/${f}`, rd(`commands/${f}`));
+// Comandos como skills: funcionan con /nombre y también pidiéndolo en palabras.
+for (const f of fs.readdirSync(path.join(R, 'commands'))) {
+  const nom = f.replace(/\.md$/, '');
+  wr(`${P}/skills/${nom}/SKILL.md`, rd(`commands/${f}`).replace(/^---\n/, `---\nname: ${nom}\n`));
+}
+// CLAUDE.md: lo único que Claude Code SIEMPRE carga. Lleva la constitución completa y el enrutador de roles.
+wr('dist/proyecto/CLAUDE.md', `${rd('src/claude-md-encabezado.md')}
+
+---
+
+${PRINCIPIOS}`);
 for (const s of SKILLS) wr(`${P}/skills/${s}/SKILL.md`, rd(`skills/${s}/SKILL.md`));
 wr(`${P}/hooks/guardian.cjs`, rd('hooks/guardian.cjs'));
 wr(`${P}/hooks/sesion.cjs`, rd('hooks/sesion.cjs'));
