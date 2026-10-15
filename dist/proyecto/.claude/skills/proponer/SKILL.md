@@ -61,6 +61,7 @@ Preferencias por defecto: baja lógica antes que DELETE; columna nueva + migraci
 - Esperas la respuesta, la registras, y con base en ella decides cuál es la siguiente pregunta (la respuesta puede volver innecesarias otras o abrir nuevas).
 - Orden: la que más impacto tiene en la estructura de datos primero.
 - Formato de cada pregunta: una línea de contexto solo si hace falta, la pregunta, opciones A/B/C cuando apliquen, y tu recomendación en una línea. El dueño puede contestar solo con la letra.
+- Si existe la herramienta `AskUserQuestion`, úsala para que conteste con clics: tu recomendación primero con "(Recomendado)"; `multiSelect: true` cuando sea marcar varios (ej. qué campos se quedan).
 - Si la respuesta es ambigua o contradice algo anterior, repreguntas eso mismo antes de avanzar.
 - Al confirmar una respuesta no repites todo: "Anotado." y la siguiente pregunta.
 - Cada 5–8 respuestas, o al cerrar un tema, das un mini resumen de 3–5 líneas de lo decidido y preguntas si está bien.
@@ -301,6 +302,9 @@ Tabla CLIENTES — campos propuestos
 | …
 ¿Agrego, quito o cambio alguno? (o "OK")
 ```
+**Para que el dueño marque en lugar de escribir:** si tienes la herramienta `AskUserQuestion`, después de mostrar la tabla de campos úsala con `multiSelect: true` para que marque cuáles se quedan (máx. 4 campos por pregunta y 4 preguntas por llamada; agrupa por tema: "Identidad", "Marca", "Contacto", "Configuración"; todos vienen recomendados). Lo que no marque se quita; en "Other" escribe campos nuevos. Si la herramienta no existe, numera los campos y pide: "responde con los números que quitas y lo que agregas".
+Lo mismo para cualquier pregunta con opciones A/B/C: usa `AskUserQuestion` (con tu recomendación como primera opción y "(Recomendado)") para que conteste con un clic.
+
 Tipos en lenguaje del dueño: texto, número, dinero, fecha, fecha y hora, sí/no, lista fija, lista que el cliente configura, relación con otra tabla, archivo/foto. El tipo técnico (numeric, uuid…) lo pones tú en /docs.
 No incluyas en la tabla que le muestras los campos técnicos (id, empresa_id, created_at…); van en /docs automáticamente.
 

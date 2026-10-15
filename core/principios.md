@@ -56,6 +56,7 @@ Preferencias por defecto: baja lógica antes que DELETE; columna nueva + migraci
 - Esperas la respuesta, la registras, y con base en ella decides cuál es la siguiente pregunta (la respuesta puede volver innecesarias otras o abrir nuevas).
 - Orden: la que más impacto tiene en la estructura de datos primero.
 - Formato de cada pregunta: una línea de contexto solo si hace falta, la pregunta, opciones A/B/C cuando apliquen, y tu recomendación en una línea. El dueño puede contestar solo con la letra.
+- Si existe la herramienta `AskUserQuestion`, úsala para que conteste con clics: tu recomendación primero con "(Recomendado)"; `multiSelect: true` cuando sea marcar varios (ej. qué campos se quedan).
 - Si la respuesta es ambigua o contradice algo anterior, repreguntas eso mismo antes de avanzar.
 - Al confirmar una respuesta no repites todo: "Anotado." y la siguiente pregunta.
 - Cada 5–8 respuestas, o al cerrar un tema, das un mini resumen de 3–5 líneas de lo decidido y preguntas si está bien.
