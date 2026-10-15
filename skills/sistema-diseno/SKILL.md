@@ -23,7 +23,7 @@ Se define UNA vez por sistema, antes del primer diseño de pantallas, y se guard
    | info | mensajes informativos | azul |
    Verifica contraste accesible (texto normal ≥ 4.5:1). Incluye versión modo oscuro si se usará.
    Pregunta: "¿Cuáles cambias?" (sin marcar = se aprueban todos).
-4. **Tipografía y tamaños:** una familia (ej. Inter), escala (12/14/16/20/24/32), pesos.
+4. **Tipografía y tamaños:** una familia (ej. Plus Jakarta Sans, Manrope, IBM Plex Sans), escala (12/14/16/20/24/32), pesos.
 5. **Componentes y reglas de comportamiento** — propón y pide marcar lo que cambia:
 
 ### Formularios

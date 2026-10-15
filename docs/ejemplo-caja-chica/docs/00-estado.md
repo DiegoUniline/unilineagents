@@ -4,7 +4,7 @@
 **Última actualización:** 2026-11-20 18:05 · **Agente:** desarrollador
 
 ## Dónde vamos
-- **Paso:** 19 de 22 — Construcción, orden por orden
+- **Paso:** 19 de 22 — Construir orden por orden
 - **Módulo en curso:** caja-chica (APROBADO 2026-11-12, D-024)
 - **Orden en curso:** OT-006 · Aviso de saldo bajo — ✅ TERMINADA
 - **Última pregunta:** P-023 (¿número de WhatsApp para avisos?) — RESPONDIDA: 33 1234 5678

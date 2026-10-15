@@ -6,7 +6,6 @@ argument-hint: <modulo>
 {{ROL:arquitecto}}
 
 ## Tarea
-Ejecuta la FASE 2 para el módulo: $ARGUMENTS
-Si faltan puntos del checklist, márcalos ❓ PENDIENTE en el documento (no los inventes).
-Muestra solo: resumen de tablas, lista de 💡 PROPUESTO, lista de ❓ PENDIENTE, y pide `APROBADO <modulo>`.
-Cuando recibas `APROBADO <modulo>` ejecuta la FASE 3.
+Para el módulo $ARGUMENTS ejecuta el Paso 15 (cierre) y el Paso 16 (propuesta y aprobación).
+Si faltan pasos anteriores, dilo y regresa al primero pendiente; no inventes.
+Con `APROBADO <modulo>` sigue con el Paso 17 (base de datos) y el Paso 18 (plan de construcción).

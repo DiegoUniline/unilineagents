@@ -18,7 +18,7 @@
 Contraste texto/fondo verificado ≥ 4.5:1.
 
 ## Tipografía y medidas
-- Letra: Inter. Tamaños 12 / 14 / 16 (base) / 20 / 24 / 32. Pesos 400, 600.
+- Letra: Plus Jakarta Sans. Tamaños 12 / 14 / 16 (base) / 20 / 24 / 32. Pesos 400, 600.
 - Espaciado múltiplos de 4 px. Bordes redondeados 8 px (tarjetas 12 px).
 - Iconos: Lucide.
 - Formato: fecha 20/11/2026 · dinero $1,234.50 · zona horaria America/Mexico_City.

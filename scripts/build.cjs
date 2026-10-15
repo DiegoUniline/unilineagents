@@ -124,10 +124,12 @@ ${PRINCIPIOS}`);
 for (const s of SKILLS) wr(`${P}/skills/${s}/SKILL.md`, rd(`skills/${s}/SKILL.md`));
 wr(`${P}/hooks/guardian.cjs`, rd('hooks/guardian.cjs'));
 wr(`${P}/hooks/sesion.cjs`, rd('hooks/sesion.cjs'));
+wr(`${P}/hooks/recordatorio.cjs`, rd('hooks/recordatorio.cjs'));
 wr(`${P}/core/principios.md`, PRINCIPIOS);
 wr(`${P}/settings.json`, JSON.stringify({
   hooks: {
     SessionStart: [{ hooks: [{ type: 'command', command: 'node "$CLAUDE_PROJECT_DIR/.claude/hooks/sesion.cjs"' }] }],
+    UserPromptSubmit: [{ hooks: [{ type: 'command', command: 'node "$CLAUDE_PROJECT_DIR/.claude/hooks/recordatorio.cjs"' }] }],
     PreToolUse: [{ matcher: 'Bash|Write|Edit|MultiEdit|mcp__.*', hooks: [{ type: 'command', command: 'node "$CLAUDE_PROJECT_DIR/.claude/hooks/guardian.cjs"', timeout: 10 }] }],
   },
 }, null, 2));

@@ -159,7 +159,7 @@ erDiagram
 | aviso | saldo bajo | `#B7791F` ámbar |
 | error | cancelado, errores | `#C62828` |
 
-Reglas: letra Inter 16 px · etiquetas arriba · obligatorios con * · errores en rojo debajo del campo · "Guardar" a la derecha y se bloquea al guardar · cancelar siempre en rojo con confirmación · montos en formato `$1,234.50`.
+Reglas: letra Plus Jakarta Sans 16 px · etiquetas arriba · obligatorios con * · errores en rojo debajo del campo · "Guardar" a la derecha y se bloquea al guardar · cancelar siempre en rojo con confirmación · montos en formato `$1,234.50`.
 **Archivo:** `docs/sistema-diseno.md`
 
 ---
