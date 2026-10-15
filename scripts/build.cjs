@@ -142,5 +142,24 @@ wr('dist/proyecto/AGENTS.md', rd('dist/AGENTS.md'));
 fs.cpSync(path.join(R, 'docs/ejemplo-caja-chica/docs'), path.join(R, P, 'ejemplos/caja-chica'), { recursive: true });
 fs.cpSync(path.join(R, 'docs/ejemplo-caja-chica.md'), path.join(R, P, 'ejemplos/caja-chica-recorrido.md'));
 
+// ---------- Plantilla de proyecto nuevo (repo 'Use this template') ----------
+const T = 'dist/plantilla';
+fs.cpSync(path.join(R, 'dist/proyecto'), path.join(R, T), { recursive: true });
+fs.cpSync(path.join(R, 'templates/plantilla/README.md'), path.join(R, T, 'README.md'));
+fs.cpSync(path.join(R, 'templates/plantilla/NOTICE.md'), path.join(R, T, 'NOTICE.md'));
+fs.cpSync(path.join(R, 'templates/plantilla/gitignore'), path.join(R, T, '.gitignore'));
+fs.cpSync(path.join(R, 'LICENSE'), path.join(R, T, 'LICENSE'));
+const vacio = t => `# ${t}\n`;
+wr(`${T}/docs/00-estado.md`, rd('templates/docs/00-estado.md')
+  .replace('<fecha y hora>', '—').replace('<arquitecto | auditor | desarrollador | qa>', '—')
+  .replace('<N> de 22 — <nombre del paso> (ver docs/metodo o .claude/agents/arquitecto.md)', '1 de 22 — Arranque')
+  .replace('**Módulo en curso:** <nombre>', '**Módulo en curso:** —')
+  .replace('**Última pregunta:** P-XXX — <texto corto> — <ABIERTA | RESPONDIDA: respuesta>', '**Última pregunta:** —')
+  .replace('**Siguiente paso exacto:** <qué sigue, en una línea>', '**Siguiente paso exacto:** el dueño escribe "Quiero un sistema para …"; el agente hace el Paso 2 (investigación del giro)')
+  .replace('- D-XXX · <módulo> · <decisión en una línea>', '- (ninguna)'));
+for (const [f, t] of [['00-vision','Visión'],['00-mapa','Mapa del sistema'],['investigacion-giro','Investigación del giro'],['funciones','Catálogo de funciones'],['diagrama-er','Diagrama entidad-relación'],['glosario','Glosario'],['sistema-diseno','Sistema de diseño'],['preguntas','Preguntas'],['decisiones','Decisiones'],['riesgos','Riesgos'],['plan-construccion','Plan de construcción']]) wr(`${T}/docs/${f}.md`, vacio(t));
+wr(`${T}/docs/bitacora.md`, '# Bitácora\n');
+wr(`${T}/docs/modulos/.gitkeep`, ''); wr(`${T}/docs/ordenes/.gitkeep`, '');
+
 const len = rd('dist/chatgpt/instrucciones.md').length;
 console.log(`agents: ${ROLES.length} · comandos: ${fs.readdirSync(path.join(R, 'commands')).length} · skills: ${PROPIAS.length} propias + ${TERCEROS.length} de terceros · instrucciones ChatGPT: ${len} caracteres${len > 8000 ? ' ⚠️ EXCEDE 8000' : ''}`);

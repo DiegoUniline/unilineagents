@@ -1,0 +1,4 @@
+# Avisos de terceros
+Este proyecto incluye skills de terceros en `.claude/skills/`, cada una con su propia licencia (MIT o Apache-2.0) en su carpeta (`LICENSE`) y su origen exacto en `ORIGEN.md`:
+supabase · supabase-postgres-best-practices (Supabase) · systematic-debugging · test-driven-development · verification-before-completion (obra/superpowers) · react-best-practices · composition-patterns · web-design-guidelines (Vercel Labs) · frontend-design · webapp-testing (Anthropic) · playwright-skill (TestDino) · web-quality-audit · accessibility · performance · core-web-vitals · web-best-practices (Addy Osmani) · impeccable (Paul Bakaus) · ui-ux-pro-max (Next Level Builder) · owasp-security (agamm).
+El resto (agentes, reglas, skills propias, método y ejemplos) es de Uniline Innovación en la Nube, uso privado.
