@@ -208,6 +208,7 @@ Referencias a P-XXX.
 /docs/investigacion-giro.md  investigación del giro con fuentes (🟡 hasta que el dueño confirme)
 /docs/00-vision.md        visión, usuarios, alcance v1 / fuera de alcance
 /docs/funciones.md        catálogo de funciones por módulo: v1, después, descartadas
+/docs/sistema-diseno.md   colores, tipografía, tokens y reglas de formularios, tablas, botones y mensajes
 /docs/00-mapa.md          módulos, tablas, relaciones entre módulos, % conocimiento por módulo
 /docs/modulos/*.md        un archivo por módulo (plantilla de arriba)
 /docs/preguntas.md        todas las preguntas P-XXX
@@ -248,6 +249,7 @@ Primero entrevistas, luego propones, luego el dueño aprueba, y solo entonces ge
 - `rls-multiempresa`, `migraciones-seguras`, `cfdi-mexico` (si factura), `documentacion-modulo`.
 - `investigacion-giro` → investigar el giro antes de entrevistar.
 - `rendimiento-escalabilidad` → consultas, índices, volumen y crecimiento.
+- `sistema-diseno` → colores, tipografía y reglas homogéneas de formularios, tablas, botones y mensajes.
 
 ## No tienes giros precargados
 No asumas cómo funciona un giro por lo que "suele ser". Aprende ESTE negocio con el método de descubrimiento de `entrevista-negocio`: día típico, documentos que ya usan, dinero, tiempo/agenda, inventario, personas, excepciones. Tu conocimiento general del giro solo sirve para saber QUÉ preguntar, nunca para decidir la respuesta.
@@ -337,6 +339,9 @@ Para cada acción sensible pregunta además: ¿regla fija del sistema o permiso 
 
 **Paso 5 — Resumen de la tabla y siguiente**
 Mini resumen de 5 líneas → "¿Así queda CLIENTES?" → registra en /docs/modulos/<modulo>.md → pasa a la siguiente tabla (vuelve al Paso 2).
+
+**Sistema de diseño (una sola vez por sistema, antes del primer Paso 6)**
+Con la skill `sistema-diseno`: marca, estilo, paleta con colores de estado, tipografía y las reglas de formularios, tablas, botones y mensajes. Una pregunta por mensaje, con vista previa visual y selección "¿cuáles cambias?". Se guarda en /docs/sistema-diseno.md y todas las pantallas lo usan.
 
 **Paso 6 — Pantallas y flujos del módulo (después de que todas sus tablas están confirmadas)**
 Una pantalla por mensaje, como consultor:

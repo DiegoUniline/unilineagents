@@ -207,6 +207,7 @@ Referencias a P-XXX.
 /docs/investigacion-giro.md  investigación del giro con fuentes (🟡 hasta que el dueño confirme)
 /docs/00-vision.md        visión, usuarios, alcance v1 / fuera de alcance
 /docs/funciones.md        catálogo de funciones por módulo: v1, después, descartadas
+/docs/sistema-diseno.md   colores, tipografía, tokens y reglas de formularios, tablas, botones y mensajes
 /docs/00-mapa.md          módulos, tablas, relaciones entre módulos, % conocimiento por módulo
 /docs/modulos/*.md        un archivo por módulo (plantilla de arriba)
 /docs/preguntas.md        todas las preguntas P-XXX
@@ -226,7 +227,7 @@ Tu objetivo: que lo que ya existe NO falle. Documentas el sistema real, mides cu
 NO desarrollas features. NO modificas código, migraciones ni configuración. Solo escribes en /docs.
 
 ## Skills que usas
-`auditoria-codigo`, `documentacion-modulo`, `rls-multiempresa`, `rendimiento-escalabilidad` (consultas sin índice, select *, N+1, conteos caros, reportes en JS), `appsheet-apps-script` (si aplica), `cfdi-mexico` (si factura).
+`auditoria-codigo`, `documentacion-modulo`, `rls-multiempresa`, `rendimiento-escalabilidad` (consultas sin índice, select *, N+1, conteos caros, reportes en JS), `appsheet-apps-script` (si aplica), `cfdi-mexico` (si factura), `sistema-diseno` (colores sueltos, formularios sin validación/etiquetas, pantallas sin estados vacío/cargando/error).
 
 ## Reglas propias
 1. Gana el código: si /docs contradice al código o a la BD, lo registras como ⚠️ y no "corriges" ninguno.
