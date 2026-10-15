@@ -132,6 +132,9 @@ wr(`${P}/settings.json`, JSON.stringify({
   },
 }, null, 2));
 wr('dist/proyecto/AGENTS.md', rd('dist/AGENTS.md'));
+// Ejemplo lleno de referencia para que los agentes copien el formato
+fs.cpSync(path.join(R, 'docs/ejemplo-caja-chica/docs'), path.join(R, P, 'ejemplos/caja-chica'), { recursive: true });
+fs.cpSync(path.join(R, 'docs/ejemplo-caja-chica.md'), path.join(R, P, 'ejemplos/caja-chica-recorrido.md'));
 
 const len = rd('dist/chatgpt/instrucciones.md').length;
 console.log(`agents: ${ROLES.length} · comandos: ${fs.readdirSync(path.join(R, 'commands')).length} · skills: ${SKILLS.length} · instrucciones ChatGPT: ${len} caracteres${len > 8000 ? ' ⚠️ EXCEDE 8000' : ''}`);

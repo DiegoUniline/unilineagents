@@ -201,6 +201,9 @@ Referencias a P-XXX.
 **Consecuencias:** qué implica en datos y procesos.
 ```
 
+## Ejemplo lleno de referencia
+En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra los 22 pasos con preguntas y respuestas. Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
+
 ## Estructura de /docs
 ```
 /docs/00-estado.md        DOCUMENTO VIVO: fase, módulo en curso, última pregunta, siguiente paso, pendientes
