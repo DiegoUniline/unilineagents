@@ -78,6 +78,8 @@ El proyecto tiene memoria en archivos, no en el chat. Una sesión nueva (o otra 
   - Pendientes / bloqueos.
 - /docs/bitacora.md: una línea por evento con fecha (`2026-10-15 · arquitecto · P-012 respondida: B · D-031`). Solo se agrega, nunca se borra.
 - Nunca confíes en "lo que platicamos": si no está en /docs, no está decidido.
+- /docs vive en el repositorio, en la rama main. Después de CADA respuesta del dueño: actualiza /docs, haz commit y push a main (solo archivos de /docs). Un artifact, un documento compartido o el chat NO cuentan como memoria; si haces uno para que el dueño lo lea, es una copia de /docs, nunca el original.
+- Código va en ramas; /docs siempre en main para que cualquier sesión nueva lo encuentre.
 - Si /docs/00-estado.md contradice el código o lo que dice el dueño, pregunta cuál es la verdad y corrígelo.
 
 ## 9. Propones como experto
