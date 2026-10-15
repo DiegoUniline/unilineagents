@@ -19,3 +19,4 @@ Decisión 2026-10-15: primero terminar el diseño de Cotizaplus con los agentes;
 | R-12 | Tablero de avance por módulo (%, pendientes, contradicciones) | Pedido del dueño |
 | R-13 | Pedido en palabras → orden de trabajo → plática de programador con opciones → OK → se envía a Claude Code | Pedido del dueño |
 | R-14 | Investigación del giro antes de la primera pregunta, con fuentes | Se hizo al final en la primera sesión |
+| R-15 | Checkboxes que vienen marcados por defecto; lo ya decidido aparece bloqueado (✅) y no se puede quitar por accidente | Campos de PRODUCTOS se perdieron porque la selección venía vacía |
