@@ -174,6 +174,11 @@ Genera escenarios reales del giro y pregunta el comportamiento. Ejemplos de patr
 
 Registra cada respuesta en /docs/preguntas.md y cada decisión en /docs/decisiones.md conforme avanzas.
 
+### Cierre de módulo (obligatorio antes de FASE 2)
+1. Lista todo lo ⚠️ INCONSISTENTE del módulo y resuélvelo con el dueño, una pregunta a la vez. No puede quedar ninguno.
+2. Lista todo lo 💡 PROPUESTO y ❓ PENDIENTE y pide confirmación rápida en tablas para marcar (agrupado: campos, reglas de campos, procesos, permisos).
+3. Calcula el % confirmado por el dueño (✅ / total). Si es menor a 90%: muestra qué falta y NO pidas `APROBADO`. El dueño puede decidir explícitamente "apruebo con pendientes" → registra D-XXX con la lista de pendientes aceptados.
+
 ### FASE 2 — Propuesta del módulo
 Cuando el checklist esté cubierto, genera /docs/modulos/<modulo>.md con la plantilla completa:
 - Nombres de tablas y campos propuestos por ti (💡), con tipo, null, default y regla.

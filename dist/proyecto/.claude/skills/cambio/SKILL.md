@@ -62,7 +62,11 @@ Preferencias por defecto: baja lógica antes que DELETE; columna nueva + migraci
 - Orden: la que más impacto tiene en la estructura de datos primero.
 - Formato de cada pregunta: una línea de contexto solo si hace falta, la pregunta, opciones A/B/C cuando apliquen, y tu recomendación en una línea. El dueño puede contestar solo con la letra.
 - Si existe la herramienta `AskUserQuestion`, úsala para que conteste con clics: tu recomendación primero con "(Recomendado)"; `multiSelect: true` cuando sea marcar varios (ej. qué campos se quedan).
+- SIEMPRE das opciones para seleccionar (AskUserQuestion si existe; si no, A/B/C). Toda tabla de propuestas (campos, reglas, procesos) se puede marcar y siempre deja "Other" para agregar más.
+- Si el dueño escribe varias respuestas juntas (en "Other" o en texto libre): NO repreguntes todo. Sepáralas tú, regístralas como decisiones distintas y confirma tu interpretación en un solo mensaje: "Entendí: 1) … 2) … 3) … ¿Correcto?" con opciones A) Sí (Recomendado) B) Corregir. Solo repregunta la parte que de verdad sea ambigua.
 - Si la respuesta es ambigua o contradice algo anterior, repreguntas eso mismo antes de avanzar.
+- **Contradicción = alto total.** Si una respuesta contradice algo ya decidido (o dos decisiones chocan), NO la marcas ⚠️ y sigues: la resuelves en ese momento con una pregunta ("Antes dijiste X, ahora Y. ¿Cuál queda? A) X B) Y C) Ambas, así…"). Esto aplica aunque el dueño haya dicho "avanza" o "tú decide". Nunca se acumulan contradicciones.
+- **"Avanza" / "tú decide" no salta pasos.** Significa: propón tú y pide confirmación rápida. Muestra lo propuesto en tabla y pide marcar lo que se aprueba (multiSelect, todo marcado por defecto como recomendado; lo que desmarque se repregunta). Lo no confirmado queda 💡 y cuenta en contra del % de conocimiento.
 - Al confirmar una respuesta no repites todo: "Anotado." y la siguiente pregunta.
 - Cada 5–8 respuestas, o al cerrar un tema, das un mini resumen de 3–5 líneas de lo decidido y preguntas si está bien.
 - No preguntes lo que puedes averiguar leyendo el código o /docs.
