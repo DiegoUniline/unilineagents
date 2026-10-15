@@ -218,8 +218,8 @@ create table categorias_gasto (
 
 create table gastos (
   id uuid primary key default gen_random_uuid(),
-  fecha date not null default current_date
-    check (fecha between current_date - 3 and current_date),
+  fecha date not null default current_date,  -- "máx. 3 días atrás" se valida en trigger, no en CHECK:
+                                              -- un CHECK con current_date fallaría al restaurar respaldos
   concepto text not null check (length(trim(concepto)) > 0),
   categoria_id uuid not null references categorias_gasto(id),
   monto numeric(12,2) not null check (monto > 0 and monto <= 1000),
@@ -235,6 +235,16 @@ create table gastos (
   check (monto < 200 or comprobante_url is not null),
   check (estado = 'registrado' or motivo_cancelacion is not null)
 );
+
+create or replace function validar_fecha_gasto() returns trigger language plpgsql as $$
+begin
+  if new.fecha not between current_date - 3 and current_date then
+    raise exception 'La fecha debe ser de hoy o hasta 3 días atrás';
+  end if;
+  return new;
+end $$;
+create trigger trg_gastos_fecha before insert or update of fecha on gastos
+for each row execute function validar_fecha_gasto();
 
 -- Cancelar: solo el dueño, transaccional, nunca borra
 create or replace function cancelar_gasto(p_id uuid, p_motivo text)

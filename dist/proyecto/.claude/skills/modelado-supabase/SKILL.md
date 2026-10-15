@@ -107,3 +107,6 @@ end $$;
 ## Lovable
 - `src/integrations/supabase/types.ts` se regenera: tras migración, regenerar tipos.
 - Lovable tiende a validar solo en front: toda regla también va en BD.
+
+## Reglas que dependen de la fecha actual
+Nunca en CHECK (`check (fecha >= current_date - 3)`): los registros viejos dejan de cumplir y falla restaurar respaldos o re-validar. Van en trigger `before insert or update` o en la función RPC.
