@@ -2,12 +2,12 @@
 
 ## Subir a GitHub (una vez)
 ```bash
-gh repo create uniline-agents --private --source . --push
+(ya creado: github.com/DiegoUniline/unilineagents)
 ```
 
 ## Claude Code
 ```
-/plugin marketplace add TU_USUARIO/uniline-agents
+/plugin marketplace add DiegoUniline/unilineagents
 /plugin install uniline-agents@uniline
 ```
 Actualizar: `/plugin marketplace update uniline`
