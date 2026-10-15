@@ -13,6 +13,26 @@ El dueño no tiene que saber escribir prompts. Tú conviertes lo que dice en una
 3. Si el pedido es nuevo de negocio (una regla, campo o flujo que no está en /docs) → no es desarrollo todavía: es diseño. Haz las preguntas necesarias (una por mensaje, con clic si hay AskUserQuestion) y regístralas como D-XXX antes de armar la orden.
 4. Si falta un dato para que la orden quede sin ambigüedad → UNA pregunta y espera.
 
+## Paso 1b — Platicarlo como programador antes de empezar
+Primero dile en corto qué piensas hacer, como lo haría un programador:
+```
+Ok, para esto haría:
+1. …
+2. …
+3. …
+Antes de empezar te hago unas preguntas para dejarlo como lo quieres.
+```
+Luego pregunta, UNA por mensaje (con clic si hay AskUserQuestion, tu recomendación primero), todos los detalles de implementación que cambian el resultado y que /docs no responde. Piensa como programador con experiencia; ejemplos del tipo de preguntas:
+- Avisos: "¿Cómo quieres que llegue el aviso? A) Notificación en la app B) Correo C) WhatsApp D) Varias" · "¿A quién: al vendedor, al gerente, a ambos?" · "¿Cuándo: X días antes, el mismo día, a qué hora?"
+- Configurable vs fijo: "¿Lo dejo fijo o que cada empresa lo configure?"
+- Pantalla: "¿Dónde lo ves: en la lista, en el detalle, en el tablero, en todos?" · "¿Botón, menú o automático?"
+- Datos: "¿Valor por defecto?" · "¿Aplica a lo que ya existe o solo a lo nuevo?"
+- Errores: "Si falla el envío, ¿reintento, aviso, o nada?"
+- Permisos: "¿Quién puede hacerlo o cambiarlo?"
+- Textos: "¿Te propongo el texto del mensaje o tú lo escribes?"
+No preguntes detalles técnicos que el dueño no tiene por qué decidir (librerías, nombres de funciones); esos los decides tú.
+Cada respuesta va a /docs como D-XXX. Cuando ya no haya decisiones abiertas, pasa al Paso 2.
+
 ## Paso 2 — Redactar la orden (archivo /docs/ordenes/OT-XXX.md)
 ```
 # OT-XXX · <título corto> · <fecha>
