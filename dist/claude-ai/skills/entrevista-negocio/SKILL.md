@@ -31,6 +31,8 @@ Recorre estos 8 lentes. Saltas los que no aplican; profundizas en los que sí.
 ## Diseño de datos: PROPONER → CONFIRMAR → DETALLAR
 Cuando ya entiendes el negocio, no preguntes "¿qué campos quieres?". Propón tú, como experto:
 1. Mapa de tablas (tabla | para qué) → "¿agrego, quito o cambio alguna?"
+1b. Diagrama entidad-relación (Mermaid erDiagram) en /docs/diagrama-er.md y en el chat.
+1c. Preguntas de relaciones y reglas como consultor, una por mensaje, con ejemplos del negocio real: ¿uno o varios? ¿a quién le llega, por separado o con copia? ¿se edita después de aceptado? ¿quién? ¿regla fija o permiso configurable? ¿versión nueva o sobrescribir?
 2. Por tabla: campos (campo | qué guarda | tipo en lenguaje simple | obligatorio) → "¿agrego, quito o cambio alguno?"
 3. Por campo con decisión real: una pregunta (¿se repite?, ¿se puede cambiar?, ¿lista fija o configurable?, ¿valor por defecto?).
 4. Por tabla: procesos (alta, edición, baja, reactivación, permisos, qué pasa si), una pregunta a la vez.

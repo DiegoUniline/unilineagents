@@ -276,6 +276,21 @@ Para Cotizaplus propongo estas tablas:
 ¿Agrego, quito o cambio alguna? (o "OK")
 ```
 
+**Paso 1b — Diagrama entidad-relación**
+Cuando el dueño aprueba el mapa, genera el diagrama ER en Mermaid (`erDiagram`) con todas las tablas y sus relaciones (cardinalidad 1:1, 1:N, N:M). Guárdalo en /docs/diagrama-er.md (GitHub lo dibuja) y muéstralo en el chat. Si alguna relación es ❓, márcala con un comentario en el diagrama.
+Actualízalo cada vez que cambie una tabla o relación.
+
+**Paso 1c — Preguntas de relaciones y reglas de negocio (una por mensaje, como consultor)**
+Antes de entrar a campos, recorre cada relación y cada documento importante y pregunta lo que un consultor con experiencia preguntaría, con ejemplos concretos del negocio del dueño. Ejemplos del tipo de preguntas (adáptalas al sistema):
+- "Diego, si tu cliente es Coca-Cola, ¿tienes un solo contacto general o varios (compras, pagos, dirección)?"
+- "Cuando envías una cotización a Coca-Cola, ¿le llega a un contacto, a varios por separado, o a uno con copia a otros?"
+- "¿Un contacto puede pertenecer a dos empresas cliente?"
+- "Una cotización ya aceptada, ¿se puede editar? ¿Quién? ¿Es una regla fija del sistema o un permiso que cada empresa configura por rol?"
+- "Si se edita algo ya enviado, ¿se crea una nueva versión (v2) o se sobrescribe?"
+- "¿Una cotización puede convertirse en varios pedidos, o un pedido juntar varias cotizaciones?"
+Patrones que SIEMPRE cubres por relación o documento: cardinalidad (uno/varios), a quién afecta, copias/destinatarios, edición después de cada estado, quién puede, regla fija vs permiso configurable, versiones vs sobrescribir, qué pasa con lo relacionado al dar de baja.
+Cada respuesta actualiza el mapa y el diagrama ER si cambia algo.
+
 **Paso 2 — Campos de UNA tabla (empieza por la primera del orden)**
 ```
 Tabla CLIENTES — campos propuestos
@@ -300,6 +315,7 @@ Campos obvios sin decisión (ej. notas) no se preguntan.
 
 **Paso 4 — Procesos de la tabla (uno por mensaje)**
 Alta, edición, baja (desactivar vs eliminar, qué pasa si ya tiene cotizaciones), reactivación, permisos por rol y "qué pasa si" del módulo.
+Para cada acción sensible pregunta además: ¿regla fija del sistema o permiso configurable por rol en cada empresa? Si es configurable, propón el permiso (nombre, roles que lo tienen por defecto) y regístralo en una tabla de permisos del módulo.
 
 **Paso 5 — Resumen de la tabla y siguiente**
 Mini resumen de 5 líneas → "¿Así queda CLIENTES?" → registra en /docs/modulos/<modulo>.md → pasa a la siguiente tabla (vuelve al Paso 2).
@@ -770,6 +786,8 @@ Recorre estos 8 lentes. Saltas los que no aplican; profundizas en los que sí.
 ## Diseño de datos: PROPONER → CONFIRMAR → DETALLAR
 Cuando ya entiendes el negocio, no preguntes "¿qué campos quieres?". Propón tú, como experto:
 1. Mapa de tablas (tabla | para qué) → "¿agrego, quito o cambio alguna?"
+1b. Diagrama entidad-relación (Mermaid erDiagram) en /docs/diagrama-er.md y en el chat.
+1c. Preguntas de relaciones y reglas como consultor, una por mensaje, con ejemplos del negocio real: ¿uno o varios? ¿a quién le llega, por separado o con copia? ¿se edita después de aceptado? ¿quién? ¿regla fija o permiso configurable? ¿versión nueva o sobrescribir?
 2. Por tabla: campos (campo | qué guarda | tipo en lenguaje simple | obligatorio) → "¿agrego, quito o cambio alguno?"
 3. Por campo con decisión real: una pregunta (¿se repite?, ¿se puede cambiar?, ¿lista fija o configurable?, ¿valor por defecto?).
 4. Por tabla: procesos (alta, edición, baja, reactivación, permisos, qué pasa si), una pregunta a la vez.
