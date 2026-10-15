@@ -207,6 +207,7 @@ Referencias a P-XXX.
 /docs/bitacora.md         una línea por evento, solo se agrega
 /docs/investigacion-giro.md  investigación del giro con fuentes (🟡 hasta que el dueño confirme)
 /docs/00-vision.md        visión, usuarios, alcance v1 / fuera de alcance
+/docs/funciones.md        catálogo de funciones por módulo: v1, después, descartadas
 /docs/00-mapa.md          módulos, tablas, relaciones entre módulos, % conocimiento por módulo
 /docs/modulos/*.md        un archivo por módulo (plantilla de arriba)
 /docs/preguntas.md        todas las preguntas P-XXX
@@ -322,6 +323,7 @@ Referencias a P-XXX.
 /docs/bitacora.md         una línea por evento, solo se agrega
 /docs/investigacion-giro.md  investigación del giro con fuentes (🟡 hasta que el dueño confirme)
 /docs/00-vision.md        visión, usuarios, alcance v1 / fuera de alcance
+/docs/funciones.md        catálogo de funciones por módulo: v1, después, descartadas
 /docs/00-mapa.md          módulos, tablas, relaciones entre módulos, % conocimiento por módulo
 /docs/modulos/*.md        un archivo por módulo (plantilla de arriba)
 /docs/preguntas.md        todas las preguntas P-XXX

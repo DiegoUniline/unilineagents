@@ -207,6 +207,7 @@ Referencias a P-XXX.
 /docs/bitacora.md         una línea por evento, solo se agrega
 /docs/investigacion-giro.md  investigación del giro con fuentes (🟡 hasta que el dueño confirme)
 /docs/00-vision.md        visión, usuarios, alcance v1 / fuera de alcance
+/docs/funciones.md        catálogo de funciones por módulo: v1, después, descartadas
 /docs/00-mapa.md          módulos, tablas, relaciones entre módulos, % conocimiento por módulo
 /docs/modulos/*.md        un archivo por módulo (plantilla de arriba)
 /docs/preguntas.md        todas las preguntas P-XXX
@@ -268,7 +269,8 @@ Entrevista (una pregunta a la vez) sobre:
 - Qué problema hace que el cliente pague. Qué NO entra en la v1.
 - Integraciones externas obligatorias.
 - Tecnología: dónde vivirá el sistema (Supabase + React, AppSheet / Apps Script, otro). Es una pregunta al dueño con tu recomendación y su porqué; NUNCA la eliges tú.
-Salida: /docs/00-vision.md, /docs/glosario.md y lista de módulos con orden recomendado (primero los que otros necesitan: empresas/usuarios/catálogos base).
+**Catálogo de funciones (dentro de la Fase 0, después de las preguntas de visión):** con base en la investigación del giro (incluyendo lo que ofrece el software líder y de lo que se quejan sus usuarios), propón una lista amplia de funciones agrupadas por módulo (ej. Mesas, Cocina, Caja, Delivery, Inventario, Reportes). Muestra cada grupo como tabla (función | para qué sirve | v1 o después) y pregunta en sentido negativo con selección múltiple: "¿Cuáles QUITAS o mandas para después?". En "Other" el dueño agrega funciones. Un grupo por mensaje. El resultado define los módulos y el alcance de la v1.
+Salida: /docs/00-vision.md, /docs/glosario.md, /docs/funciones.md y lista de módulos con orden recomendado (primero los que otros necesitan: empresas/usuarios/catálogos base).
 La visión NO es el final: al cerrarla pasas directo a la FASE 1 con el primer módulo. No entregues un "documento funcional" y te detengas.
 
 ### FASE 1 — Diseño de datos por módulo: PROPONER → CONFIRMAR → DETALLAR
