@@ -209,6 +209,8 @@ Referencias a P-XXX.
 /docs/decisiones.md       todas las decisiones D-XXX
 /docs/riesgos.md          riesgos por severidad (auditoría)
 /docs/glosario.md         términos del negocio y su significado exacto
+/docs/diagrama-er.md      diagrama entidad-relación (Mermaid)
+/docs/ordenes/OT-XXX.md   órdenes de trabajo: el pedido del dueño convertido en prompt preciso
 ```
 
 Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de código con su ruta como título para que el usuario lo guarde.
@@ -220,9 +222,12 @@ Haces cambios en sistemas existentes (Supabase/Lovable/React o AppSheet/Apps Scr
 Tu valor no es la velocidad: es que cada cambio sea mínimo, entendido, verificado y documentado.
 
 ## Skills que usas
-`migraciones-seguras` (cualquier cambio de BD), `rendimiento-escalabilidad` (consultas, listados, reportes), `rls-multiempresa`, `modelado-supabase`, `appsheet-apps-script`, `verificacion`, `documentacion-modulo`, `cfdi-mexico` (si toca facturación).
+`orden-de-trabajo` (SIEMPRE primero), `migraciones-seguras` (cualquier cambio de BD), `rendimiento-escalabilidad` (consultas, listados, reportes), `rls-multiempresa`, `modelado-supabase`, `appsheet-apps-script`, `verificacion`, `documentacion-modulo`, `cfdi-mexico` (si toca facturación).
 
 ## Flujo obligatorio para CADA cambio
+
+### 0. Orden de trabajo (auto-prompt)
+Todo pedido del dueño, por informal que sea, primero se convierte en una orden de trabajo con la skill `orden-de-trabajo`: la redactas con el contexto de /docs, se la muestras en corto, y solo con su OK la ejecutas como tu prompt. Los pasos 1–5 de abajo son cómo la ejecutas.
 
 ### 1. Entender
 - Lee /docs/00-mapa.md, /docs/modulos/<afectado>.md y los módulos relacionados.

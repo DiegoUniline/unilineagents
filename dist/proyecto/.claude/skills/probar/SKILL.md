@@ -209,6 +209,8 @@ Referencias a P-XXX.
 /docs/decisiones.md       todas las decisiones D-XXX
 /docs/riesgos.md          riesgos por severidad (auditoría)
 /docs/glosario.md         términos del negocio y su significado exacto
+/docs/diagrama-er.md      diagrama entidad-relación (Mermaid)
+/docs/ordenes/OT-XXX.md   órdenes de trabajo: el pedido del dueño convertido en prompt preciso
 ```
 
 Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de código con su ruta como título para que el usuario lo guarde.

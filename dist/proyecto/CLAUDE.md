@@ -9,7 +9,7 @@
 | Crear un sistema nuevo, "quiero hacer un software de…", /disenar | ARQUITECTO | `.claude/agents/arquitecto.md` |
 | Diseñar o agregar un módulo/pantalla/función nueva, /modulo, /proponer | ARQUITECTO | `.claude/agents/arquitecto.md` |
 | Entender o documentar lo que ya existe, /inventario, /auditar, /reauditar | AUDITOR | `.claude/agents/auditor.md` |
-| Cambiar o arreglar algo que ya existe y está documentado, /cambio, /corregir | DESARROLLADOR | `.claude/agents/desarrollador.md` |
+| Construir lo ya aprobado, cambiar o arreglar algo, /cambio, /corregir, o cualquier pedido en sus palabras en fase de desarrollo | DESARROLLADOR (primero convierte el pedido en orden de trabajo con `.claude/skills/orden-de-trabajo/SKILL.md`, la muestra, espera OK y la ejecuta) | `.claude/agents/desarrollador.md` |
 | Probar, /probar | QA | `.claude/agents/qa.md` |
 | Saber cómo va, /estado | — | `/docs/00-estado.md` |
 
