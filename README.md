@@ -5,6 +5,9 @@
 (ya creado: github.com/DiegoUniline/unilineagents)
 ```
 
+## Claude Code web / app (sin plugins)
+Copiar `dist/proyecto/.claude/` y `dist/proyecto/AGENTS.md` a la raíz del repo del proyecto. Claude Code los carga solo al abrirlo.
+
 ## Claude Code
 ```
 /plugin marketplace add DiegoUniline/unilineagents

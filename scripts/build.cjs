@@ -107,5 +107,21 @@ wr('dist/lovable/knowledge.md', rd('src/instrucciones-cortas.md').replace(
 // ---------- AGENTS.md (Codex, Cursor, Gemini CLI, Windsurf, Lovable vía repo) ----------
 wr('dist/AGENTS.md', `# AGENTS.md — Reglas Uniline\n\n${conocimiento.replace(/^# CONOCIMIENTO UNILINE — referencia completa\n*/, '')}`);
 
+// ---------- Versión por proyecto (.claude/ dentro del repo; sirve en Claude Code web, app y terminal sin plugins) ----------
+const P = 'dist/proyecto/.claude';
+for (const n of ROLES) wr(`${P}/agents/${n}.md`, rd(`agents/${n}.md`));
+for (const f of fs.readdirSync(path.join(R, 'commands'))) wr(`${P}/commands/${f}`, rd(`commands/${f}`));
+for (const s of SKILLS) wr(`${P}/skills/${s}/SKILL.md`, rd(`skills/${s}/SKILL.md`));
+wr(`${P}/hooks/guardian.cjs`, rd('hooks/guardian.cjs'));
+wr(`${P}/hooks/sesion.cjs`, rd('hooks/sesion.cjs'));
+wr(`${P}/core/principios.md`, PRINCIPIOS);
+wr(`${P}/settings.json`, JSON.stringify({
+  hooks: {
+    SessionStart: [{ hooks: [{ type: 'command', command: 'node "$CLAUDE_PROJECT_DIR/.claude/hooks/sesion.cjs"' }] }],
+    PreToolUse: [{ matcher: 'Bash|Write|Edit|MultiEdit|mcp__.*', hooks: [{ type: 'command', command: 'node "$CLAUDE_PROJECT_DIR/.claude/hooks/guardian.cjs"', timeout: 10 }] }],
+  },
+}, null, 2));
+wr('dist/proyecto/AGENTS.md', rd('dist/AGENTS.md'));
+
 const len = rd('dist/chatgpt/instrucciones.md').length;
 console.log(`agents: ${ROLES.length} · comandos: ${fs.readdirSync(path.join(R, 'commands')).length} · skills: ${SKILLS.length} · instrucciones ChatGPT: ${len} caracteres${len > 8000 ? ' ⚠️ EXCEDE 8000' : ''}`);
