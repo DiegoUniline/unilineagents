@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/sesion.cjs\"" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Write|Edit|MultiEdit|mcp__.*",
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/guardian.cjs\"", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}

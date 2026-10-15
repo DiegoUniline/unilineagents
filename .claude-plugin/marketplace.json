@@ -1,0 +1,18 @@
+{
+  "name": "uniline",
+  "owner": {
+    "name": "Diego León",
+    "email": "diego.leon@uniline.mx"
+  },
+  "plugins": [
+    {
+      "name": "uniline-agents",
+      "source": "./",
+      "description": "Agentes Uniline para desarrollo de software con IA"
+    }
+  ],
+  "metadata": {
+    "description": "Agentes privados de Uniline para desarrollo de software con IA",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "uniline-agents",
+  "version": "1.0.0",
+  "description": "Agentes Uniline: arquitecto, auditor, desarrollador y QA para desarrollo de software con IA sin suponer y sin romper nada.",
+  "author": { "name": "Diego León", "email": "diego.leon@uniline.mx", "url": "https://uniline.mx" },
+  "license": "UNLICENSED",
+  "keywords": ["supabase", "appsheet", "apps-script", "arquitectura", "auditoria", "multiempresa"]
+}
