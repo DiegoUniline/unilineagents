@@ -37,5 +37,8 @@ Project settings → Knowledge: `dist/lovable/knowledge.md`. Copiar `dist/AGENTS
 ## Codex · Cursor · Gemini CLI · Windsurf
 Copiar `dist/AGENTS.md` a la raíz del proyecto.
 
+## Método completo
+Ver `docs/metodo-uniline.md` (22 pasos: qué hace el agente, qué te pide y qué obtienes).
+
 ## Editar los agentes
 Editar `core/`, `skills/`, `src/` → `node scripts/build.cjs` → `node scripts/test-guardian.cjs` → commit + push.
