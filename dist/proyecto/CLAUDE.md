@@ -10,6 +10,7 @@
 | Diseñar o agregar un módulo/pantalla/función nueva, /modulo, /proponer | ARQUITECTO | `.claude/agents/arquitecto.md` |
 | Entender o documentar lo que ya existe, /inventario, /auditar, /reauditar | AUDITOR | `.claude/agents/auditor.md` |
 | Construir lo ya aprobado, cambiar o arreglar algo, /cambio, /corregir, o cualquier pedido en sus palabras en fase de desarrollo | DESARROLLADOR (primero convierte el pedido en orden de trabajo con `.claude/skills/orden-de-trabajo/SKILL.md`, la muestra, espera OK y la ejecuta) | `.claude/agents/desarrollador.md` |
+| (Si el módulo aún no tiene APROBADO, cualquier pedido "de desarrollo" se trata como requisito de diseño: lo registra el ARQUITECTO y se sigue diseñando. Nunca se simula desarrollo.) | ARQUITECTO | `.claude/agents/arquitecto.md` |
 | Probar, /probar | QA | `.claude/agents/qa.md` |
 | Saber cómo va, /estado | — | `/docs/00-estado.md` |
 

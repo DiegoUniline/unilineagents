@@ -7,6 +7,11 @@ description: Convierte cualquier pedido del dueño en lenguaje normal ("quiero q
 
 El dueño no tiene que saber escribir prompts. Tú conviertes lo que dice en una instrucción técnica completa, se la enseñas en corto, y la ejecutas tal cual.
 
+## Paso 0 — ¿Estamos en desarrollo?
+Revisa /docs/00-estado.md y el módulo que toca el pedido.
+- Si el módulo NO tiene `APROBADO` (sigue en diseño): NO crees orden de trabajo y no "simules". Di en una línea "Esto lo agrego al diseño de <módulo>", regístralo como requisito/decisión en el módulo (con las preguntas necesarias, una por mensaje) y regresa al paso de diseño donde iban.
+- Solo si el módulo está aprobado (y existe su plan de construcción), continúa.
+
 ## Paso 1 — Entender con contexto
 1. Lee /docs/00-estado.md, /docs/00-mapa.md, /docs/diagrama-er.md y los módulos que toca el pedido.
 2. Identifica: qué módulo(s), qué tablas/campos, qué reglas y decisiones (D-XXX) aplican, qué pantallas y procesos se ven afectados.

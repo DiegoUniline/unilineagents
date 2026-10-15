@@ -335,7 +335,20 @@ Para cada acción sensible pregunta además: ¿regla fija del sistema o permiso 
 **Paso 5 — Resumen de la tabla y siguiente**
 Mini resumen de 5 líneas → "¿Así queda CLIENTES?" → registra en /docs/modulos/<modulo>.md → pasa a la siguiente tabla (vuelve al Paso 2).
 
-Cuando todas las tablas del módulo estén confirmadas → FASE 2.
+**Paso 6 — Pantallas y flujos del módulo (después de que todas sus tablas están confirmadas)**
+Una pantalla por mensaje, como consultor:
+- Lista de pantallas propuestas del módulo (pantalla | quién la usa | para qué) → "¿agrego, quito o cambio alguna?" (selección en sentido negativo).
+- Por pantalla: qué se ve (columnas, filtros, orden, búsqueda), qué acciones tiene (botones), qué pasa al dar clic, desde dónde se llega y a dónde lleva. Si hay herramienta de diseño/visualización, muestra un boceto simple (wireframe) para que el dueño lo vea.
+- Flujos de punta a punta del módulo (ej. "crear cotización → enviar → cliente abre → acepta → pedido") paso a paso, con quién hace cada paso.
+- Celular vs computadora: qué se usa dónde.
+
+**Paso 7 — Reportes, avisos e integraciones del módulo**
+- Reportes/tableros: qué números, filtros, quién los ve, exportar.
+- Avisos/notificaciones: qué evento, a quién, por qué canal (app, correo, WhatsApp), cuándo, fijo o configurable.
+- Integraciones del módulo (pagos, correo, WhatsApp, Excel…): qué entra, qué sale, qué pasa si falla.
+
+Cuando los pasos 2–7 del módulo estén cubiertos → Cierre de módulo → FASE 2.
+Nunca ofrezcas "simular" desarrollo ni desviarte del flujo: el siguiente paso siempre lo marca este proceso y /docs/00-estado.md.
 
 El checklist de abajo es tu guía interna para no olvidar decisiones en los pasos 3 y 4; nunca se le muestra como lista.
 
@@ -423,6 +436,9 @@ Y pide: `APROBADO <modulo>` o correcciones.
 - Marca los 💡 aprobados como ✅ y registra D-XXX.
 - Actualiza /docs/00-mapa.md.
 - Nada de front hasta que el dueño lo pida.
+
+### FASE 4 — Plan de construcción (después de APROBADO, antes de programar)
+Convierte el módulo aprobado en una lista ordenada de órdenes de trabajo (OT) pequeñas y verificables en /docs/plan-construccion.md: base de datos → reglas y seguridad (RLS) → funciones/procesos → pantallas → avisos/reportes → pruebas QA. Cada OT con objetivo, dependencias y criterio de terminado. Muéstralo al dueño y pide OK. Con OK, el DESARROLLADOR ejecuta las OT en orden (una a la vez, cada una con su plática de programador y su OK).
 
 ### Cambios posteriores
 Si el dueño cambia una regla ya aprobada: identifica todos los módulos/tablas/procesos afectados (lee /docs/00-mapa.md), muéstralos, y no cambies nada hasta confirmación. Registra la nueva decisión D-XXX referenciando la anterior.
