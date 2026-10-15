@@ -91,8 +91,13 @@ Tabla CLIENTES — campos propuestos
 | …
 ¿Agrego, quito o cambio alguno? (o "OK")
 ```
-**Para que el dueño marque en lugar de escribir:** si tienes la herramienta `AskUserQuestion`, después de mostrar la tabla de campos úsala con `multiSelect: true` para que marque cuáles se quedan (máx. 4 campos por pregunta y 4 preguntas por llamada; agrupa por tema: "Identidad", "Marca", "Contacto", "Configuración"; todos vienen recomendados). Lo que no marque se quita; en "Other" escribe campos nuevos. Si la herramienta no existe, numera los campos y pide: "responde con los números que quitas y lo que agregas".
-Lo mismo para cualquier pregunta con opciones A/B/C: usa `AskUserQuestion` (con tu recomendación como primera opción y "(Recomendado)") para que conteste con un clic.
+**Para que el dueño marque en lugar de escribir:**
+- Los campos que ya salen de decisiones anteriores (D-XXX) se muestran como ✅ "ya definido (D-XXX)" y NO se ofrecen para quitar. Antes de proponer, cruza siempre con /docs/decisiones.md y el mapa para no perder nada decidido.
+- La herramienta de clic NO permite opciones pre-marcadas, así que pregunta en sentido negativo: "¿Cuáles QUITAS? (si no marcas nada, se quedan todos)". Usa `AskUserQuestion` con `multiSelect: true` solo con los campos 💡 propuestos por ti (máx. 4 por pregunta, 4 preguntas por llamada, agrupados por tema). En "Other" el dueño escribe campos nuevos o cambios.
+- Nunca interpretes "no marcado" como "quitar" en una pregunta de "cuáles se quedan".
+- Si una selección deja fuera algo ya decidido → es contradicción: alto total y pregunta.
+- Si la herramienta no existe: numera los campos y pide "responde con los números que quitas y lo que agregas; si todo está bien, OK".
+Para preguntas A/B/C usa `AskUserQuestion` con tu recomendación primero y "(Recomendado)".
 
 Tipos en lenguaje del dueño: texto, número, dinero, fecha, fecha y hora, sí/no, lista fija, lista que el cliente configura, relación con otra tabla, archivo/foto. El tipo técnico (numeric, uuid…) lo pones tú en /docs.
 No incluyas en la tabla que le muestras los campos técnicos (id, empresa_id, created_at…); van en /docs automáticamente.

@@ -61,12 +61,12 @@ Preferencias por defecto: baja lógica antes que DELETE; columna nueva + migraci
 - Esperas la respuesta, la registras, y con base en ella decides cuál es la siguiente pregunta (la respuesta puede volver innecesarias otras o abrir nuevas).
 - Orden: la que más impacto tiene en la estructura de datos primero.
 - Formato de cada pregunta: una línea de contexto solo si hace falta, la pregunta, opciones A/B/C cuando apliquen, y tu recomendación en una línea. El dueño puede contestar solo con la letra.
-- Si existe la herramienta `AskUserQuestion`, úsala para que conteste con clics: tu recomendación primero con "(Recomendado)"; `multiSelect: true` cuando sea marcar varios (ej. qué campos se quedan).
+- Si existe la herramienta `AskUserQuestion`, úsala para que conteste con clics: tu recomendación primero con "(Recomendado)"; `multiSelect: true` cuando sea marcar varios, SIEMPRE en sentido negativo ("¿cuáles quitas/cambias?", sin marcar = se quedan todos), porque las opciones no vienen pre-marcadas. Lo ya decidido en D-XXX no se ofrece para quitar.
 - SIEMPRE das opciones para seleccionar (AskUserQuestion si existe; si no, A/B/C). Toda tabla de propuestas (campos, reglas, procesos) se puede marcar y siempre deja "Other" para agregar más.
 - Si el dueño escribe varias respuestas juntas (en "Other" o en texto libre): NO repreguntes todo. Sepáralas tú, regístralas como decisiones distintas y confirma tu interpretación en un solo mensaje: "Entendí: 1) … 2) … 3) … ¿Correcto?" con opciones A) Sí (Recomendado) B) Corregir. Solo repregunta la parte que de verdad sea ambigua.
 - Si la respuesta es ambigua o contradice algo anterior, repreguntas eso mismo antes de avanzar.
 - **Contradicción = alto total.** Si una respuesta contradice algo ya decidido (o dos decisiones chocan), NO la marcas ⚠️ y sigues: la resuelves en ese momento con una pregunta ("Antes dijiste X, ahora Y. ¿Cuál queda? A) X B) Y C) Ambas, así…"). Esto aplica aunque el dueño haya dicho "avanza" o "tú decide". Nunca se acumulan contradicciones.
-- **"Avanza" / "tú decide" no salta pasos.** Significa: propón tú y pide confirmación rápida. Muestra lo propuesto en tabla y pide marcar lo que se aprueba (multiSelect, todo marcado por defecto como recomendado; lo que desmarque se repregunta). Lo no confirmado queda 💡 y cuenta en contra del % de conocimiento.
+- **"Avanza" / "tú decide" no salta pasos.** Significa: propón tú y pide confirmación rápida. Muestra lo propuesto en tabla y pregunta qué NO aprueba (multiSelect en sentido negativo: "¿cuáles cambias o quitas? si no marcas nada, se aprueban todas"), porque las opciones no pueden venir pre-marcadas; lo que marque se repregunta. Lo no confirmado queda 💡 y cuenta en contra del % de conocimiento.
 - Al confirmar una respuesta no repites todo: "Anotado." y la siguiente pregunta.
 - Cada 5–8 respuestas, o al cerrar un tema, das un mini resumen de 3–5 líneas de lo decidido y preguntas si está bien.
 - No preguntes lo que puedes averiguar leyendo el código o /docs.
@@ -309,8 +309,13 @@ Tabla CLIENTES — campos propuestos
 | …
 ¿Agrego, quito o cambio alguno? (o "OK")
 ```
-**Para que el dueño marque en lugar de escribir:** si tienes la herramienta `AskUserQuestion`, después de mostrar la tabla de campos úsala con `multiSelect: true` para que marque cuáles se quedan (máx. 4 campos por pregunta y 4 preguntas por llamada; agrupa por tema: "Identidad", "Marca", "Contacto", "Configuración"; todos vienen recomendados). Lo que no marque se quita; en "Other" escribe campos nuevos. Si la herramienta no existe, numera los campos y pide: "responde con los números que quitas y lo que agregas".
-Lo mismo para cualquier pregunta con opciones A/B/C: usa `AskUserQuestion` (con tu recomendación como primera opción y "(Recomendado)") para que conteste con un clic.
+**Para que el dueño marque en lugar de escribir:**
+- Los campos que ya salen de decisiones anteriores (D-XXX) se muestran como ✅ "ya definido (D-XXX)" y NO se ofrecen para quitar. Antes de proponer, cruza siempre con /docs/decisiones.md y el mapa para no perder nada decidido.
+- La herramienta de clic NO permite opciones pre-marcadas, así que pregunta en sentido negativo: "¿Cuáles QUITAS? (si no marcas nada, se quedan todos)". Usa `AskUserQuestion` con `multiSelect: true` solo con los campos 💡 propuestos por ti (máx. 4 por pregunta, 4 preguntas por llamada, agrupados por tema). En "Other" el dueño escribe campos nuevos o cambios.
+- Nunca interpretes "no marcado" como "quitar" en una pregunta de "cuáles se quedan".
+- Si una selección deja fuera algo ya decidido → es contradicción: alto total y pregunta.
+- Si la herramienta no existe: numera los campos y pide "responde con los números que quitas y lo que agregas; si todo está bien, OK".
+Para preguntas A/B/C usa `AskUserQuestion` con tu recomendación primero y "(Recomendado)".
 
 Tipos en lenguaje del dueño: texto, número, dinero, fecha, fecha y hora, sí/no, lista fija, lista que el cliente configura, relación con otra tabla, archivo/foto. El tipo técnico (numeric, uuid…) lo pones tú en /docs.
 No incluyas en la tabla que le muestras los campos técnicos (id, empresa_id, created_at…); van en /docs automáticamente.
