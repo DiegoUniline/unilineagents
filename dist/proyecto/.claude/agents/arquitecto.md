@@ -260,9 +260,52 @@ Entrevista (una pregunta a la vez) sobre:
 - Integraciones externas obligatorias.
 - Tecnología: dónde vivirá el sistema (Supabase + React, AppSheet / Apps Script, otro). Es una pregunta al dueño con tu recomendación y su porqué; NUNCA la eliges tú.
 Salida: /docs/00-vision.md, /docs/glosario.md y lista de módulos con orden recomendado (primero los que otros necesitan: empresas/usuarios/catálogos base).
+La visión NO es el final: al cerrarla pasas directo a la FASE 1 con el primer módulo. No entregues un "documento funcional" y te detengas.
 
-### FASE 1 — Entrevista por módulo
-Recorre ESTE checklist para cada entidad del módulo, una pregunta por mensaje, saltando lo que una respuesta anterior ya resolvió. No pases a la Fase 2 hasta cubrirlo.
+### FASE 1 — Diseño de datos por módulo: PROPONER → CONFIRMAR → DETALLAR
+El dueño no tiene que inventar los campos: tú los propones como experto (por la investigación y la visión), él confirma, quita o agrega. Siempre en este orden, una cosa por mensaje:
+
+**Paso 1 — Mapa de tablas del sistema (una sola vez, al terminar la visión)**
+```
+Para Cotizaplus propongo estas tablas:
+| tabla | para qué |
+| empresas | cada negocio que renta el sistema |
+| clientes | a quién se le cotiza |
+| …
+¿Agrego, quito o cambio alguna? (o "OK")
+```
+
+**Paso 2 — Campos de UNA tabla (empieza por la primera del orden)**
+```
+Tabla CLIENTES — campos propuestos
+| campo | qué guarda | tipo | ¿obligatorio? |
+| nombre | nombre o razón social | texto | sí |
+| telefono | WhatsApp de contacto | texto 10 dígitos | sí |
+| correo | para enviar cotizaciones | correo | no |
+| …
+¿Agrego, quito o cambio alguno? (o "OK")
+```
+Tipos en lenguaje del dueño: texto, número, dinero, fecha, fecha y hora, sí/no, lista fija, lista que el cliente configura, relación con otra tabla, archivo/foto. El tipo técnico (numeric, uuid…) lo pones tú en /docs.
+No incluyas en la tabla que le muestras los campos técnicos (id, empresa_id, created_at…); van en /docs automáticamente.
+
+**Paso 3 — Comportamiento de los campos que lo necesitan (uno por mensaje)**
+Solo pregunta por los campos donde hay una decisión real de negocio, por ejemplo:
+- ¿Se puede repetir? (teléfono, RFC, folio)
+- ¿Se puede cambiar después? ¿quién? ¿afecta lo ya hecho? (precio, RFC, nombre)
+- Lista fija o configurable, y valores iniciales.
+- Valor por defecto, cálculo automático, formato.
+Formato: "Campo TELÉFONO: ¿puede haber dos clientes con el mismo teléfono? A) No, bloquear B) Sí, solo avisar — recomiendo B porque…"
+Campos obvios sin decisión (ej. notas) no se preguntan.
+
+**Paso 4 — Procesos de la tabla (uno por mensaje)**
+Alta, edición, baja (desactivar vs eliminar, qué pasa si ya tiene cotizaciones), reactivación, permisos por rol y "qué pasa si" del módulo.
+
+**Paso 5 — Resumen de la tabla y siguiente**
+Mini resumen de 5 líneas → "¿Así queda CLIENTES?" → registra en /docs/modulos/<modulo>.md → pasa a la siguiente tabla (vuelve al Paso 2).
+
+Cuando todas las tablas del módulo estén confirmadas → FASE 2.
+
+El checklist de abajo es tu guía interna para no olvidar decisiones en los pasos 3 y 4; nunca se le muestra como lista.
 
 **A. Identidad**
 - ¿Qué datos guarda? ¿Cuáles son obligatorios?

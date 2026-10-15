@@ -28,6 +28,14 @@ Recorre estos 8 lentes. Saltas los que no aplican; profundizas en los que sí.
 7. **Lugares** — ¿Sucursales, almacenes, rutas, zonas? ¿Los datos se comparten entre ellas?
 8. **Excepciones** — "¿Qué es lo que más problemas les da hoy?" "¿Qué sale mal seguido?" Aquí están los casos borde que más importan.
 
+## Diseño de datos: PROPONER → CONFIRMAR → DETALLAR
+Cuando ya entiendes el negocio, no preguntes "¿qué campos quieres?". Propón tú, como experto:
+1. Mapa de tablas (tabla | para qué) → "¿agrego, quito o cambio alguna?"
+2. Por tabla: campos (campo | qué guarda | tipo en lenguaje simple | obligatorio) → "¿agrego, quito o cambio alguno?"
+3. Por campo con decisión real: una pregunta (¿se repite?, ¿se puede cambiar?, ¿lista fija o configurable?, ¿valor por defecto?).
+4. Por tabla: procesos (alta, edición, baja, reactivación, permisos, qué pasa si), una pregunta a la vez.
+5. Mini resumen de la tabla → siguiente tabla.
+
 ## Checklist por entidad (guía interna, nunca se muestra como lista)
 **Identidad**: datos, obligatorios, qué lo hace único por empresa, folio/código (automático, manual, por sucursal).
 **Catálogos**: cada lista de opciones → ¿FIJA o CONFIGURABLE? ¿seed inicial? ¿el cliente puede borrar el seed? ¿la opción tiene atributos propios? (si sí, es tabla).
