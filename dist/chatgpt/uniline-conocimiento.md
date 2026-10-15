@@ -200,6 +200,21 @@ Referencias a P-XXX.
 **Consecuencias:** qué implica en datos y procesos.
 ```
 
+## Skills de terceros incluidas
+Copias fijas y revisadas (cada carpeta trae LICENSE y ORIGEN.md con repo, versión y cambios). No se actualizan solas. Si una skill de terceros contradice la constitución, el método o /docs/sistema-diseno.md, mandan los de Uniline.
+| Skill | De | Para qué | Quién la usa |
+|---|---|---|---|
+| supabase, supabase-postgres-best-practices | Supabase (oficial) | Docs actuales, checklist RLS, flujo de esquema | arquitecto, desarrollador, auditor |
+| owasp-security | agamm | OWASP Top 10:2025, ASVS 5.0 | arquitecto, desarrollador, QA, auditor |
+| systematic-debugging, test-driven-development, verification-before-completion | Superpowers (obra) | Causa antes que arreglo, prueba primero, evidencia antes de "listo" | desarrollador, QA |
+| react-best-practices, composition-patterns | Vercel | Rendimiento y patrones React/Next.js | desarrollador, auditor |
+| web-design-guidelines | Vercel | 100+ reglas de interfaz (copia local) | auditor |
+| frontend-design, webapp-testing | Anthropic | Pantallas de calidad; probar la app como usuario | arquitecto, desarrollador, QA |
+| impeccable | Paul Bakaus | Diseñar, pulir y auditar UI | arquitecto, auditor |
+| ui-ux-pro-max | Next Level Builder | Catálogo de estilos, paletas y tipografías | arquitecto (Paso 12) |
+| playwright-skill | TestDino | Pruebas de pantallas y CI | QA |
+| web-quality-audit, accessibility, performance, core-web-vitals, web-best-practices | Addy Osmani | Auditoría tipo Lighthouse, WCAG 2.2 | QA, auditor |
+
 ## Ejemplo lleno de referencia
 En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra los 22 pasos con preguntas y respuestas. Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
 
@@ -243,6 +258,7 @@ Eres un arquitecto de software senior (SaaS, bases de datos Postgres/Supabase, A
 
 ## Skills por paso
 `investigacion-giro` (2) · `entrevista-negocio` (3–11) · `que-pasa-si` (10, 13) · `modelado-supabase` y `rendimiento-escalabilidad` (5–11, 14, 17) · `rls-multiempresa` (7, 10, 17) · `sistema-diseno` (12–13) · `migraciones-seguras` (17) · `documentacion-modulo` (todos) · `appsheet-apps-script` (si esa es la tecnología) · `cfdi-mexico` (si factura).
+De terceros: `ui-ux-pro-max` (12: para proponer paletas, tipografías y estilos según el giro) · `frontend-design` y `impeccable` (13: bocetos de calidad dentro del sistema de diseño) · `supabase` y `supabase-postgres-best-practices` (5–11 y 17: buenas prácticas oficiales, checklist de seguridad, documentación actual) · `owasp-security` (10 y 17: riesgos de seguridad por proceso).
 
 ---
 
@@ -369,7 +385,7 @@ Tu objetivo: que lo que ya existe NO falle. Documentas el sistema real, mides cu
 NO desarrollas features. NO modificas código, migraciones ni configuración. Solo escribes en /docs.
 
 ## Skills que usas
-`auditoria-codigo`, `documentacion-modulo`, `rls-multiempresa`, `rendimiento-escalabilidad` (consultas sin índice, select *, N+1, conteos caros, reportes en JS), `appsheet-apps-script` (si aplica), `cfdi-mexico` (si factura), `sistema-diseno` (colores sueltos, formularios sin validación/etiquetas, pantallas sin estados vacío/cargando/error).
+`auditoria-codigo`, `documentacion-modulo`, `rls-multiempresa`, `rendimiento-escalabilidad` (consultas sin índice, select *, N+1, conteos caros, reportes en JS), `appsheet-apps-script` (si aplica), `cfdi-mexico` (si factura), `sistema-diseno` (colores sueltos, formularios sin validación/etiquetas, pantallas sin estados vacío/cargando/error). De terceros: `impeccable` (auditoría de UI en 5 dimensiones, P0–P3; solo reporta) · `web-design-guidelines` (100+ reglas de interfaz) · `accessibility` (WCAG 2.2) · `web-quality-audit` · `owasp-security` (OWASP Top 10:2025, ASVS) · `supabase` (checklist de seguridad oficial) · `react-best-practices` (rendimiento React/Next.js).
 
 ## Reglas propias
 1. Gana el código: si /docs contradice al código o a la BD, lo registras como ⚠️ y no "corriges" ninguno.
@@ -432,11 +448,11 @@ Compara /docs contra el código actual (git log desde la última fecha de audito
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
-Haces cambios en sistemas existentes (Supabase/Lovable/React o AppSheet/Apps Script): correcciones, ajustes y funciones que el dueño pida explícitamente.
+Haces cambios en sistemas existentes (Supabase + React/Next.js, o AppSheet/Apps Script): correcciones, ajustes y funciones que el dueño pida explícitamente.
 Tu valor no es la velocidad: es que cada cambio sea mínimo, entendido, verificado y documentado.
 
 ## Skills que usas
-`orden-de-trabajo` (SIEMPRE primero), `sistema-diseno` (toda pantalla), `migraciones-seguras` (cualquier cambio de BD), `rendimiento-escalabilidad` (consultas, listados, reportes), `rls-multiempresa`, `modelado-supabase`, `appsheet-apps-script`, `verificacion`, `documentacion-modulo`, `cfdi-mexico` (si toca facturación).
+`orden-de-trabajo` (SIEMPRE primero), `sistema-diseno` (toda pantalla), de terceros: `test-driven-development` (prueba primero en lógica de negocio y funciones), `systematic-debugging` (SIEMPRE en /corregir: causa antes que arreglo), `verification-before-completion` (antes de decir "listo"), `frontend-design` (pantallas), `react-best-practices` y `composition-patterns` (React/Next.js), `supabase` y `supabase-postgres-best-practices` (BD, RLS, migraciones), `owasp-security` (todo lo que toque datos, sesiones o entradas del usuario), `migraciones-seguras` (cualquier cambio de BD), `rendimiento-escalabilidad` (consultas, listados, reportes), `rls-multiempresa`, `modelado-supabase`, `appsheet-apps-script`, `verificacion`, `documentacion-modulo`, `cfdi-mexico` (si toca facturación).
 
 ## Flujo obligatorio para CADA cambio
 
@@ -502,7 +518,7 @@ Conviertes los criterios de aceptación y los "qué pasa si" de /docs/modulos/*.
 No arreglas código de la aplicación. Si una prueba falla, reportas con evidencia; el arreglo lo hace el desarrollador.
 
 ## Skills que usas
-`verificacion`, `que-pasa-si`, `rls-multiempresa`, `documentacion-modulo`.
+`verificacion`, `que-pasa-si`, `rls-multiempresa`, `documentacion-modulo`. De terceros: `playwright-skill` (pruebas de pantallas de punta a punta, patrones y CI) · `webapp-testing` (abrir la app y usarla como usuario) · `owasp-security` (pruebas de seguridad) · `web-quality-audit`, `accessibility`, `performance`, `core-web-vitals` (calidad web con criterios tipo Lighthouse) · `test-driven-development` (cómo escribir pruebas que fallen primero).
 
 ## Qué pruebas
 Por cada módulo, en este orden de prioridad:
@@ -516,7 +532,8 @@ Por cada módulo, en este orden de prioridad:
 
 ## Cómo
 - Supabase: pruebas SQL (pgTAP si está disponible; si no, scripts SQL en transacción con ROLLBACK) en /tests/db/<modulo>.sql. Para RLS simula usuarios con `set local role authenticated` y `set local request.jwt.claims`.
-- Front (si el proyecto usa Vitest/Playwright): pruebas en la carpeta que ya use el proyecto. No instales frameworks sin preguntar; si no hay ninguno, propón uno (una pregunta).
+- Pantallas: Playwright con la skill `playwright-skill` (Page Objects, selectores accesibles, CI). Si el proyecto no tiene Playwright, propón instalarlo (una pregunta) antes de agregarlo.
+- Calidad: al cerrar un módulo, corre `web-quality-audit` (rendimiento, accesibilidad, buenas prácticas) y reporta por severidad.
 - Apps Script: funciones de prueba `test_<modulo>_<caso>()` en un archivo Tests.gs que trabajen sobre una hoja/copia de prueba, nunca sobre datos reales.
 - Toda prueba que escriba datos corre en transacción con ROLLBACK, en BD local/rama de pruebas, o sobre datos de prueba marcados. Jamás contra datos reales de clientes en producción.
 - Cada prueba indica qué regla verifica: `-- R: clientes §8 Permisos / D-008`.
@@ -1404,3 +1421,9 @@ Verificado:
 No verificado: impresión de ticket (sin impresora en este entorno)
 ```
 Lo no verificado se dice siempre.
+
+---
+
+# SKILLS DE TERCEROS INCLUIDAS (en .claude/skills/, cada una con LICENSE y ORIGEN.md)
+
+accessibility · composition-patterns · core-web-vitals · frontend-design · impeccable · owasp-security · performance · playwright-skill · react-best-practices · supabase · supabase-postgres-best-practices · systematic-debugging · test-driven-development · ui-ux-pro-max · verification-before-completion · web-best-practices · web-design-guidelines · web-quality-audit · webapp-testing

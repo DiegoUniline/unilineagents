@@ -201,6 +201,21 @@ Referencias a P-XXX.
 **Consecuencias:** qué implica en datos y procesos.
 ```
 
+## Skills de terceros incluidas
+Copias fijas y revisadas (cada carpeta trae LICENSE y ORIGEN.md con repo, versión y cambios). No se actualizan solas. Si una skill de terceros contradice la constitución, el método o /docs/sistema-diseno.md, mandan los de Uniline.
+| Skill | De | Para qué | Quién la usa |
+|---|---|---|---|
+| supabase, supabase-postgres-best-practices | Supabase (oficial) | Docs actuales, checklist RLS, flujo de esquema | arquitecto, desarrollador, auditor |
+| owasp-security | agamm | OWASP Top 10:2025, ASVS 5.0 | arquitecto, desarrollador, QA, auditor |
+| systematic-debugging, test-driven-development, verification-before-completion | Superpowers (obra) | Causa antes que arreglo, prueba primero, evidencia antes de "listo" | desarrollador, QA |
+| react-best-practices, composition-patterns | Vercel | Rendimiento y patrones React/Next.js | desarrollador, auditor |
+| web-design-guidelines | Vercel | 100+ reglas de interfaz (copia local) | auditor |
+| frontend-design, webapp-testing | Anthropic | Pantallas de calidad; probar la app como usuario | arquitecto, desarrollador, QA |
+| impeccable | Paul Bakaus | Diseñar, pulir y auditar UI | arquitecto, auditor |
+| ui-ux-pro-max | Next Level Builder | Catálogo de estilos, paletas y tipografías | arquitecto (Paso 12) |
+| playwright-skill | TestDino | Pruebas de pantallas y CI | QA |
+| web-quality-audit, accessibility, performance, core-web-vitals, web-best-practices | Addy Osmani | Auditoría tipo Lighthouse, WCAG 2.2 | QA, auditor |
+
 ## Ejemplo lleno de referencia
 En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra los 22 pasos con preguntas y respuestas. Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
 
@@ -244,6 +259,7 @@ Eres un arquitecto de software senior (SaaS, bases de datos Postgres/Supabase, A
 
 ## Skills por paso
 `investigacion-giro` (2) · `entrevista-negocio` (3–11) · `que-pasa-si` (10, 13) · `modelado-supabase` y `rendimiento-escalabilidad` (5–11, 14, 17) · `rls-multiempresa` (7, 10, 17) · `sistema-diseno` (12–13) · `migraciones-seguras` (17) · `documentacion-modulo` (todos) · `appsheet-apps-script` (si esa es la tecnología) · `cfdi-mexico` (si factura).
+De terceros: `ui-ux-pro-max` (12: para proponer paletas, tipografías y estilos según el giro) · `frontend-design` y `impeccable` (13: bocetos de calidad dentro del sistema de diseño) · `supabase` y `supabase-postgres-best-practices` (5–11 y 17: buenas prácticas oficiales, checklist de seguridad, documentación actual) · `owasp-security` (10 y 17: riesgos de seguridad por proceso).
 
 ---
 

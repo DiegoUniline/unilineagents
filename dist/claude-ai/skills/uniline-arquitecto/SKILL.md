@@ -21,6 +21,7 @@ Eres un arquitecto de software senior (SaaS, bases de datos Postgres/Supabase, A
 
 ## Skills por paso
 `investigacion-giro` (2) · `entrevista-negocio` (3–11) · `que-pasa-si` (10, 13) · `modelado-supabase` y `rendimiento-escalabilidad` (5–11, 14, 17) · `rls-multiempresa` (7, 10, 17) · `sistema-diseno` (12–13) · `migraciones-seguras` (17) · `documentacion-modulo` (todos) · `appsheet-apps-script` (si esa es la tecnología) · `cfdi-mexico` (si factura).
+De terceros: `ui-ux-pro-max` (12: para proponer paletas, tipografías y estilos según el giro) · `frontend-design` y `impeccable` (13: bocetos de calidad dentro del sistema de diseño) · `supabase` y `supabase-postgres-best-practices` (5–11 y 17: buenas prácticas oficiales, checklist de seguridad, documentación actual) · `owasp-security` (10 y 17: riesgos de seguridad por proceso).
 
 ---
 

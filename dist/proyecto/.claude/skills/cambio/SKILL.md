@@ -201,6 +201,21 @@ Referencias a P-XXX.
 **Consecuencias:** qué implica en datos y procesos.
 ```
 
+## Skills de terceros incluidas
+Copias fijas y revisadas (cada carpeta trae LICENSE y ORIGEN.md con repo, versión y cambios). No se actualizan solas. Si una skill de terceros contradice la constitución, el método o /docs/sistema-diseno.md, mandan los de Uniline.
+| Skill | De | Para qué | Quién la usa |
+|---|---|---|---|
+| supabase, supabase-postgres-best-practices | Supabase (oficial) | Docs actuales, checklist RLS, flujo de esquema | arquitecto, desarrollador, auditor |
+| owasp-security | agamm | OWASP Top 10:2025, ASVS 5.0 | arquitecto, desarrollador, QA, auditor |
+| systematic-debugging, test-driven-development, verification-before-completion | Superpowers (obra) | Causa antes que arreglo, prueba primero, evidencia antes de "listo" | desarrollador, QA |
+| react-best-practices, composition-patterns | Vercel | Rendimiento y patrones React/Next.js | desarrollador, auditor |
+| web-design-guidelines | Vercel | 100+ reglas de interfaz (copia local) | auditor |
+| frontend-design, webapp-testing | Anthropic | Pantallas de calidad; probar la app como usuario | arquitecto, desarrollador, QA |
+| impeccable | Paul Bakaus | Diseñar, pulir y auditar UI | arquitecto, auditor |
+| ui-ux-pro-max | Next Level Builder | Catálogo de estilos, paletas y tipografías | arquitecto (Paso 12) |
+| playwright-skill | TestDino | Pruebas de pantallas y CI | QA |
+| web-quality-audit, accessibility, performance, core-web-vitals, web-best-practices | Addy Osmani | Auditoría tipo Lighthouse, WCAG 2.2 | QA, auditor |
+
 ## Ejemplo lleno de referencia
 En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra los 22 pasos con preguntas y respuestas. Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
 
@@ -227,11 +242,11 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
-Haces cambios en sistemas existentes (Supabase/Lovable/React o AppSheet/Apps Script): correcciones, ajustes y funciones que el dueño pida explícitamente.
+Haces cambios en sistemas existentes (Supabase + React/Next.js, o AppSheet/Apps Script): correcciones, ajustes y funciones que el dueño pida explícitamente.
 Tu valor no es la velocidad: es que cada cambio sea mínimo, entendido, verificado y documentado.
 
 ## Skills que usas
-`orden-de-trabajo` (SIEMPRE primero), `sistema-diseno` (toda pantalla), `migraciones-seguras` (cualquier cambio de BD), `rendimiento-escalabilidad` (consultas, listados, reportes), `rls-multiempresa`, `modelado-supabase`, `appsheet-apps-script`, `verificacion`, `documentacion-modulo`, `cfdi-mexico` (si toca facturación).
+`orden-de-trabajo` (SIEMPRE primero), `sistema-diseno` (toda pantalla), de terceros: `test-driven-development` (prueba primero en lógica de negocio y funciones), `systematic-debugging` (SIEMPRE en /corregir: causa antes que arreglo), `verification-before-completion` (antes de decir "listo"), `frontend-design` (pantallas), `react-best-practices` y `composition-patterns` (React/Next.js), `supabase` y `supabase-postgres-best-practices` (BD, RLS, migraciones), `owasp-security` (todo lo que toque datos, sesiones o entradas del usuario), `migraciones-seguras` (cualquier cambio de BD), `rendimiento-escalabilidad` (consultas, listados, reportes), `rls-multiempresa`, `modelado-supabase`, `appsheet-apps-script`, `verificacion`, `documentacion-modulo`, `cfdi-mexico` (si toca facturación).
 
 ## Flujo obligatorio para CADA cambio
 

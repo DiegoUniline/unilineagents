@@ -39,6 +39,9 @@ ${CONV}
 ${rd('templates/docs/00-estado.md')}`);
 
 const SKILLS = fs.readdirSync(path.join(R, 'skills')).filter(d => fs.existsSync(path.join(R, 'skills', d, 'SKILL.md'))).sort();
+const TERCEROS = SKILLS.filter(d => fs.existsSync(path.join(R, 'skills', d, 'ORIGEN.md')));
+const PROPIAS = SKILLS.filter(d => !TERCEROS.includes(d));
+const cpDir = (src, dst) => { fs.rmSync(path.join(R, dst), { recursive: true, force: true }); fs.cpSync(path.join(R, src), path.join(R, dst), { recursive: true }); };
 
 // ---------- Claude Code: agentes ----------
 limpiar('agents');
@@ -71,7 +74,7 @@ for (const f of fs.readdirSync(path.join(R, 'src/commands'))) {
 // ---------- Claude.ai: skills sueltas + roles + instrucciones de proyecto ----------
 limpiar('dist');
 const skillsClaudeAi = [];
-for (const s of SKILLS) { wr(`dist/claude-ai/skills/${s}/SKILL.md`, rd(`skills/${s}/SKILL.md`)); skillsClaudeAi.push(s); }
+for (const s of SKILLS) { cpDir(`skills/${s}`, `dist/claude-ai/skills/${s}`); skillsClaudeAi.push(s); }
 for (const n of ROLES) {
   const nom = `uniline-${n}`;
   wr(`dist/claude-ai/skills/${nom}/SKILL.md`, `---
@@ -97,7 +100,8 @@ const conocimiento = [
   '# CONOCIMIENTO UNILINE — referencia completa',
   PRINCIPIOS, CONV,
   ...ROLES.map(n => rol(n)),
-  ...SKILLS.filter(s => s !== 'documentacion-modulo').map(s => `# SKILL: ${s}\n\n${quitarFM(rd(`skills/${s}/SKILL.md`))}`),
+  ...PROPIAS.filter(s => s !== 'documentacion-modulo').map(s => `# SKILL: ${s}\n\n${quitarFM(rd(`skills/${s}/SKILL.md`))}`),
+  `# SKILLS DE TERCEROS INCLUIDAS (en .claude/skills/, cada una con LICENSE y ORIGEN.md)\n\n${TERCEROS.join(' · ')}`,
 ].join('\n\n---\n\n');
 wr('dist/chatgpt/uniline-conocimiento.md', conocimiento);
 wr('dist/chatgpt/instrucciones.md', rd('src/instrucciones-cortas.md'));
@@ -121,7 +125,7 @@ wr('dist/proyecto/CLAUDE.md', `${rd('src/claude-md-encabezado.md')}
 ---
 
 ${PRINCIPIOS}`);
-for (const s of SKILLS) wr(`${P}/skills/${s}/SKILL.md`, rd(`skills/${s}/SKILL.md`));
+for (const s of SKILLS) cpDir(`skills/${s}`, `${P}/skills/${s}`);
 wr(`${P}/hooks/guardian.cjs`, rd('hooks/guardian.cjs'));
 wr(`${P}/hooks/sesion.cjs`, rd('hooks/sesion.cjs'));
 wr(`${P}/hooks/recordatorio.cjs`, rd('hooks/recordatorio.cjs'));
@@ -139,4 +143,4 @@ fs.cpSync(path.join(R, 'docs/ejemplo-caja-chica/docs'), path.join(R, P, 'ejemplo
 fs.cpSync(path.join(R, 'docs/ejemplo-caja-chica.md'), path.join(R, P, 'ejemplos/caja-chica-recorrido.md'));
 
 const len = rd('dist/chatgpt/instrucciones.md').length;
-console.log(`agents: ${ROLES.length} · comandos: ${fs.readdirSync(path.join(R, 'commands')).length} · skills: ${SKILLS.length} · instrucciones ChatGPT: ${len} caracteres${len > 8000 ? ' ⚠️ EXCEDE 8000' : ''}`);
+console.log(`agents: ${ROLES.length} · comandos: ${fs.readdirSync(path.join(R, 'commands')).length} · skills: ${PROPIAS.length} propias + ${TERCEROS.length} de terceros · instrucciones ChatGPT: ${len} caracteres${len > 8000 ? ' ⚠️ EXCEDE 8000' : ''}`);

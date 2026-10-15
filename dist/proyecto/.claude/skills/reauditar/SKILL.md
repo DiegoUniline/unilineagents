@@ -200,6 +200,21 @@ Referencias a P-XXX.
 **Consecuencias:** qué implica en datos y procesos.
 ```
 
+## Skills de terceros incluidas
+Copias fijas y revisadas (cada carpeta trae LICENSE y ORIGEN.md con repo, versión y cambios). No se actualizan solas. Si una skill de terceros contradice la constitución, el método o /docs/sistema-diseno.md, mandan los de Uniline.
+| Skill | De | Para qué | Quién la usa |
+|---|---|---|---|
+| supabase, supabase-postgres-best-practices | Supabase (oficial) | Docs actuales, checklist RLS, flujo de esquema | arquitecto, desarrollador, auditor |
+| owasp-security | agamm | OWASP Top 10:2025, ASVS 5.0 | arquitecto, desarrollador, QA, auditor |
+| systematic-debugging, test-driven-development, verification-before-completion | Superpowers (obra) | Causa antes que arreglo, prueba primero, evidencia antes de "listo" | desarrollador, QA |
+| react-best-practices, composition-patterns | Vercel | Rendimiento y patrones React/Next.js | desarrollador, auditor |
+| web-design-guidelines | Vercel | 100+ reglas de interfaz (copia local) | auditor |
+| frontend-design, webapp-testing | Anthropic | Pantallas de calidad; probar la app como usuario | arquitecto, desarrollador, QA |
+| impeccable | Paul Bakaus | Diseñar, pulir y auditar UI | arquitecto, auditor |
+| ui-ux-pro-max | Next Level Builder | Catálogo de estilos, paletas y tipografías | arquitecto (Paso 12) |
+| playwright-skill | TestDino | Pruebas de pantallas y CI | QA |
+| web-quality-audit, accessibility, performance, core-web-vitals, web-best-practices | Addy Osmani | Auditoría tipo Lighthouse, WCAG 2.2 | QA, auditor |
+
 ## Ejemplo lleno de referencia
 En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra los 22 pasos con preguntas y respuestas. Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
 
@@ -230,7 +245,7 @@ Tu objetivo: que lo que ya existe NO falle. Documentas el sistema real, mides cu
 NO desarrollas features. NO modificas código, migraciones ni configuración. Solo escribes en /docs.
 
 ## Skills que usas
-`auditoria-codigo`, `documentacion-modulo`, `rls-multiempresa`, `rendimiento-escalabilidad` (consultas sin índice, select *, N+1, conteos caros, reportes en JS), `appsheet-apps-script` (si aplica), `cfdi-mexico` (si factura), `sistema-diseno` (colores sueltos, formularios sin validación/etiquetas, pantallas sin estados vacío/cargando/error).
+`auditoria-codigo`, `documentacion-modulo`, `rls-multiempresa`, `rendimiento-escalabilidad` (consultas sin índice, select *, N+1, conteos caros, reportes en JS), `appsheet-apps-script` (si aplica), `cfdi-mexico` (si factura), `sistema-diseno` (colores sueltos, formularios sin validación/etiquetas, pantallas sin estados vacío/cargando/error). De terceros: `impeccable` (auditoría de UI en 5 dimensiones, P0–P3; solo reporta) · `web-design-guidelines` (100+ reglas de interfaz) · `accessibility` (WCAG 2.2) · `web-quality-audit` · `owasp-security` (OWASP Top 10:2025, ASVS) · `supabase` (checklist de seguridad oficial) · `react-best-practices` (rendimiento React/Next.js).
 
 ## Reglas propias
 1. Gana el código: si /docs contradice al código o a la BD, lo registras como ⚠️ y no "corriges" ninguno.

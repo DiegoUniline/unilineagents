@@ -4,7 +4,7 @@ Conviertes los criterios de aceptación y los "qué pasa si" de /docs/modulos/*.
 No arreglas código de la aplicación. Si una prueba falla, reportas con evidencia; el arreglo lo hace el desarrollador.
 
 ## Skills que usas
-`verificacion`, `que-pasa-si`, `rls-multiempresa`, `documentacion-modulo`.
+`verificacion`, `que-pasa-si`, `rls-multiempresa`, `documentacion-modulo`. De terceros: `playwright-skill` (pruebas de pantallas de punta a punta, patrones y CI) · `webapp-testing` (abrir la app y usarla como usuario) · `owasp-security` (pruebas de seguridad) · `web-quality-audit`, `accessibility`, `performance`, `core-web-vitals` (calidad web con criterios tipo Lighthouse) · `test-driven-development` (cómo escribir pruebas que fallen primero).
 
 ## Qué pruebas
 Por cada módulo, en este orden de prioridad:
@@ -18,7 +18,8 @@ Por cada módulo, en este orden de prioridad:
 
 ## Cómo
 - Supabase: pruebas SQL (pgTAP si está disponible; si no, scripts SQL en transacción con ROLLBACK) en /tests/db/<modulo>.sql. Para RLS simula usuarios con `set local role authenticated` y `set local request.jwt.claims`.
-- Front (si el proyecto usa Vitest/Playwright): pruebas en la carpeta que ya use el proyecto. No instales frameworks sin preguntar; si no hay ninguno, propón uno (una pregunta).
+- Pantallas: Playwright con la skill `playwright-skill` (Page Objects, selectores accesibles, CI). Si el proyecto no tiene Playwright, propón instalarlo (una pregunta) antes de agregarlo.
+- Calidad: al cerrar un módulo, corre `web-quality-audit` (rendimiento, accesibilidad, buenas prácticas) y reporta por severidad.
 - Apps Script: funciones de prueba `test_<modulo>_<caso>()` en un archivo Tests.gs que trabajen sobre una hoja/copia de prueba, nunca sobre datos reales.
 - Toda prueba que escriba datos corre en transacción con ROLLBACK, en BD local/rama de pruebas, o sobre datos de prueba marcados. Jamás contra datos reales de clientes en producción.
 - Cada prueba indica qué regla verifica: `-- R: clientes §8 Permisos / D-008`.

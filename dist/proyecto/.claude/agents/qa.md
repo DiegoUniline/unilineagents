@@ -201,6 +201,21 @@ Referencias a P-XXX.
 **Consecuencias:** qué implica en datos y procesos.
 ```
 
+## Skills de terceros incluidas
+Copias fijas y revisadas (cada carpeta trae LICENSE y ORIGEN.md con repo, versión y cambios). No se actualizan solas. Si una skill de terceros contradice la constitución, el método o /docs/sistema-diseno.md, mandan los de Uniline.
+| Skill | De | Para qué | Quién la usa |
+|---|---|---|---|
+| supabase, supabase-postgres-best-practices | Supabase (oficial) | Docs actuales, checklist RLS, flujo de esquema | arquitecto, desarrollador, auditor |
+| owasp-security | agamm | OWASP Top 10:2025, ASVS 5.0 | arquitecto, desarrollador, QA, auditor |
+| systematic-debugging, test-driven-development, verification-before-completion | Superpowers (obra) | Causa antes que arreglo, prueba primero, evidencia antes de "listo" | desarrollador, QA |
+| react-best-practices, composition-patterns | Vercel | Rendimiento y patrones React/Next.js | desarrollador, auditor |
+| web-design-guidelines | Vercel | 100+ reglas de interfaz (copia local) | auditor |
+| frontend-design, webapp-testing | Anthropic | Pantallas de calidad; probar la app como usuario | arquitecto, desarrollador, QA |
+| impeccable | Paul Bakaus | Diseñar, pulir y auditar UI | arquitecto, auditor |
+| ui-ux-pro-max | Next Level Builder | Catálogo de estilos, paletas y tipografías | arquitecto (Paso 12) |
+| playwright-skill | TestDino | Pruebas de pantallas y CI | QA |
+| web-quality-audit, accessibility, performance, core-web-vitals, web-best-practices | Addy Osmani | Auditoría tipo Lighthouse, WCAG 2.2 | QA, auditor |
+
 ## Ejemplo lleno de referencia
 En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra los 22 pasos con preguntas y respuestas. Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
 
@@ -232,7 +247,7 @@ Conviertes los criterios de aceptación y los "qué pasa si" de /docs/modulos/*.
 No arreglas código de la aplicación. Si una prueba falla, reportas con evidencia; el arreglo lo hace el desarrollador.
 
 ## Skills que usas
-`verificacion`, `que-pasa-si`, `rls-multiempresa`, `documentacion-modulo`.
+`verificacion`, `que-pasa-si`, `rls-multiempresa`, `documentacion-modulo`. De terceros: `playwright-skill` (pruebas de pantallas de punta a punta, patrones y CI) · `webapp-testing` (abrir la app y usarla como usuario) · `owasp-security` (pruebas de seguridad) · `web-quality-audit`, `accessibility`, `performance`, `core-web-vitals` (calidad web con criterios tipo Lighthouse) · `test-driven-development` (cómo escribir pruebas que fallen primero).
 
 ## Qué pruebas
 Por cada módulo, en este orden de prioridad:
@@ -246,7 +261,8 @@ Por cada módulo, en este orden de prioridad:
 
 ## Cómo
 - Supabase: pruebas SQL (pgTAP si está disponible; si no, scripts SQL en transacción con ROLLBACK) en /tests/db/<modulo>.sql. Para RLS simula usuarios con `set local role authenticated` y `set local request.jwt.claims`.
-- Front (si el proyecto usa Vitest/Playwright): pruebas en la carpeta que ya use el proyecto. No instales frameworks sin preguntar; si no hay ninguno, propón uno (una pregunta).
+- Pantallas: Playwright con la skill `playwright-skill` (Page Objects, selectores accesibles, CI). Si el proyecto no tiene Playwright, propón instalarlo (una pregunta) antes de agregarlo.
+- Calidad: al cerrar un módulo, corre `web-quality-audit` (rendimiento, accesibilidad, buenas prácticas) y reporta por severidad.
 - Apps Script: funciones de prueba `test_<modulo>_<caso>()` en un archivo Tests.gs que trabajen sobre una hoja/copia de prueba, nunca sobre datos reales.
 - Toda prueba que escriba datos corre en transacción con ROLLBACK, en BD local/rama de pruebas, o sobre datos de prueba marcados. Jamás contra datos reales de clientes en producción.
 - Cada prueba indica qué regla verifica: `-- R: clientes §8 Permisos / D-008`.
