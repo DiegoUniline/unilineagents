@@ -152,12 +152,12 @@ fs.cpSync(path.join(R, 'LICENSE'), path.join(R, T, 'LICENSE'));
 const vacio = t => `# ${t}\n`;
 wr(`${T}/docs/00-estado.md`, rd('templates/docs/00-estado.md')
   .replace('<fecha y hora>', '—').replace('<arquitecto | auditor | desarrollador | qa>', '—')
-  .replace('<N> de 22 — <nombre del paso> (ver docs/metodo o .claude/agents/arquitecto.md)', '1 de 22 — Arranque')
+  .replace('Vuelta <N> · <R<n> si aplica> · <paso> — <nombre> (ver .claude/agents/arquitecto.md)', 'Vuelta 0 · 0.1 — Arranque').replace('**Rebanada en curso:** <R<n> · nombre · estado>', '**Rebanada en curso:** —')
   .replace('**Módulo en curso:** <nombre>', '**Módulo en curso:** —')
   .replace('**Última pregunta:** P-XXX — <texto corto> — <ABIERTA | RESPONDIDA: respuesta>', '**Última pregunta:** —')
-  .replace('**Siguiente paso exacto:** <qué sigue, en una línea>', '**Siguiente paso exacto:** el dueño escribe "Quiero un sistema para …"; el agente hace el Paso 2 (investigación del giro)')
+  .replace('**Siguiente paso exacto:** <qué sigue, en una línea>', '**Siguiente paso exacto:** el dueño escribe "Quiero un sistema para …"; el agente hace 0.2 (investigación del giro) y 0.3 (condiciones)')
   .replace('- D-XXX · <módulo> · <decisión en una línea>', '- (ninguna)'));
-for (const [f, t] of [['00-vision','Visión'],['00-mapa','Mapa del sistema'],['investigacion-giro','Investigación del giro'],['funciones','Catálogo de funciones'],['diagrama-er','Diagrama entidad-relación'],['glosario','Glosario'],['sistema-diseno','Sistema de diseño'],['preguntas','Preguntas'],['decisiones','Decisiones'],['riesgos','Riesgos'],['plan-construccion','Plan de construcción']]) wr(`${T}/docs/${f}.md`, vacio(t));
+for (const [f, t] of [['00-vision','Visión'],['00-mapa','Mapa del sistema'],['investigacion-giro','Investigación del giro'],['historias','Historias'],['funciones','Catálogo de funciones'],['rebanadas','Rebanadas'],['diagrama-er','Diagrama entidad-relación'],['glosario','Glosario'],['sistema-diseno','Sistema de diseño'],['preguntas','Preguntas'],['decisiones','Decisiones'],['riesgos','Riesgos'],['plan-construccion','Plan de construcción']]) wr(`${T}/docs/${f}.md`, vacio(t));
 wr(`${T}/docs/bitacora.md`, '# Bitácora\n');
 wr(`${T}/docs/modulos/.gitkeep`, ''); wr(`${T}/docs/ordenes/.gitkeep`, '');
 

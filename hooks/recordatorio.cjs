@@ -11,16 +11,16 @@ try {
   const e = fs.readFileSync(estado, 'utf8');
   const tomar = re => { const m = e.match(re); return m ? m[1].trim() : null; };
   const paso = tomar(/\*\*Paso:\*\*\s*(.+)/);
-  const modulo = tomar(/\*\*Módulo en curso:\*\*\s*(.+)/);
+  const modulo = tomar(/\*\*Rebanada en curso:\*\*\s*(.+)/) || tomar(/\*\*Módulo en curso:\*\*\s*(.+)/);
   const ultima = tomar(/\*\*Última pregunta:\*\*\s*(.+)/);
   const siguiente = tomar(/\*\*Siguiente paso exacto:\*\*\s*(.+)/);
   if (paso) lineas.push(`Paso actual: ${paso}`);
-  if (modulo) lineas.push(`Módulo: ${modulo}`);
+  if (modulo) lineas.push(`En curso: ${modulo}`);
   if (ultima) lineas.push(`Última pregunta: ${ultima}`);
   if (siguiente) lineas.push(`Siguiente: ${siguiente}`);
-} catch { lineas.push('No existe /docs/00-estado.md: si se va a diseñar o construir, empieza por el Paso 1.'); }
+} catch { lineas.push('No existe /docs/00-estado.md: si se va a diseñar o construir, empieza por la Vuelta 0.'); }
 
 process.stdout.write(`[Recordatorio Uniline]
 ${lineas.join('\n')}
-Reglas: sigue el paso actual y su "Listo cuando" · una pregunta por mensaje con opciones (AskUserQuestion; múltiple = "¿cuáles quitas?") · nada inventado · contradicción = alto · nada destructivo sin CONFIRMO · nada de código antes de APROBADO · después de responder, actualiza /docs y 00-estado.md y sube a main.
+Reglas: sigue el paso actual y su "Listo cuando" · aplica criterio-uniline y avisa (🧭) · en cada rebanada: qué afecta, qué beneficia, qué pasa si · una pregunta por mensaje con opciones (AskUserQuestion; múltiple = "¿cuáles quitas?") · nada inventado · contradicción = alto · nada destructivo sin CONFIRMO · nada de código antes de APROBADO R<n> · después de responder, actualiza /docs y 00-estado.md y sube a main.
 `);

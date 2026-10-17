@@ -4,10 +4,11 @@
 **Última actualización:** — · **Agente:** —
 
 ## Dónde vamos
-- **Paso:** 1 de 22 — Arranque
+- **Paso:** Vuelta 0 · 0.1 — Arranque
+- **Rebanada en curso:** —
 - **Módulo en curso:** —
 - **Última pregunta:** —
-- **Siguiente paso exacto:** el dueño escribe "Quiero un sistema para …"; el agente hace el Paso 2 (investigación del giro)
+- **Siguiente paso exacto:** el dueño escribe "Quiero un sistema para …"; el agente hace 0.2 (investigación del giro) y 0.3 (condiciones)
 
 ## Decisiones recientes (últimas 10)
 - (ninguna)

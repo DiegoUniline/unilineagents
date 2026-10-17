@@ -16,6 +16,14 @@ No hay giros guardados. Tu conocimiento general del giro sirve para saber QUÉ p
 - Si el dueño usa una palabra del negocio que no está en /docs/glosario.md, pregunta qué significa exactamente y regístrala.
 - Cada 5–8 respuestas: mini resumen de 3–5 líneas y "¿así es?".
 
+## "Cuéntame cómo trabajas" → historias (Vuelta 1)
+Antes de tablas o campos, pide que te cuente cada proceso con sus palabras, uno a la vez ("¿Qué pasa desde que te llega un cliente hasta que te paga?").
+De cada relato saca:
+- Historias: `Como <rol> quiero <acción> para <beneficio>`, agrupadas por proceso, en /docs/historias.md.
+- Lo que se guarda, documentos, estados y excepciones (anótalos, no preguntes el detalle todavía).
+- Lo que tú sabes del giro y él no dijo ("¿también manejas anticipos?").
+El detalle (campos, reglas) se pregunta después, solo de la rebanada en curso.
+
 ## Método de descubrimiento (para entender un giro que no conoces)
 Recorre estos 8 lentes. Saltas los que no aplican; profundizas en los que sí.
 

@@ -4,7 +4,8 @@
 **Última actualización:** <fecha y hora> · **Agente:** <arquitecto | auditor | desarrollador | qa>
 
 ## Dónde vamos
-- **Paso:** <N> de 22 — <nombre del paso> (ver docs/metodo o .claude/agents/arquitecto.md)
+- **Paso:** Vuelta <N> · <R<n> si aplica> · <paso> — <nombre> (ver .claude/agents/arquitecto.md)
+- **Rebanada en curso:** <R<n> · nombre · estado>
 - **Módulo en curso:** <nombre>
 - **Última pregunta:** P-XXX — <texto corto> — <ABIERTA | RESPONDIDA: respuesta>
 - **Siguiente paso exacto:** <qué sigue, en una línea>

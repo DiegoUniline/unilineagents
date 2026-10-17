@@ -1,4 +1,6 @@
-# Ejemplo completo — "Caja Chica" (1 pantalla), los 22 pasos terminados
+# Ejemplo completo — "Caja Chica" (1 pantalla), todo terminado
+
+> **Nota (método v3):** este recorrido usa la numeración anterior de 22 pasos. En el método por vueltas, Caja Chica es un sistema de **una sola rebanada (R1)**: pasos 1–2 = Vuelta 0 · pasos 3–4 = condiciones e historias · pasos 5–7 = esqueleto · pasos 8–16 = R1 (R.1–R.7) · pasos 17–20 = R.8–R.11 · pasos 21–22 = siempre. El formato de cada archivo es el mismo.
 
 > Todo es inventado para mostrar cómo se ve cada paso y qué queda guardado. Sirve también de referencia para los agentes.
 

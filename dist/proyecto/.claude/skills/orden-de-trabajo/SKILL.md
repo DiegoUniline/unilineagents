@@ -9,8 +9,8 @@ El dueño no tiene que saber escribir prompts. Tú conviertes lo que dice en una
 
 ## Paso 0 — ¿Estamos en desarrollo?
 Revisa /docs/00-estado.md y el módulo que toca el pedido.
-- Si el módulo NO tiene `APROBADO` (sigue en diseño): NO crees orden de trabajo y no "simules". Di en una línea "Esto lo agrego al diseño de <módulo>", regístralo como requisito/decisión en el módulo (con las preguntas necesarias, una por mensaje) y regresa al paso de diseño donde iban.
-- Solo si el módulo está aprobado (y existe su plan de construcción), continúa.
+- Si la rebanada que toca el pedido NO tiene `APROBADO R<n>` (sigue en diseño o es nueva): NO crees orden de trabajo y no "simules". Di en una línea "Esto lo agrego como historia en <rebanada>", regístralo en historias.md/rebanadas.md como requisito/decisión en el módulo (con las preguntas necesarias, una por mensaje) y regresa al paso de diseño donde iban.
+- Solo si la rebanada está aprobada (y existe su plan de construcción) o es un cambio a algo ya construido, continúa. En un cambio a lo construido, revisa también su impacto en rebanadas futuras (rebanadas.md).
 
 ## Paso 1 — Entender con contexto
 1. Lee /docs/00-estado.md, /docs/00-mapa.md, /docs/diagrama-er.md y los módulos que toca el pedido.

@@ -8,6 +8,7 @@ description: Plantillas y convenciones de documentación del proyecto (/docs, do
 ## Niveles de certeza
 Todo campo, regla, proceso y permiso lleva uno:
 - ✅ CONFIRMADO — el dueño lo dijo, o (en auditoría) se vio en BD y en código.
+- ✅ CRITERIO — decidido por una regla del manual `criterio-uniline` (CR-XX); cuenta como confirmado.
 - 💡 PROPUESTO — decisión técnica tuya por buena práctica; requiere aprobación.
 - 🟡 INFERIDO — deducido por nombre o uso parcial, sin confirmación.
 - ❓ PENDIENTE / DESCONOCIDO — falta respuesta o evidencia.
@@ -112,12 +113,12 @@ Copias fijas y revisadas (cada carpeta trae LICENSE y ORIGEN.md con repo, versi�
 | web-design-guidelines | Vercel | 100+ reglas de interfaz (copia local) | auditor |
 | frontend-design, webapp-testing | Anthropic | Pantallas de calidad; probar la app como usuario | arquitecto, desarrollador, QA |
 | impeccable | Paul Bakaus | Diseñar, pulir y auditar UI | arquitecto, auditor |
-| ui-ux-pro-max | Next Level Builder | Catálogo de estilos, paletas y tipografías | arquitecto (Paso 12) |
+| ui-ux-pro-max | Next Level Builder | Catálogo de estilos, paletas y tipografías | arquitecto (2.3) |
 | playwright-skill | TestDino | Pruebas de pantallas y CI | QA |
 | web-quality-audit, accessibility, performance, core-web-vitals, web-best-practices | Addy Osmani | Auditoría tipo Lighthouse, WCAG 2.2 | QA, auditor |
 
 ## Ejemplo lleno de referencia
-En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra los 22 pasos con preguntas y respuestas. Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
+En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra el recorrido completo con preguntas y respuestas (Caja Chica es un sistema de una sola rebanada). Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
 
 ## Estructura de /docs
 ```
@@ -125,7 +126,9 @@ En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS 
 /docs/bitacora.md         una línea por evento, solo se agrega
 /docs/investigacion-giro.md  investigación del giro con fuentes (🟡 hasta que el dueño confirme)
 /docs/00-vision.md        visión, usuarios, alcance v1 / fuera de alcance
-/docs/funciones.md        catálogo de funciones por módulo: v1, después, descartadas
+/docs/historias.md        historias "Como <rol> quiero… para…" por proceso (de "cuéntame cómo trabajas")
+/docs/funciones.md        catálogo de funciones: ✅ / ⏭️ / ❌
+/docs/rebanadas.md        mapa de rebanadas (R1 = mínimo que sirve de punta a punta), impacto por rebanada, estado y aprendizajes de cada demo
 /docs/sistema-diseno.md   colores, tipografía, tokens y reglas de formularios, tablas, botones y mensajes
 /docs/00-mapa.md          módulos, tablas, relaciones entre módulos, % conocimiento por módulo
 /docs/modulos/*.md        un archivo por módulo (plantilla de arriba)
@@ -146,7 +149,8 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 **Última actualización:** <fecha y hora> · **Agente:** <arquitecto | auditor | desarrollador | qa>
 
 ## Dónde vamos
-- **Paso:** <N> de 22 — <nombre del paso> (ver docs/metodo o .claude/agents/arquitecto.md)
+- **Paso:** Vuelta <N> · <R<n> si aplica> · <paso> — <nombre> (ver .claude/agents/arquitecto.md)
+- **Rebanada en curso:** <R<n> · nombre · estado>
 - **Módulo en curso:** <nombre>
 - **Última pregunta:** P-XXX — <texto corto> — <ABIERTA | RESPONDIDA: respuesta>
 - **Siguiente paso exacto:** <qué sigue, en una línea>

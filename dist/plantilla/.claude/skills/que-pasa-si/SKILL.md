@@ -32,6 +32,13 @@ Aplica cada patrón al módulo concreto y conviértelo en una pregunta real del 
 | 19 | Fiscal | ¿Qué pasa si se factura y luego se cancela, cambia el RFC, o se factura después del mes? |
 | 20 | Auditoría | ¿Hay que saber quién hizo esto y cuándo? ¿Puede alguien borrar su rastro? |
 
+## En contexto de rebanadas
+Además de los patrones, en cada rebanada pregunta los cruces:
+- ¿Qué afecta de lo ya construido (datos reales, reglas, pantallas)?
+- ¿Qué beneficia o prepara para rebanadas futuras? ¿Conviene dejar un campo/relación/estado listo ya?
+- ¿Qué pasa si algo de esta rebanada se cancela, cambia o se borra y una rebanada futura lo usa?
+- ¿Qué pasa con los datos existentes cuando se agrega la regla nueva?
+
 ## Registro
 En el módulo, sección "Qué pasa si…":
 | # | Escenario | Comportamiento esperado | Dónde se garantiza (BD/función/front) | Certeza |
