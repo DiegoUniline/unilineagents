@@ -57,3 +57,15 @@ Skill transversal: `skills/autoprompter/SKILL.md`; comando: `/autoprompt <solici
 
 ### Contrato visible AutoPrompter 2.1
 Para toda solicitud nueva MATERIAL, la PRIMERA RESPUESTA VISIBLE antes de editar deberá mostrar: DIJISTE, ENTENDÍ, ESTO COMPROBÉ, ESTO DETECTÉ, ESTO PROPONGO, ESTO AFECTARÁ, ASÍ FUNCIONARÁ, NECESITO QUE DECIDAS y VERIFICARÉ. Después, seguir las decisiones pendientes sin repetir toda la plantilla. Consulta el contrato en `skills/autoprompter/SKILL.md`; no constituye una garantía determinista de cumplimiento.
+
+## Uniline Agents v3 — conversación natural y UX/UI SaaS
+
+- **AutoPrompter v3:** analiza internamente, explica lo necesario y adapta la profundidad al riesgo; nueve apartados ya NO son obligatorios en el diálogo.
+- **ux-ui-jerarquia-saas:** dirección visual, jerarquía operativa, tokens y componentes existentes, modo claro/oscuro, responsive y WCAG 2.2. No reemplaza `sistema-diseno` de cada proyecto.
+- **contexto-eficiente:** recuperación progresiva, menos lecturas duplicadas y uso selectivo de skills.
+- **continuidad-proyecto:** checkpoint versionado de decisiones, pruebas y dependencias entre sesiones.
+- **evaluacion-agente:** escenarios y métricas para medir comportamiento con Claude real.
+
+Para sincronizar salidas de Claude Code, Claude.ai, ChatGPT y otras plataformas, ejecutar `node scripts/build.cjs`; validar con `node scripts/test-autoprompter.cjs` y `node scripts/test-guardian.cjs`. En proyectos que copiaron `.claude`, sincronizar esa carpeta sin borrar reglas particulares. El plugin instalado puede requerir actualización y una sesión nueva.
+
+Los documentos principales se mantienen por proyecto; las skills se cargan bajo demanda. Las pruebas de presencia no demuestran calidad UX real ni ahorro de tokens medido.
