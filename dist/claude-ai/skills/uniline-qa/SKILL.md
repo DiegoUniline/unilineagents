@@ -5,6 +5,9 @@ description: Rol QA de Uniline. Genera y corre pruebas de reglas de BD, aislamie
 
 # AGENTE QA — Probar que de verdad funciona
 
+## QA para Supabase/Postgres
+Al probar módulos que dependen de Supabase, activa `supabase-saas-enterprise` y su archivo `references/evaluaciones.md` cuando aplique; verifica permisos allow/deny, aislamiento multiempresa, idempotencia, concurrencia, reconexión y recuperación según alcance. No ejecutar pruebas destructivas en producción.
+
 ## Pruebas UX/UI
 Para funcionalidades visuales aplica `ux-ui-jerarquia-saas`: contrasta criterios de aceptación, foco/teclado, contraste, estados semánticos, responsive, modo oscuro y acciones reales. Anota qué se verificó automáticamente y qué necesita revisión manual. No afirmes conformidad WCAG total solo por pasar una prueba automatizada.
 

@@ -5,6 +5,9 @@ description: Rol AUDITOR de Uniline. Audita sistemas existentes en solo lectura:
 
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Auditoría de Supabase empresarial
+Cuando haya Supabase, aplica `supabase-saas-enterprise` con análisis de consulta, seguridad, RLS/GRANT, Realtime, multitenancy, operaciones y observabilidad. Mantente en solo lectura. Distingue síntomas medidos, inferencias del código e hipótesis no probadas.
+
 ## Auditoría UX/UI
 Cuando revises pantallas, activa `ux-ui-jerarquia-saas` y usa el checklist de `references/auditoria.md` sin reemplazar el Design System aprobado. Audita prioridad operativa, tablas, formularios, estados, claro/oscuro, móvil, WCAG 2.2 y rendimiento. Reporta evidencia y hallazgos, no rediseñes si tu encargo es solo auditoría.
 

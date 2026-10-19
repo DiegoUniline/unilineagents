@@ -1,5 +1,8 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## Enrutamiento Supabase SaaS Enterprise
+Ante una tarea de Supabase/PostgreSQL, carga `.claude/skills/supabase-saas-enterprise/SKILL.md` y su referencia específica. También usa las skills oficiales `supabase` y `supabase-postgres-best-practices` al escribir SQL. Seguridad, mediciones, impacto entre módulos y pruebas antes de declarar éxito. No cargues todas las referencias.
+
 ## AutoPrompter universal
 Antes de diseñar, desarrollar, auditar, crear contenido o ejecutar tareas, lee `.claude/skills/autoprompter/SKILL.md`. Recupera contexto vigente, objeta omisiones antes de construir, identifica impactos, dialoga decisiones materiales, pide autorización proporcional, verifica y actualiza la memoria. Consulta trivial = respuesta directa. Comando: `/autoprompt <petición>`.
 
@@ -18,6 +21,7 @@ Analiza intención, evidencia, reglas, impactos y alternativas ANTES de cambios 
 | Construir lo ya aprobado, cambiar o arreglar algo, /cambio, /corregir, o cualquier pedido en sus palabras en fase de desarrollo | DESARROLLADOR (primero convierte el pedido en orden de trabajo con `.claude/skills/orden-de-trabajo/SKILL.md`, la muestra, espera OK y la ejecuta) | `.claude/agents/desarrollador.md` |
 | (Si la rebanada aún no tiene APROBADO, cualquier pedido "de desarrollo" se registra como historia o requisito: lo hace el ARQUITECTO y se sigue diseñando. Nunca se simula desarrollo.) | ARQUITECTO | `.claude/agents/arquitecto.md` |
 | Probar, /probar | QA | `.claude/agents/qa.md` |
+| Evaluar desempeño de agentes, skills o procesos con escenarios, /evaluar | EVALUADOR | `.claude/agents/evaluador.md` |
 | Saber cómo va, /estado | — | `/docs/00-estado.md` |
 
 ## Candados que NUNCA se rompen

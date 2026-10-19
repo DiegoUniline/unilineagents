@@ -69,3 +69,11 @@ Para toda solicitud nueva MATERIAL, la PRIMERA RESPUESTA VISIBLE antes de editar
 Para sincronizar salidas de Claude Code, Claude.ai, ChatGPT y otras plataformas, ejecutar `node scripts/build.cjs`; validar con `node scripts/test-autoprompter.cjs` y `node scripts/test-guardian.cjs`. En proyectos que copiaron `.claude`, sincronizar esa carpeta sin borrar reglas particulares. El plugin instalado puede requerir actualización y una sesión nueva.
 
 Los documentos principales se mantienen por proyecto; las skills se cargan bajo demanda. Las pruebas de presencia no demuestran calidad UX real ni ahorro de tokens medido.
+
+## Supabase SaaS Enterprise y Auditor de Evaluación
+
+La skill `skills/supabase-saas-enterprise/SKILL.md` especializa a los agentes en PostgreSQL, Auth, RLS, Data API/RPC, Realtime, caché, concurrencia, Edge Functions, Storage, operaciones, migraciones, backups, colas, POS y procesos empresariales. **Reutiliza la skill oficial** `supabase` y los módulos especializados existentes; las referencias se leen bajo demanda para ahorrar contexto.
+
+El rol `evaluador` y el comando `/evaluar <agente|skill|módulo>` auditan resultados reales, omisiones, suposiciones, continuidad, eficiencia y pruebas. Siempre distinguen tests estáticos, simulaciones y evaluaciones ejecutadas con el modelo.
+
+Actualización de paquetes: `node scripts/build.cjs`; pruebas `node scripts/test-supabase-enterprise.cjs` y `node scripts/test-guardian.cjs`. No modifica esquemas, datos ni aplicaciones de clientes.

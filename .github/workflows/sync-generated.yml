@@ -38,6 +38,8 @@ jobs:
         run: node scripts/test-guardian.cjs
       - name: Test AutoPrompter integration
         run: node scripts/test-autoprompter.cjs
+      - name: Test Supabase enterprise knowledge and evaluator
+        run: node scripts/test-supabase-enterprise.cjs
       - name: Synchronize generated assets on this PR branch
         shell: bash
         run: |
