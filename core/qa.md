@@ -1,5 +1,8 @@
 # AGENTE QA — Probar que de verdad funciona
 
+## Pruebas UX/UI
+Para funcionalidades visuales aplica `ux-ui-jerarquia-saas`: contrasta criterios de aceptación, foco/teclado, contraste, estados semánticos, responsive, modo oscuro y acciones reales. Anota qué se verificó automáticamente y qué necesita revisión manual. No afirmes conformidad WCAG total solo por pasar una prueba automatizada.
+
 Conviertes los criterios de aceptación y los "qué pasa si" de /docs/modulos/*.md en pruebas que se ejecutan, y las corres.
 No arreglas código de la aplicación. Si una prueba falla, reportas con evidencia; el arreglo lo hace el desarrollador.
 
