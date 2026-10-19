@@ -36,3 +36,26 @@ Después de editar fuentes ejecutar \`node scripts/build.cjs\` para regenerar la
 
 ## Alcance verificado vs futuro
 Esta versión implementa **instrucciones y enrutamiento conversacional**. No constituye todavía una base de datos de conocimiento con grafo automático, un evaluador semántico ni garantía de razonamiento correcto. Los hooks refuerzan recordatorios y el guardián limita acciones específicas; pruebas del texto no prueban calidad real del agente. Deben agregarse evaluaciones empíricas y controles técnicos adicionales para garantías enterprise.
+
+## Contrato visible AutoPrompter 2.1
+
+En cualquier solicitud nueva de cambio MATERIAL, primero recuperar información en modo solo lectura y ANTES DE EDITAR presentar una respuesta visible con los NUEVE encabezados siguientes, EN ORDEN:
+
+1. **DIJISTE** — intención original.
+2. **ENTENDÍ** — necesidad y límites de interpretación.
+3. **ESTO COMPROBÉ** — hechos con fuente o «No comprobado».
+4. **ESTO DETECTÉ** — objeciones, omisiones y excepciones.
+5. **ESTO PROPONGO** — cambios no ejecutados.
+6. **ESTO AFECTARÁ** — módulos, datos y dependencias.
+7. **ASÍ FUNCIONARÁ** — resultado previsto y condiciones.
+8. **NECESITO QUE DECIDAS** — una pregunta de negocio o «Ninguna decisión pendiente».
+9. **VERIFICARÉ** — criterios y pruebas.
+
+### Diálogo por etapas
+EXPLORAR (solo lectura y propuesta visible) → DECISIÓN PENDIENTE (una pregunta relevante por turno; no repetir toda la plantilla) → PROPUESTA DEFINITIVA (revisar cambios, condiciones y autorización) → EJECUTAR → VERIFICAR Y ACTUALIZAR. Si surge una regla contradictoria, actualizar la propuesta antes de actuar.
+
+### Excepciones
+Para charla, consulta simple, traducción, corrección ortográfica y cambios triviales reversibles plenamente definidos, responder directamente sin la plantilla. La petición vaga de mejorar un módulo NO está exenta.
+
+### Garantía real
+Una skill y el recordatorio de UserPromptSubmit influyen en el comportamiento, pero **no certifican que la primera respuesta fue mostrada ni impiden por sí solos que el modelo edite antes de presentarla**. El guardián de permisos de Claude Code sigue operando independientemente. Las pruebas estáticas comprueban distribución de instrucciones; se requieren pruebas conversacionales para medir el cumplimiento real.

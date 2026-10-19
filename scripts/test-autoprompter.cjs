@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 'use strict';
-const fs=require('fs'),path=require('path');
-const read=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8');
-const checks=[
- ['skill AutoPrompter',()=>read('skills/autoprompter/SKILL.md').includes('name: autoprompter')],
- ['objeción anterior',()=>read('skills/autoprompter/SKILL.md').includes('Objeción profesional ANTES de construir')],
- ['diálogo adaptativo',()=>read('skills/autoprompter/SKILL.md').includes('Una pregunta prioritaria por turno')],
- ['verificación',()=>read('skills/autoprompter/SKILL.md').includes('Verificar con evidencia')],
- ['memoria viva',()=>read('skills/autoprompter/SKILL.md').includes('Memoria viva')],
- ['comando de entrada',()=>read('src/commands/autoprompt.md').includes('autoprompter')],
- ['constitución enlazada',()=>read('core/principios.md').includes('autoprompter')],
- ['enrutador enlazado',()=>read('src/claude-md-encabezado.md').includes('autoprompter')],
- ['desarrollador enlazado',()=>read('core/desarrollador.md').includes('autoprompter')],
- ['hook recordatorio',()=>read('hooks/recordatorio.cjs').includes('AutoPrompter')],
- ['instrucción multiplataforma',()=>read('src/instrucciones-cortas.md').includes('AutoPrompter')]
-];
-let fails=0;for(const [name,fn] of checks){const ok=fn();console.log((ok?'OK ':'FAIL ')+name);if(!ok)fails++;}
-console.log('NOTA: integración documental, NO validación semántica del modelo.');process.exit(fails?1:0);
+const fs=require('fs'),path=require('path'),assert=require('node:assert/strict');
+const rd=p=>fs.readFileSync(path.join(__dirname,'..',p),'utf8');
+const names=['DIJISTE','ENTENDÍ','ESTO COMPROBÉ','ESTO DETECTÉ','ESTO PROPONGO','ESTO AFECTARÁ','ASÍ FUNCIONARÁ','NECESITO QUE DECIDAS','VERIFICARÉ'];
+let pass=0,failed=0;
+function check(title,fn){try{fn();pass++;console.log('OK '+title)}catch(e){failed++;console.error('FAIL '+title+': '+e.message)}}
+for(const p of ['skills/autoprompter/SKILL.md','core/principios.md','src/claude-md-encabezado.md','src/instrucciones-cortas.md','hooks/recordatorio.cjs','docs/auto-prompter-v2.md']){
+check('Nueve encabezados en orden: '+p,()=>{let last=-1;const s=rd(p);for(const x of names){const pos=s.indexOf(x,last+1);assert.ok(pos>last,'Falta o está desordenado '+x);last=pos;}});
+}
+check('Primera respuesta antes de modificar',()=>assert.match(rd('skills/autoprompter/SKILL.md'),/ANTES de editar código o datos/));
+check('Decisiones sin repetir plantilla',()=>assert.match(rd('skills/autoprompter/SKILL.md'),/sin repetir los nueve apartados/i));
+check('Tareas triviales exentas',()=>assert.match(rd('skills/autoprompter/SKILL.md'),/Exenciones y límites/));
+check('Distinguir datos no comprobados',()=>assert.match(rd('skills/autoprompter/SKILL.md'),/No comprobado/));
+check('Comando lee contrato',()=>assert.match(rd('src/commands/autoprompt.md'),/NUEVE encabezados obligatorios/));
+check('Orden de trabajo respeta contrato',()=>assert.match(rd('skills/orden-de-trabajo/SKILL.md'),/NUEVE encabezados visibles/));
+check('Claude Code distribuye contrato',()=>assert.match(rd('dist/proyecto/CLAUDE.md'),/Contrato visible obligatorio/));
+check('Claude.ai distribuye contrato',()=>assert.match(rd('dist/claude-ai/instrucciones-proyecto.md'),/PRIMERA RESPUESTA VISIBLE ANTES DE EDITAR/));
+check('Skill de proyecto generada sincronizada',()=>assert.equal(rd('skills/autoprompter/SKILL.md').trim(),rd('dist/proyecto/.claude/skills/autoprompter/SKILL.md').trim()));
+console.log(pass+'/'+(pass+failed)+' validaciones estáticas (NO demuestran obediencia del modelo).');
+process.exit(failed?1:0);

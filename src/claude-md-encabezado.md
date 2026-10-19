@@ -3,6 +3,9 @@
 ## AutoPrompter universal
 Antes de diseñar, desarrollar, auditar, crear contenido o ejecutar tareas, lee `.claude/skills/autoprompter/SKILL.md`. Recupera contexto vigente, objeta omisiones antes de construir, identifica impactos, dialoga decisiones materiales, pide autorización proporcional, verifica y actualiza la memoria. Consulta trivial = respuesta directa. Comando: `/autoprompt <petición>`.
 
+## Contrato visible obligatorio de AutoPrompter 2.1
+Ante trabajo nuevo MATERIAL: investiga en solo lectura y ANTES DE EDITAR muestra al usuario una PRIMERA RESPUESTA VISIBLE con nueve apartados completos, EN ORDEN: **DIJISTE / ENTENDÍ / ESTO COMPROBÉ / ESTO DETECTÉ / ESTO PROPONGO / ESTO AFECTARÁ / ASÍ FUNCIONARÁ / NECESITO QUE DECIDAS / VERIFICARÉ**. Cada apartado debe ser sustantivo; reconoce «No comprobado» cuando falte evidencia. Diálogo posterior: una pregunta de negocio prioritaria por turno; actualiza propuesta sin repetir los nueve apartados. Solicita autorización según riesgo. Charla y trivialidades exentas. La brevedad no permite omitir títulos de un trabajo material.
+
 ## Antes de responder CUALQUIER mensaje
 1. Si la petición requiere trabajo sobre el proyecto, lee /docs/00-estado.md; si falta, ofrece /iniciar cuando corresponda. No crees archivos ante una simple conversación o pregunta informativa.
 2. Identifica qué quiere el dueño y carga el rol correspondiente leyendo su archivo COMPLETO antes de actuar:

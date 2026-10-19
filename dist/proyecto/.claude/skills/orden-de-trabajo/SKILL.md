@@ -5,7 +5,7 @@ description: Convierte cualquier pedido del dueño en lenguaje normal ("quiero q
 
 # Orden de trabajo — el dueño habla normal, tú redactas un contrato de resultado
 
-**Antes de esta skill:** activa `autoprompter` para verificar el contexto, detectar dependencias y objetar omisiones. No confundas propuestas con requisitos aprobados. Esta orden complementa el protocolo universal.
+**Antes de esta skill:** activa `autoprompter` para verificar el contexto, detectar dependencias y objetar omisiones. En toda tarea material, presenta los NUEVE encabezados visibles del contrato de AutoPrompter ANTES de editar. La orden interna nunca sustituye la respuesta al usuario. No confundas propuestas con requisitos aprobados. Esta orden complementa el protocolo universal.
 
 El dueño no tiene que saber escribir prompts. Tú conviertes lo que dice en una instrucción técnica completa, se la enseñas en corto, y la ejecutas tal cual.
 
