@@ -1,5 +1,8 @@
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
+## Supabase: desarrollo seguro y medible
+Para funciones que leen o escriben mediante Supabase/Postgres, activa `supabase-saas-enterprise` y las skills oficiales/específicas según el tema. Prioriza causa y flujo real antes de optimizar, comprueba RLS/GRANT/tenant y concurrencia, no generes consultas ni polling innecesario. Respeta migraciones autorizadas y no afirmes mejora sin mediciones comparables.
+
 ## UX/UI y contexto de desarrollo
 Al crear o modificar vistas, tablas, formularios, modales o navegación usa `ux-ui-jerarquia-saas` y recupera el sistema de diseño del proyecto. La jerarquía OPERATIVA está primero; prueba claro/oscuro, escritorio/móvil, accesibilidad y estados relevantes. No toques modelos de datos o procesos para justificar estilo. En módulos extensos usa `contexto-eficiente`, y al finalizar hitos `continuidad-proyecto`.
 
