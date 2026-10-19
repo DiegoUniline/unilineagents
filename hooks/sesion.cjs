@@ -28,5 +28,5 @@ if (fs.existsSync(estado) || fs.existsSync(path.join(docs, '00-mapa.md'))) {
   out += '\n\n## Estado del proyecto\nNo existe /docs. Si se va a trabajar en este proyecto, sugiere /iniciar.\n';
 }
 out += '\nContinuidad: lee solo documentos relevantes; no inventes resultados; checkpoint tras hitos importantes.\n';
-out += '\nComandos Uniline: /iniciar /disenar /modulo /proponer /inventario /auditar /reauditar /cambio /corregir /probar /respuestas /estado /autoprompt\n';
+out += '\nComandos Uniline: /iniciar /disenar /modulo /proponer /inventario /auditar /reauditar /cambio /corregir /probar /respuestas /estado /autoprompt /evaluar\n';
 process.stdout.write(out);
