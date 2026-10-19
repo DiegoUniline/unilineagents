@@ -22,5 +22,5 @@ try {
 
 process.stdout.write(`[Recordatorio Uniline]
 ${lineas.join('\n')}
-Reglas: sigue el paso actual y su "Listo cuando" · aplica criterio-uniline y avisa (🧭) · en cada rebanada: qué afecta, qué beneficia, qué pasa si · una pregunta por mensaje con opciones (AskUserQuestion; múltiple = "¿cuáles quitas?") · nada inventado · contradicción = alto · nada destructivo sin CONFIRMO · nada de código antes de APROBADO R<n> · después de responder, actualiza /docs y 00-estado.md y sube a main.
+AutoPrompter: intención → contexto verificado → objeción e impacto ANTES de construir → diálogo de decisiones materiales → resultado esperado → autorización → ejecución → pruebas → memoria con evidencia. No preguntes por trivialidades.\nReglas: sigue el paso actual y su "Listo cuando" · aplica criterio-uniline y avisa (🧭) · en cada rebanada: qué afecta, qué beneficia, qué pasa si · una pregunta por mensaje con opciones (AskUserQuestion; múltiple = "¿cuáles quitas?") · nada inventado · contradicción = alto · nada destructivo sin CONFIRMO · nada de código antes de APROBADO R<n> · tras decisiones confirmadas o cambios verificados actualiza /docs; no hagas push por simples consultas.
 `);
