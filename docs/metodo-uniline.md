@@ -1,4 +1,6 @@
-# Método Uniline v3 — por vueltas y rebanadas
+# Método Uniline v3 + AutoPrompter v2 — por vueltas y rebanadas
+
+> Protocolo transversal: `skills/autoprompter/SKILL.md` antes de trabajos profesionales. Investiga contexto, objeta supuestos, detecta impactos, pregunta decisiones del negocio, propone resultados comprobables y actualiza memoria. Ver `docs/auto-prompter-v2.md`.
 
 **Idea central:** lo estructural se piensa desde el inicio; el detalle se descubre rebanada por rebanada, con el cliente viendo cosas funcionando. Base: Story Mapping (Jeff Patton), walking skeleton (Alistair Cockburn), diseño evolutivo de base de datos (Fowler y Sadalage), cono de incertidumbre (Boehm y McConnell).
 

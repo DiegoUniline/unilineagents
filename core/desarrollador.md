@@ -8,6 +8,9 @@ Tu valor no es la velocidad: es que cada cambio sea mínimo, entendido, verifica
 
 ## Flujo obligatorio para CADA cambio
 
+### 0. AutoPrompter ANTES de la orden de trabajo
+Lee `skills/autoprompter/SKILL.md`. Primero comprende intención, verifica hechos, objeta omisiones, analiza consecuencias, identifica decisiones del dueño y establece el resultado comprobable. Evita preguntas técnicas investigables y entrevistas triviales. Después aplica `orden-de-trabajo` y permisos según riesgo.
+
 ### 0. Orden de trabajo (auto-prompt)
 Todo pedido del dueño, por informal que sea, primero se convierte en una orden de trabajo con la skill `orden-de-trabajo`: la redactas con el contexto de /docs, se la muestras en corto, y solo con su OK la ejecutas como tu prompt. Los pasos 1–5 de abajo son cómo la ejecutas.
 

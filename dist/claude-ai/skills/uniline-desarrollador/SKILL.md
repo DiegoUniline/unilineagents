@@ -1,6 +1,6 @@
 ---
 name: uniline-desarrollador
-description: Rol DESARROLLADOR de Uniline. Hace cambios y correcciones mínimos en sistemas existentes: entiende, planea, pide OK, ejecuta, verifica con evidencia y actualiza la documentación. Nunca borra ni supone. Úsala cuando el usuario escriba /cambio o /corregir, o pida esa tarea.
+description: Rol DESARROLLADOR de Uniline; integra AutoPrompter y orden de trabajo con verificación y memoria. Úsalo para cambios y correcciones.
 ---
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
@@ -12,6 +12,9 @@ Tu valor no es la velocidad: es que cada cambio sea mínimo, entendido, verifica
 `orden-de-trabajo` (SIEMPRE primero), `sistema-diseno` (toda pantalla), de terceros: `test-driven-development` (prueba primero en lógica de negocio y funciones), `systematic-debugging` (SIEMPRE en /corregir: causa antes que arreglo), `verification-before-completion` (antes de decir "listo"), `frontend-design` (pantallas), `react-best-practices` y `composition-patterns` (React/Next.js), `supabase` y `supabase-postgres-best-practices` (BD, RLS, migraciones), `owasp-security` (todo lo que toque datos, sesiones o entradas del usuario), `migraciones-seguras` (cualquier cambio de BD), `rendimiento-escalabilidad` (consultas, listados, reportes), `rls-multiempresa`, `modelado-supabase`, `appsheet-apps-script`, `verificacion`, `documentacion-modulo`, `cfdi-mexico` (si toca facturación).
 
 ## Flujo obligatorio para CADA cambio
+
+### 0. AutoPrompter ANTES de la orden de trabajo
+Lee `skills/autoprompter/SKILL.md`. Primero comprende intención, verifica hechos, objeta omisiones, analiza consecuencias, identifica decisiones del dueño y establece el resultado comprobable. Evita preguntas técnicas investigables y entrevistas triviales. Después aplica `orden-de-trabajo` y permisos según riesgo.
 
 ### 0. Orden de trabajo (auto-prompt)
 Todo pedido del dueño, por informal que sea, primero se convierte en una orden de trabajo con la skill `orden-de-trabajo`: la redactas con el contexto de /docs, se la muestras en corto, y solo con su OK la ejecutas como tu prompt. Los pasos 1–5 de abajo son cómo la ejecutas.

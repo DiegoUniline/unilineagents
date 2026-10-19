@@ -26,5 +26,6 @@ if (fs.existsSync(estado) || fs.existsSync(path.join(docs, '00-mapa.md'))) {
 } else {
   out += '\n\n## Estado del proyecto\nNo existe /docs. Si se va a trabajar en este proyecto, sugiere /iniciar.\n';
 }
-out += '\nComandos Uniline: /iniciar /disenar /modulo /proponer /inventario /auditar /reauditar /cambio /corregir /probar /respuestas /estado\n';
+out += '\nAutoPrompter: lee skills/autoprompter/SKILL.md antes de trabajo, investiga antes de preguntar, objeta antes de construir, dialoga decisiones materiales, comprueba antes de afirmar éxito.\n';
+out += '\nComandos Uniline: /iniciar /disenar /modulo /proponer /inventario /auditar /reauditar /cambio /corregir /probar /respuestas /estado /autoprompt\n';
 process.stdout.write(out);

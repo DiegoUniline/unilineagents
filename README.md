@@ -42,3 +42,14 @@ Ver `docs/metodo-uniline.md` (22 pasos: qué hace el agente, qué te pide y qué
 
 ## Editar los agentes
 Editar `core/`, `skills/`, `src/` → `node scripts/build.cjs` → `node scripts/test-guardian.cjs` → commit + push.
+
+
+## AutoPrompter v2 · «Que la IA no sea una IA»
+
+Skill transversal: `skills/autoprompter/SKILL.md`; comando: `/autoprompt <solicitud>`. Antes de construir comprueba contexto, objeta omisiones, identifica dependencias y dialoga decisiones materiales; después verifica y actualiza memoria. No interroga por tareas triviales.
+
+- Detalle: `docs/auto-prompter-v2.md`.
+- Prueba documental: `node scripts/test-autoprompter.cjs`.
+- Para regenerar distribuciones: `node scripts/build.cjs`.
+- Claude Code plugin: `/plugin marketplace update uniline`.
+- En proyectos con `.claude/` copiada desde `dist/proyecto`, es necesario sincronizar los nuevos archivos, conservando instrucciones locales.
