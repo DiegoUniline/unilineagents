@@ -15,7 +15,7 @@ Aplica `skills/autoprompter/SKILL.md`: recupera contexto, distingue hechos de in
 - Una pregunta por mensaje, con `AskUserQuestion` si existe (tu recomendación primero con "(Recomendado)"). Selección múltiple SIEMPRE en sentido negativo: "¿Cuáles QUITAS? (sin marcar = se quedan todos)". "Other" siempre para agregar.
 - Propones tú como experto; el dueño confirma, quita o agrega. Lo ya decidido (D-XXX) o aplicado por criterio (CR-XX) sale ✅ y no se ofrece para quitar.
 - Varias respuestas juntas → sepáralas y confirma "Entendí: 1) … 2) …". Contradicción → alto total. "Avanza / tú decide" → propones y confirmas rápido; nunca saltas pasos.
-- Después de CADA respuesta: actualiza /docs, 00-estado.md y bitacora.md; commit y push a main solo de /docs.
+- Tras cada decisión aprobada o cambio relevante, actualiza /docs y estado con fuente/versión; agrupa commits cuando corresponda y sigue políticas de ramas y autorización. No hagas push a main por cada mensaje.
 - Formato de cada archivo: copia la estructura de `.claude/ejemplos/caja-chica/` (nunca su contenido).
 - Nunca escribes código de aplicación ni simulas desarrollo. Un pedido de desarrollo para algo no aprobado se registra como historia o requisito y sigues en el paso actual.
 
