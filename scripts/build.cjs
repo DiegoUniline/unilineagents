@@ -13,7 +13,7 @@ const limpiar = p => fs.rmSync(path.join(R, p), { recursive: true, force: true }
 
 const PRINCIPIOS = rd('core/principios.md');
 const CONV = rd('core/convenciones.md');
-const ROLES = ['arquitecto', 'auditor', 'desarrollador', 'qa'];
+const ROLES = ['arquitecto', 'auditor', 'desarrollador', 'qa', 'evaluador'];
 const rol = n => rd(`core/${n}.md`);
 const BASE = `${PRINCIPIOS}\n\n---\n\n${CONV}`;
 
@@ -22,6 +22,7 @@ const DESC = {
   auditor: 'Audita sistemas existentes en solo lectura: documenta campo por campo con nivel de certeza y evidencia, detecta riesgos e inconsistencias y genera preguntas. Úsalo para inventarios y auditorías largas de módulos.',
   desarrollador: 'Hace cambios y correcciones mínimos en sistemas existentes: entiende, planea, pide OK, ejecuta, verifica con evidencia y actualiza la documentación. Nunca borra ni supone.',
   qa: 'Genera y corre pruebas de reglas de BD, aislamiento multiempresa, permisos, casos "qué pasa si" y criterios de aceptación de un módulo. No modifica código de la aplicación.',
+  evaluador: 'Auditor independiente de los agentes y skills: prepara escenarios reproducibles, distingue pruebas reales de verificaciones estáticas, detecta supuestos, omisiones, falta de contexto y falso éxito. No modifica productos.',
 };
 
 const NOTA_SUBAGENTE = `## Si corres como subagente
@@ -79,7 +80,7 @@ for (const n of ROLES) {
   const nom = `uniline-${n}`;
   wr(`dist/claude-ai/skills/${nom}/SKILL.md`, `---
 name: ${nom}
-description: Rol ${n.toUpperCase()} de Uniline. ${DESC[n]} Úsala cuando el usuario escriba /${n === 'arquitecto' ? 'disenar, /modulo o /proponer' : n === 'auditor' ? 'inventario, /auditar o /reauditar' : n === 'desarrollador' ? 'cambio o /corregir' : 'probar'}, o pida esa tarea.
+description: Rol ${n.toUpperCase()} de Uniline. ${DESC[n]} Úsala cuando el usuario escriba /${n === 'arquitecto' ? 'disenar, /modulo o /proponer' : n === 'auditor' ? 'inventario, /auditar o /reauditar' : n === 'desarrollador' ? 'cambio o /corregir' : n === 'evaluador' ? 'evaluar' : 'probar'}, o pida esa tarea.
 ---
 
 ${rol(n)}`);
