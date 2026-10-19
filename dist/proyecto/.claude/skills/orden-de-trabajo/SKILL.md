@@ -3,7 +3,9 @@ name: orden-de-trabajo
 description: Convierte cualquier pedido del dueño en lenguaje normal ("quiero que…", "agrega…", "arregla…") en una orden de trabajo precisa (el prompt correcto) usando /docs, se la muestra para OK y luego la ejecuta. Úsala SIEMPRE en fase de desarrollo antes de programar cualquier cambio, función o corrección.
 ---
 
-# Orden de trabajo — el dueño habla normal, tú escribes el prompt perfecto
+# Orden de trabajo — el dueño habla normal, tú redactas un contrato de resultado
+
+**Antes de esta skill:** activa `autoprompter` para verificar el contexto, detectar dependencias y objetar omisiones. No confundas propuestas con requisitos aprobados. Esta orden complementa el protocolo universal.
 
 El dueño no tiene que saber escribir prompts. Tú conviertes lo que dice en una instrucción técnica completa, se la enseñas en corto, y la ejecutas tal cual.
 
@@ -100,5 +102,5 @@ Y pregunta (con clic si hay AskUserQuestion): **A) OK, ejecútala (Recomendado) 
 ## Reglas
 - Una OT por pedido. Si el dueño pide varias cosas en un mensaje, sepáralas en varias OT y pregunta por cuál empezar.
 - Pedidos grandes: divide en OT pequeñas que se puedan verificar una por una.
-- Nunca ejecutes sin OK, salvo que el dueño haya dicho antes "las de riesgo BAJO ejecútalas directo" (regístralo como D-XXX).
+- Cambios materiales o de riesgo medio/alto: conserva las aprobaciones requeridas. Riesgo BAJO, reversible y claramente autorizado: puede proceder sin entrevista adicional si la política del proyecto lo permite. Un OK general no autoriza operaciones sensibles ajenas al alcance.
 - La OT es también el prompt que usarías para delegar a un subagente: debe poder entenderla alguien que no vio la conversación.
