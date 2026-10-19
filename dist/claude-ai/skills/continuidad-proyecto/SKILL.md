@@ -1,0 +1,29 @@
+---
+name: continuidad-proyecto
+description: Conservar y recuperar decisiones, estado, dependencias y evidencias entre sesiones o antes de compactar. Usar al retomar un trabajo interrumpido, después de un hito y cuando un cambio vuelve obsoleta una relación.
+---
+
+# Continuidad y memoria viva — Uniline
+
+**El historial de chat no sustituye una memoria persistente verificable.**
+
+## Tres capas
+**Permanente:** visión, reglas aprobadas, identidad corporativa, seguridad y relaciones críticas en /docs. Cambia poco.
+**Trabajo actual:** /docs/00-estado.md, tarea, rama/versión, autorización, preguntas y siguiente paso. Breve y actual.
+**Evidencia bajo demanda:** módulos, código, tablas, commits, pruebas, capturas y fuentes consultables con procedencia.
+
+## Retomar una sesión
+- Lee /docs/00-estado.md y decisiones relevantes D-XXX; verifica la rama/versión y si el código coincide con la documentación.
+- Distingue **requisito aprobado** vs **implementación observada**, **propuesta** vs **hecho** y **commit** vs **despliegue**.
+- No repitas preguntas resueltas y todavía vigentes.
+
+## Checkpoint antes de compactar o cerrar
+Guardar: objetivo, fase, versión, reglas aprobadas, cambios observados, dependencias, pruebas realizadas, pruebas faltantes, riesgos, pendientes, una siguiente acción exacta. Registrar cuándo y de qué fuente viene el conocimiento.
+No guardar conclusiones no verificadas como hechos. No generar commits para una mera charla. Coordinar escrituras entre agentes.
+
+## Invalidación selectiva
+Al modificar un campo o flujo, ubica la memoria que depende de él, marca relaciones pertinentes como «requiere revalidación» y conserva historial. No concluir que todo el sistema cambió.
+El nuevo agente debe poder contestar: qué estábamos haciendo, qué sabemos, qué se aprobó, qué se probó, qué sigue.
+
+## Herramienta externa opcional
+Beads (https://github.com/gastownhall/beads) para tickets y dependencias multiagente. No instalar por defecto ni confundir tickets con reglas de negocio.

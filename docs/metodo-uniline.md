@@ -1,5 +1,8 @@
 # Método Uniline v3 + AutoPrompter v2 — por vueltas y rebanadas
 
+## AutoPrompter v3 y UX/UI corporativo
+La ejecución conversa en tres niveles (trivial, normal y sensible) y deja el checklist de nueve preguntas como análisis interno. Carga habilidades según la tarea: `ux-ui-jerarquia-saas` en toda pantalla, `sistema-diseno` para decisiones visuales del producto; `contexto-eficiente` en investigación extensa, `continuidad-proyecto` para checkpoints y `evaluacion-agente` para comprobar conducta. El agente nunca debe cargar todo el catálogo de skills por inercia ni presentar suposiciones como hechos.
+
 > Protocolo transversal: `skills/autoprompter/SKILL.md` antes de trabajos profesionales. Investiga contexto, objeta supuestos, detecta impactos, pregunta decisiones del negocio, propone resultados comprobables y actualiza memoria. Ver `docs/auto-prompter-v2.md`.
 
 **Idea central:** lo estructural se piensa desde el inicio; el detalle se descubre rebanada por rebanada, con el cliente viendo cosas funcionando. Base: Story Mapping (Jeff Patton), walking skeleton (Alistair Cockburn), diseño evolutivo de base de datos (Fowler y Sadalage), cono de incertidumbre (Boehm y McConnell).

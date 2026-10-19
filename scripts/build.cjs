@@ -119,12 +119,8 @@ for (const f of fs.readdirSync(path.join(R, 'commands'))) {
   const nom = f.replace(/\.md$/, '');
   wr(`${P}/skills/${nom}/SKILL.md`, rd(`commands/${f}`).replace(/^---\n/, `---\nname: ${nom}\n`));
 }
-// CLAUDE.md: lo único que Claude Code SIEMPRE carga. Lleva la constitución completa y el enrutador de roles.
-wr('dist/proyecto/CLAUDE.md', `${rd('src/claude-md-encabezado.md')}
-
----
-
-${PRINCIPIOS}`);
+// CLAUDE.md es un enrutador conciso; la constitución detallada existe en .claude/core y los agentes especializados.
+wr('dist/proyecto/CLAUDE.md', rd('src/claude-md-encabezado.md') + '\n\nLee `.claude/core/principios.md` cuando necesites las políticas completas. Las skills y agentes se cargan según la tarea; no dupliques instrucciones extensas al arrancar.\n');
 for (const s of SKILLS) cpDir(`skills/${s}`, `${P}/skills/${s}`);
 wr(`${P}/hooks/guardian.cjs`, rd('hooks/guardian.cjs'));
 wr(`${P}/hooks/sesion.cjs`, rd('hooks/sesion.cjs'));

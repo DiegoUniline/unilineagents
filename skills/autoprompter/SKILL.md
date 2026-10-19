@@ -7,34 +7,22 @@ description: Protocolo transversal. Interpreta cualquier petición, recupera con
 
 **Regla de oro:** antes de modificar, comprender; antes de decidir, verificar; antes de terminar, demostrar; después de cambiar, actualizar conocimiento con evidencia. Una conversación informativa no autoriza operaciones.
 
-## Contrato visible obligatorio · AutoPrompter 2.1
+## Política AutoPrompter v3: criterio completo, conversación natural
 
-**Obligatorio, no sugerido.** Para una solicitud NUEVA de creación, modificación, corrección, optimización o rediseño con consecuencias MATERIALES, primero investiga en modo solo lectura. **ANTES de editar código o datos, desplegar o publicar, tu primera respuesta visible al usuario DEBE mostrar los nueve encabezados siguientes, completos y EN ESTE ORDEN:**
+Antes de cambios relevantes investiga contexto, evidencia, dependencias, objeciones, decisiones de negocio, resultado y verificación. **No muestres automáticamente nueve encabezados al usuario**; son un control INTERNO de calidad, no un formulario.
 
-1. **DIJISTE:** reproduce fielmente el pedido, sin agregar requisitos inventados.
-2. **ENTENDÍ:** explica objetivo y cualquier interpretación no confirmada.
-3. **ESTO COMPROBÉ:** muestra hechos con evidencia (archivo:línea, decisión, fuente). Si faltó acceso o verificación, di «No comprobado».
-4. **ESTO DETECTÉ:** identifica omisiones, contradicciones, riesgos y excepciones; separa hechos de hipótesis.
-5. **ESTO PROPONGO:** cambios concretos y justificación, sin presentarlos como realizados.
-6. **ESTO AFECTARÁ:** módulos, datos, campos, procesos y dependencias relevantes; distingue relaciones confirmadas de posibles.
-7. **ASÍ FUNCIONARÁ:** resultado esperado y comportamiento ante escenarios importantes, condicionado a decisiones abiertas.
-8. **NECESITO QUE DECIDAS:** una pregunta material prioritaria con opciones y recomendación, o «Ninguna decisión pendiente» si corresponde.
-9. **VERIFICARÉ:** criterios de aceptación, pruebas de funcionamiento y regresiones relacionadas.
+**Tres niveles:**
+- **Trivial:** consulta o cambio pequeño, reversible y plenamente definido → responde/actúa directamente.
+- **Normal:** investigación y propuesta en lenguaje natural, breves; explica qué encontraste, qué sugieres y la pregunta material si existe. Sin listas ceremoniales de nueve apartados.
+- **Complejo o sensible:** antes de editar, presenta una explicación estructurada proporcional con hechos comprobados, riesgos, impacto, propuesta, resultado esperado, pruebas y autorización necesaria. Encabezados opcionales cuando ayuden.
 
-**No omitas encabezados ni comprimas toda la estructura a dos líneas.** Sé breve DENTRO de cada sección. Si no identificaste impactos adicionales, dilo sin inventarlos. Un documento interno no sustituye la presentación visible. No empieces a editar antes de publicar la propuesta en tareas materiales.
+**Lista de comprobación interna:** qué pidió, qué entendí, qué comprobé, qué detecté, qué propongo, qué afecta, cómo funcionará, qué debe decidir, qué verificaré. «No comprobado» cuando falte evidencia. No finjas fuentes ni afirmes que un archivo no existe por una búsqueda limitada.
 
-### Diálogo por estados, sin repetir todo
-- **EXPLORAR:** lectura e investigación, después primera respuesta de nueve apartados.
-- **DECISIÓN PENDIENTE:** espera la respuesta a la única decisión prioritaria; registra lo acordado y plantea la siguiente decisión importante si hace falta, SIN repetir los nueve apartados en cada mensaje.
-- **PROPUESTA DEFINITIVA:** una vez resueltas decisiones, presenta el plan actualizado y solicita autorización solo cuando lo requieran las reglas de riesgo.
-- **EJECUTAR:** realiza exclusivamente los cambios autorizados.
-- **VERIFICAR Y ACTUALIZAR:** prueba, informa «Qué hice / Qué comprobé / Qué quedó pendiente» y actualiza la memoria con evidencia.
-Una corrección de la intención o una solicitud nueva material regresa a EXPLORAR. Una simple respuesta a una pregunta continúa el estado actual.
+**Diálogo:** preguntas relevantes una por turno, ajustadas según las respuestas. No repitas toda la propuesta después de cada contestación. Una vez resueltas las decisiones, confirma según riesgo, ejecuta y demuestra.
 
-### Exenciones y límites
-Charla, preguntas informativas, traducción, ortografía o tareas triviales, reversibles y plenamente especificadas pueden resolverse directamente. «Mejora el sistema», «corrige el flujo» y cambios con efectos materiales NO son triviales. No omitas el formato por «sé breve».
+**Skills relacionadas:** tareas con interfaces SaaS → `ux-ui-jerarquia-saas` + Design System aprobado; investigación extensa → `contexto-eficiente`; cierre/compactación → `continuidad-proyecto`; cambio de instrucciones → `evaluacion-agente`.
 
-Esta es una política de instrucciones y salida, no una garantía técnica: los hooks de recordatorio no certifican lo que el modelo mostró ni sustituyen controles de permisos y pruebas.
+**Seguridad:** la naturalidad no elimina aprobaciones ni controles técnicos. Ningún hook puede garantizar por sí mismo obediencia del modelo.
 
 ## AP-01 · Interpretar la intención
 Distingue consulta, exploración, diseño, propuesta, creación, corrección y ejecución. Extrae el proyecto, objetivo, resultado observable, restricciones y nivel de acción autorizado. No conviertas una frase informal en requisitos inventados.
@@ -71,19 +59,8 @@ Una pregunta prioritaria por turno cuando sea indispensable decidir; la siguient
 - "Tú decide" permite propuestas expertas; no equivale a autorizar acciones sensibles.
 - Si el contexto es suficiente y la tarea trivial, responde o actúa sin preguntas.
 
-## AP-07 · Presentación anterior a ejecución material
-Cumple la PRIMERA RESPUESTA VISIBLE con los NUEVE encabezados en orden antes de editar; las preguntas posteriores siguen el diálogo sin repetir toda la estructura.
-Comunica en lenguaje breve:
-**Entendí:** objetivo.
-**Comprobé:** hechos con referencia o lo no verificado.
-**Propongo hacer:** pasos y alcance.
-**Impactará:** procesos/directos e indirectos relevantes.
-**Así funcionará:** resultado esperado, condicionado a decisiones pendientes.
-**No tocaré:** límites.
-**Verificaré:** criterios y pruebas.
-**Falta decidir:** una pregunta material si existe.
-**Riesgo:** bajo/medio/alto y razón.
-Solo comprime u omite apartados en las tareas triviales EXENTAS; en trabajos materiales conserva nueve encabezados visibles. No vendas un escenario condicionado como resultado seguro.
+## AP-07 · Propuesta natural y proporcional
+Aplica los tres niveles de comunicación anteriores. Después de investigar, explica al usuario solo lo útil: observaciones verificadas, consecuencias, propuesta, resultado esperado, decisión pendiente y pruebas. Solicita autorización cuando corresponda. Nunca uses nueve títulos obligatorios para una tarea normal. Las tareas sensibles sí necesitan una propuesta suficientemente explícita antes de editar.
 
 ## AP-08 · Autorizar y ordenar
 Usa políticas vigentes: bajo riesgo reversible y autorizado → proceder; decisión material nueva → confirmar; irreversible/sensible → autorización explícita y controles técnicos. La orden autosuficiente contiene petición original, contexto, fuentes, D-XXX, alcance/no alcance, impactos, criterios, pruebas, versión y permisos. En software reutiliza 'orden-de-trabajo'; no la sustituyas.
