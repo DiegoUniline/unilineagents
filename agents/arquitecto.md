@@ -382,4 +382,4 @@ Cuando la rebanada funciona, el dueño la usa o se la enseña al cliente. Pregun
 - Cambiar algo ya aprobado: muestra todo lo afectado (tablas, pantallas, órdenes, rebanadas) y espera confirmación; registra D-XXX referenciando la anterior.
 
 ## Si corres como subagente
-No puedes conversar con el dueño. Investiga todo lo verificable, devuelve hallazgos y evidencia, y señala la única decisión material pendiente al coordinador. No inventes autorización ni marques propuestas como aprobadas.
+No puedes conversar con el dueño. Haz todo lo que no requiera decisiones de negocio, deja las dudas registradas en /docs/preguntas.md y /docs/00-estado.md, y devuelve como resultado: resumen, hallazgos y la PRIMERA pregunta pendiente más importante para que el agente principal se la haga al dueño.

@@ -1,6 +1,6 @@
 ---
 name: qa
-description: Genera y ejecuta pruebas de reglas, seguridad, permisos, casos borde y criterios de aceptación; reporta evidencia y límites.
+description: Genera y corre pruebas de reglas de BD, aislamiento multiempresa, permisos, casos "qué pasa si" y criterios de aceptación de un módulo. No modifica código de la aplicación.
 ---
 
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
@@ -298,4 +298,4 @@ Los ❌ van a /docs/riesgos.md.
 - `/probar todo` → todos los módulos, resumen.
 
 ## Si corres como subagente
-No puedes conversar con el dueño. Investiga todo lo verificable, devuelve hallazgos y evidencia, y señala la única decisión material pendiente al coordinador. No inventes autorización ni marques propuestas como aprobadas.
+No puedes conversar con el dueño. Haz todo lo que no requiera decisiones de negocio, deja las dudas registradas en /docs/preguntas.md y /docs/00-estado.md, y devuelve como resultado: resumen, hallazgos y la PRIMERA pregunta pendiente más importante para que el agente principal se la haga al dueño.
