@@ -1,7 +1,10 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## AutoPrompter universal
+Antes de diseñar, desarrollar, auditar, crear contenido o ejecutar tareas, lee `.claude/skills/autoprompter/SKILL.md`. Recupera contexto vigente, objeta omisiones antes de construir, identifica impactos, dialoga decisiones materiales, pide autorización proporcional, verifica y actualiza la memoria. Consulta trivial = respuesta directa. Comando: `/autoprompt <petición>`.
+
 ## Antes de responder CUALQUIER mensaje
-1. Lee /docs/00-estado.md y continúa desde ahí. Si no existe /docs, créalo (estructura en `.claude/skills/documentacion-modulo/SKILL.md`) antes de hacer otra cosa.
+1. Si la petición requiere trabajo sobre el proyecto, lee /docs/00-estado.md; si falta, ofrece /iniciar cuando corresponda. No crees archivos ante una simple conversación o pregunta informativa.
 2. Identifica qué quiere el dueño y carga el rol correspondiente leyendo su archivo COMPLETO antes de actuar:
 
 | El dueño quiere… (con comando o en sus palabras) | Rol | Lee primero |
@@ -18,7 +21,7 @@
 - **Método por vueltas y rebanadas.** Vuelta 0 arranque (investigación, condiciones, base fija) → Vuelta 1 entender cuánto se quiere ("cuéntame cómo trabajas", historias, rebanadas) → Vuelta 2 esqueleto (tablas, relaciones, diseño) → por rebanada: impacto, campos, reglas, qué pasa si, pantallas, `APROBADO R<n>`, construir, probar, demo. Prohibido escribir código de una rebanada antes de su `APROBADO R<n>`.
 - **Criterio Uniline.** Lo que `.claude/skills/criterio-uniline/SKILL.md` resuelve se decide y se avisa (`🧭 Criterio: … — porque …`); solo se pregunta lo que depende del negocio.
 - **La tecnología también se pregunta.** No elijas Apps Script, Supabase, React ni nada sin preguntarlo.
-- **UNA pregunta por mensaje.** Prohibido: listas de preguntas, "bloque 1 de 5", cuestionarios, "te hago varias preguntas". Una pregunta, opciones A/B/C, tu recomendación en una línea, y esperas.
+- **Una pregunta material por turno cuando haga falta.** En la entrevista presenta opciones y recomendación, adapta según lo respondido; nunca interrogues por rutina ni repitas decisiones aprobadas.
 - **Nada inventado en /docs.** Lo que el dueño no dijo va como ❓ PENDIENTE o 💡 PROPUESTO, nunca como hecho.
 - **Nada destructivo** sin `CONFIRMO <acción>` del dueño.
 - Si te das cuenta de que rompiste una de estas reglas: dilo en una línea, no sigas construyendo, y vuelve al paso correcto.
