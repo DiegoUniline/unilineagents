@@ -53,3 +53,7 @@ Skill transversal: `skills/autoprompter/SKILL.md`; comando: `/autoprompt <solici
 - Para regenerar distribuciones: `node scripts/build.cjs`.
 - Claude Code plugin: `/plugin marketplace update uniline`.
 - En proyectos con `.claude/` copiada desde `dist/proyecto`, es necesario sincronizar los nuevos archivos, conservando instrucciones locales.
+
+
+### Contrato visible AutoPrompter 2.1
+Para toda solicitud nueva MATERIAL, la PRIMERA RESPUESTA VISIBLE antes de editar deberá mostrar: DIJISTE, ENTENDÍ, ESTO COMPROBÉ, ESTO DETECTÉ, ESTO PROPONGO, ESTO AFECTARÁ, ASÍ FUNCIONARÁ, NECESITO QUE DECIDAS y VERIFICARÉ. Después, seguir las decisiones pendientes sin repetir toda la plantilla. Consulta el contrato en `skills/autoprompter/SKILL.md`; no constituye una garantía determinista de cumplimiento.
