@@ -5,6 +5,10 @@ description: Define y aplica el sistema de diseño de un software (colores, tipo
 
 # Sistema de diseño — todo homologado
 
+## Relación con la skill maestra UX/UI
+Esta skill es la **fuente del sistema de diseño aprobado de cada proyecto** y define sus tokens/componentes. `ux-ui-jerarquia-saas` es la skill transversal que aplica jerarquía visual y operativa, patrones de uso, accesibilidad WCAG 2.2 y checklist de calidad en cada vista. Úsalas juntas cuando se trabaje en una interfaz: **no dupliques documentos ni anules una identidad previamente validada**. Componentes y estilos se consultan por contexto, no se cargan todas las skills a la vez.
+
+
 Se define UNA vez por sistema, antes del primer diseño de pantallas, y se guarda en /docs/sistema-diseno.md. Después es ley: ninguna pantalla inventa colores, tamaños ni comportamientos propios.
 
 ## Cómo se define (una pregunta por mensaje, con opciones para clic)
