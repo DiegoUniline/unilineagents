@@ -24,3 +24,20 @@ Los hooks recuerdan reglas, no garantizan obediencia. El control de permisos sig
 ## Referencias
 - https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview
 - https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+
+## AutoPrompter v3.1 — primera propuesta de seis puntos
+
+En cambios IMPORTANTES —por ejemplo funciones no triviales, modificar un flujo, corregir una regla, dependencias operativas, dinero, inventario, permisos, datos, arquitectura o UX con efectos reales— el agente **investiga en modo lectura** y antes de modificar presenta una propuesta breve con estos seis títulos:
+
+1. **ENTENDÍ:** intención y alcance.
+2. **COMPROBÉ:** qué existe realmente; referencias de archivos, decisiones, tablas o pruebas. Si no pudo comprobarlo: «No comprobado».
+3. **PROPONGO:** pasos concretos, sin declararlos ejecutados.
+4. **TAMBIÉN AFECTARÁ:** módulos/datos/reglas relacionadas, distinguiendo verificadas de posibles.
+5. **RESULTADO:** comportamiento posterior, excepciones y cómo lo probará.
+6. **NECESITO QUE DECIDAS:** una pregunta de negocio con alternativas/recomendación si está pendiente; si no, «Ninguna decisión pendiente» y la autorización según riesgo.
+
+**No son nueve apartados.** La comprobación más extensa se mantiene internamente. Cada sección tiene contenido breve y útil.
+
+**Continuidad:** si el usuario responde, actualiza las decisiones y continúa con la siguiente pregunta pertinente sin repetir todos los títulos. Una solicitud trivial o una pregunta informativa no muestra esta plantilla. Al terminar el trabajo, entrega únicamente lo hecho, pruebas y pendientes.
+
+**Límites técnicos:** las instrucciones y hooks recuerdan el contrato, pero no comprueban por sí mismos que Claude lo haya mostrado. Los tests de distribución son estáticos; ensayos reales y controles técnicos siguen siendo necesarios. Un cambio sensible continúa requiriendo aprobación específica.

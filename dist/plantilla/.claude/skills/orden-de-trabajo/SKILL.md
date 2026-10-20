@@ -7,7 +7,7 @@ description: Convierte cualquier pedido del dueño en lenguaje normal ("quiero q
 
 Para una tarea Supabase usa `supabase-saas-enterprise` y los conocimientos oficiales pertinentes antes de proponer cambios. La orden debe contemplar qué tenant/rol, qué operación, consistencia, concurrencia, RLS, caché/Realtime y pruebas relevantes; no es obligatorio detallar temas que no intervienen.
 
-**Antes de esta skill:** activa `autoprompter` para verificar el contexto, detectar dependencias y objetar omisiones. Antes de tareas materiales, dialoga naturalmente según los tres niveles del AutoPrompter v3: análisis proporcional, objeciones, decisiones y evidencia. No exijas nueve encabezados visibles. La orden interna no sustituye la conversación. No confundas propuestas con requisitos aprobados. Esta orden complementa el protocolo universal.
+**Antes de esta skill:** activa `autoprompter` para verificar el contexto, detectar dependencias y objetar omisiones. Ante cambio IMPORTANTE, investiga en solo lectura y antes de editar muestra seis apartados visibles de AutoPrompter v3.1. No nueve. Tras respuestas continúa el diálogo sin repetir la plantilla. La orden interna no sustituye la conversación. No confundas propuestas con requisitos aprobados. Esta orden complementa el protocolo universal.
 
 El dueño no tiene que saber escribir prompts. Tú conviertes lo que dice en una instrucción técnica completa, se la enseñas en corto, y la ejecutas tal cual.
 
