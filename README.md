@@ -77,3 +77,14 @@ La skill `skills/supabase-saas-enterprise/SKILL.md` especializa a los agentes en
 El rol `evaluador` y el comando `/evaluar <agente|skill|módulo>` auditan resultados reales, omisiones, suposiciones, continuidad, eficiencia y pruebas. Siempre distinguen tests estáticos, simulaciones y evaluaciones ejecutadas con el modelo.
 
 Actualización de paquetes: `node scripts/build.cjs`; pruebas `node scripts/test-supabase-enterprise.cjs` y `node scripts/test-guardian.cjs`. No modifica esquemas, datos ni aplicaciones de clientes.
+
+## Mobile UX Architect y objetivo de calidad 9.5/10
+
+- `mobile-ux-architect`: experiencia táctil empresarial, textos completos, listas compactas, teclado, safe area, responsive, claros/oscuros y accesibilidad, sin afectar el escritorio ni reglas de negocio.
+- `evaluacion-ux-movil`: rúbrica 100 puntos por pantalla, con evidencia/cobertura y bloqueos; jamás puntuar 100 por defecto.
+- `/calidad`: auditor independiente para comprobar las áreas de Uniline Agents y preparar un expediente de pruebas.
+- `continuidad-proyecto/references/checkpoint-esquema.md`: memoria versionada de reglas y dependencias.
+- `node scripts/quality-gate.cjs reporte.json`: validador de evidencia y cobertura; no evalúa por sí solo Claude ni autentica las fuentes externas.
+- `node scripts/test-quality-gate.cjs`: pruebas unitarias sobre expedientes SIMULADOS.
+
+El objetivo de 95/100 por competencia **requiere evaluaciones reales** con resultados observables; las pruebas de CI sólo validan integración y reglas técnicas. Ver `docs/calidad-95.md`.
