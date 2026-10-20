@@ -88,3 +88,6 @@ Actualización de paquetes: `node scripts/build.cjs`; pruebas `node scripts/test
 - `node scripts/test-quality-gate.cjs`: pruebas unitarias sobre expedientes SIMULADOS.
 
 El objetivo de 95/100 por competencia **requiere evaluaciones reales** con resultados observables; las pruebas de CI sólo validan integración y reglas técnicas. Ver `docs/calidad-95.md`.
+
+### AutoPrompter v3.1: seis apartados visibles
+En cambios IMPORTANTES, después de investigar y antes de editar, Claude debe mostrar **ENTENDÍ / COMPROBÉ / PROPONGO / TAMBIÉN AFECTARÁ / RESULTADO / NECESITO QUE DECIDAS**. Breve en cada sección y sin los nueve encabezados. Preguntas posteriores no repiten toda la estructura; tareas triviales exentas. Ver `docs/auto-prompter-v2.md`. Este contrato es instruccional, no una garantía determinista de ejecución.
