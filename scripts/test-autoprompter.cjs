@@ -13,12 +13,19 @@ for(const slug of ['autoprompter','ux-ui-jerarquia-saas','mobile-ux-architect','
  test('Skill distribuida a proyecto: '+slug,()=>assert.equal(read('dist/proyecto/.claude/skills/'+slug+'/SKILL.md').trim(),read('skills/'+slug+'/SKILL.md').trim()));
  test('Skill disponible en Claude.ai: '+slug,()=>assert.equal(read('dist/claude-ai/skills/'+slug+'/SKILL.md').trim(),read('skills/'+slug+'/SKILL.md').trim()));
 }
-test('AutoPrompter v3 natural',()=>assert.match(read('skills/autoprompter/SKILL.md'),/conversación natural/i));
-test('Excepciones triviales',()=>assert.match(read('skills/autoprompter/SKILL.md'),/Trivial/));
-test('Análisis interno en vez de nueve títulos',()=>assert.match(read('skills/autoprompter/SKILL.md'),/control INTERNO/i));
-test('Enrutador actualizado',()=>assert.match(read('dist/proyecto/CLAUDE.md'),/AutoPrompter v3/));
-test('Enrutador no duplica constitución completa',()=>assert.ok(read('dist/proyecto/CLAUDE.md').length < read('core/principios.md').length, 'CLAUDE.md demasiado largo'));
-test('Claude.ai usa conversación natural',()=>assert.match(read('dist/claude-ai/instrucciones-proyecto.md'),/conversa (naturalmente|sin formularios)|sin nueve apartados fijos/i));
+const labels=['ENTENDÍ','COMPROBÉ','PROPONGO','TAMBIÉN AFECTARÁ','RESULTADO','NECESITO QUE DECIDAS'];
+for(const p of ['skills/autoprompter/SKILL.md','core/principios.md','src/claude-md-encabezado.md','src/instrucciones-cortas.md','hooks/recordatorio.cjs']){
+ test('Contrato visible de seis puntos en '+p,()=>{const s=read(p);let last=-1;for(const label of labels){const at=s.indexOf(label,last+1);assert.ok(at>last,'falta o fuera de orden '+label);last=at;}});
+}
+test('Seis puntos antes de editar',()=>assert.match(read('skills/autoprompter/SKILL.md'),/ANTES DE EDITAR|antes de EDITAR/i));
+test('Trivialidades exentas',()=>assert.match(read('skills/autoprompter/SKILL.md'),/trivialidad|corrección menor/i));
+test('No repetir plantilla por turno',()=>assert.match(read('skills/autoprompter/SKILL.md'),/no repitas los seis apartados/i));
+test('Hechos con evidencia',()=>assert.match(read('skills/autoprompter/SKILL.md'),/No comprobado/));
+test('Análisis de nueve puntos internos',()=>assert.match(read('skills/autoprompter/SKILL.md'),/Los nueve puntos de análisis son INTERNOS/i));
+test('Enrutador generado actualizado',()=>assert.match(read('dist/proyecto/CLAUDE.md'),/AutoPrompter v3\.1/));
+test('Enrutador no duplica constitución',()=>assert.ok(read('dist/proyecto/CLAUDE.md').length<read('core/principios.md').length));
+test('Claude.ai recibe contrato visible',()=>assert.match(read('dist/claude-ai/instrucciones-proyecto.md'),/ENTENDÍ \/ COMPROBÉ.*TAMBIÉN AFECTARÁ.*RESULTADO.*NECESITO QUE DECIDAS/));
+test('Comando de Autoprompt actualizado',()=>assert.match(read('commands/autoprompt.md'),/TAMBIÉN AFECTARÁ/));
 test('Continuidad usa checkpoint',()=>assert.match(read('skills/continuidad-proyecto/SKILL.md'),/Checkpoint/));
 test('UX referencia sistema aprobado',()=>assert.match(read('skills/ux-ui-jerarquia-saas/SKILL.md'),/sistema-diseno/));
 test('UX accesibilidad explícita',()=>assert.match(read('skills/ux-ui-jerarquia-saas/SKILL.md'),/WCAG 2\.2/));
