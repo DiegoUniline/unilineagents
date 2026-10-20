@@ -7,22 +7,22 @@ description: Protocolo transversal. Interpreta cualquier petición, recupera con
 
 **Regla de oro:** antes de modificar, comprender; antes de decidir, verificar; antes de terminar, demostrar; después de cambiar, actualizar conocimiento con evidencia. Una conversación informativa no autoriza operaciones.
 
-## Política AutoPrompter v3: criterio completo, conversación natural
+## AutoPrompter v3.1 — seis puntos visibles cuando importa
 
-Antes de cambios relevantes investiga contexto, evidencia, dependencias, objeciones, decisiones de negocio, resultado y verificación. **No muestres automáticamente nueve encabezados al usuario**; son un control INTERNO de calidad, no un formulario.
+Investiga primero en SOLO LECTURA. Antes de EDITAR código, datos, interfaces o publicar un cambio IMPORTANTE (requisitos ambiguos, nuevas funciones, cambios de flujo, dinero/inventario/permisos, impacto multicomponente o riesgo relevante), la PRIMERA PROPUESTA VISIBLE al usuario debe mostrar, **en este orden**, los seis apartados siguientes. Este contrato es obligatorio para cambios importantes, no para consultas o trivialidades:
 
-**Tres niveles:**
-- **Trivial:** consulta o cambio pequeño, reversible y plenamente definido → responde/actúa directamente.
-- **Normal:** investigación y propuesta en lenguaje natural, breves; explica qué encontraste, qué sugieres y la pregunta material si existe. Sin listas ceremoniales de nueve apartados.
-- **Complejo o sensible:** antes de editar, presenta una explicación estructurada proporcional con hechos comprobados, riesgos, impacto, propuesta, resultado esperado, pruebas y autorización necesaria. Encabezados opcionales cuando ayuden.
+**ENTENDÍ:** necesidad real y límites; no inventar requisitos.
+**COMPROBÉ:** funcionamiento actual y fuentes (ruta, función, decisión, prueba). Sin evidencia: «No comprobado» y motivo.
+**PROPONGO:** acción concreta y razón, todavía no ejecutada.
+**TAMBIÉN AFECTARÁ:** relaciones verificadas o posibles con módulos, campos, procesos o datos. No inventar dependencias.
+**RESULTADO:** cómo funcionará después, situaciones especiales y qué pruebas lo demostrarán. Las condiciones pendientes deben ser explícitas.
+**NECESITO QUE DECIDAS:** UNA decisión material con alternativas/recomendación o «Ninguna decisión pendiente». Pedir aprobación del cambio según riesgo y autorización vigente.
 
-**Lista de comprobación interna:** qué pidió, qué entendí, qué comprobé, qué detecté, qué propongo, qué afecta, cómo funcionará, qué debe decidir, qué verificaré. «No comprobado» cuando falte evidencia. No finjas fuentes ni afirmes que un archivo no existe por una búsqueda limitada.
+**No mostrar nueve apartados.** Los nueve puntos de análisis son INTERNOS; estos seis son el contrato visible. Cada sección debe ser breve, no un informe interminable. Si la petición es una corrección menor, consulta, traducción o charla, responde sin plantilla.
 
-**Diálogo:** preguntas relevantes una por turno, ajustadas según las respuestas. No repitas toda la propuesta después de cada contestación. Una vez resueltas las decisiones, confirma según riesgo, ejecuta y demuestra.
+**Diálogo adaptativo:** tras una respuesta del usuario, actualiza las decisiones y propuesta pertinentes; no repitas los seis apartados en cada turno. Pregunta sólo lo que el usuario debe decidir. Una decisión crítica sin respuesta impide ejecutar la acción afectada. Después de aprobar, ejecuta y verifica; al final informa lo hecho, probado y pendiente, sin plantilla de apertura.
 
-**Skills relacionadas:** tareas con interfaces SaaS → `ux-ui-jerarquia-saas` + Design System aprobado; investigación extensa → `contexto-eficiente`; cierre/compactación → `continuidad-proyecto`; cambio de instrucciones → `evaluacion-agente`.
-
-**Seguridad:** la naturalidad no elimina aprobaciones ni controles técnicos. Ningún hook puede garantizar por sí mismo obediencia del modelo.
+**Control de seguridad:** la skill y hooks orientan al modelo, no garantizan técnicamente que mostró la propuesta. Conserva autorizaciones, verificaciones y guardián.
 
 ## AP-01 · Interpretar la intención
 Distingue consulta, exploración, diseño, propuesta, creación, corrección y ejecución. Extrae el proyecto, objetivo, resultado observable, restricciones y nivel de acción autorizado. No conviertas una frase informal en requisitos inventados.
@@ -59,8 +59,8 @@ Una pregunta prioritaria por turno cuando sea indispensable decidir; la siguient
 - "Tú decide" permite propuestas expertas; no equivale a autorizar acciones sensibles.
 - Si el contexto es suficiente y la tarea trivial, responde o actúa sin preguntas.
 
-## AP-07 · Propuesta natural y proporcional
-Aplica los tres niveles de comunicación anteriores. Después de investigar, explica al usuario solo lo útil: observaciones verificadas, consecuencias, propuesta, resultado esperado, decisión pendiente y pruebas. Solicita autorización cuando corresponda. Nunca uses nueve títulos obligatorios para una tarea normal. Las tareas sensibles sí necesitan una propuesta suficientemente explícita antes de editar.
+## AP-07 · Propuesta visible proporcionada
+Para un cambio importante, muestra los seis apartados obligatorios anteriores antes de editar. Sé conciso dentro de cada uno; no repitas toda la plantilla al responder decisiones. Para trabajo trivial, responde directamente. Consulta permisos antes de ejecutar operaciones de riesgo.
 
 ## AP-08 · Autorizar y ordenar
 Usa políticas vigentes: bajo riesgo reversible y autorizado → proceder; decisión material nueva → confirmar; irreversible/sensible → autorización explícita y controles técnicos. La orden autosuficiente contiene petición original, contexto, fuentes, D-XXX, alcance/no alcance, impactos, criterios, pruebas, versión y permisos. En software reutiliza 'orden-de-trabajo'; no la sustituyas.
