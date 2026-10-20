@@ -42,3 +42,12 @@ El **auditor** utiliza `evaluacion-ux-movil`; los resultados no probados quedan 
 
 ## Regla de cierre
 Presenta pantallas cubiertas, cambios y componentes reutilizados, pruebas realmente ejecutadas, fallos, medidas comparadas y pendientes. Diferencia código revisado, rendering visual y experiencia validada con usuarios.
+
+## Aplicación verificable, no solo CSS
+- Inventariar por separado listado, expansión de fila, detalle abierto, edición y diálogos. Confirmar cuál aparece en la captura antes de tocar componentes.
+- En un detalle cerrado, priorizar identidad del documento, cliente, situación financiera, productos y siguiente acción. Mantener datos administrativos bajo demanda cuando no sean indispensables para la tarea; conservar sus accesos.
+- Distinguir lectura de captura: no presentar controles deshabilitados como estructura predeterminada de consulta. No duplicar tipo, cliente, sucursal o acciones para llenar secciones.
+- Comparar antes/después con el mismo viewport, estado y datos. Registrar altura hasta el primer producto y acceso a la acción principal como mediciones descriptivas, sin inventar umbrales universales.
+- Revisar contraste y reflow en los componentes reales. Un bundle, lint o DOM sin motor de layout no valida apariencia ni ausencia de desbordamiento.
+- Si el dueño rechaza la composición, registrar el fallo de criterio y revisar arquitectura de información antes de repetir ajustes de padding.
+- Aplicar los siete criterios de `evaluacion-ux-movil` con evidencia y cobertura. Corregir bloqueos antes de aprobar; ningún slider inicia en 5/5.

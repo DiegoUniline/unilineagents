@@ -1174,6 +1174,20 @@ Ruta/rol/viewport/tema, criterio (peso/resultado), evidencia, severidad, cambio 
 
 Usa `references/plantilla-auditoria.md` como hoja de evidencia y `evaluacion-agente` para comprobar si el agente aplicó correctamente la skill.
 
+## Escala 0–5 y evidencia por dimensión
+Si se presenta el evaluador de siete controles, iniciar cada criterio en **sin evaluar**,
+no en 5. Registrar 0–5 solo con evidencia suficiente: 0 inutilizable, 1 deficiencia
+grave, 2 problemas relevantes, 3 funcional con fricción, 4 buena calidad con detalles
+pendientes, 5 cumple los casos definidos sin defectos observados. Cero significa
+fallo observado; no significa prueba ausente.
+Conservar los pesos de esta skill: puntos = peso × nota / 5. No dividir entre
+criterios probados para inflar el total ni convertir siete 5/5 de ejemplo en 100 real.
+No dar nota absoluta mientras una dimensión siga sin evaluar. Separar comprobaciones
+de navegador, dispositivos reales, lector de pantalla, rendimiento medido y pruebas
+de negocio. Accesibilidad/rendimiento no obtiene 5 por pasar lint, build o axe.
+En cada retest conservar la captura/version anterior, la versión nueva y el alcance
+exacto. El resultado de una pantalla no aprueba otros módulos ni otros estados.
+
 ---
 
 # SKILL: investigacion-giro
@@ -1342,6 +1356,15 @@ El **auditor** utiliza `evaluacion-ux-movil`; los resultados no probados quedan 
 
 ## Regla de cierre
 Presenta pantallas cubiertas, cambios y componentes reutilizados, pruebas realmente ejecutadas, fallos, medidas comparadas y pendientes. Diferencia código revisado, rendering visual y experiencia validada con usuarios.
+
+## Aplicación verificable, no solo CSS
+- Inventariar por separado listado, expansión de fila, detalle abierto, edición y diálogos. Confirmar cuál aparece en la captura antes de tocar componentes.
+- En un detalle cerrado, priorizar identidad del documento, cliente, situación financiera, productos y siguiente acción. Mantener datos administrativos bajo demanda cuando no sean indispensables para la tarea; conservar sus accesos.
+- Distinguir lectura de captura: no presentar controles deshabilitados como estructura predeterminada de consulta. No duplicar tipo, cliente, sucursal o acciones para llenar secciones.
+- Comparar antes/después con el mismo viewport, estado y datos. Registrar altura hasta el primer producto y acceso a la acción principal como mediciones descriptivas, sin inventar umbrales universales.
+- Revisar contraste y reflow en los componentes reales. Un bundle, lint o DOM sin motor de layout no valida apariencia ni ausencia de desbordamiento.
+- Si el dueño rechaza la composición, registrar el fallo de criterio y revisar arquitectura de información antes de repetir ajustes de padding.
+- Aplicar los siete criterios de `evaluacion-ux-movil` con evidencia y cobertura. Corregir bloqueos antes de aprobar; ningún slider inicia en 5/5.
 
 ---
 
