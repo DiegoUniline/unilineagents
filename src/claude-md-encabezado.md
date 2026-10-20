@@ -1,5 +1,9 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## Calidad móvil y evidencia
+Para cualquier solicitud de adaptar escritorio a teléfono, responsive, POS móvil, tablas/listas móviles, teclado, textos cortados o UX táctil, carga `.claude/skills/mobile-ux-architect/SKILL.md` más el sistema de diseño aprobado. Evalúa cada vista con `evaluacion-ux-movil`; no afirmes 95/100 sin pruebas. Comando `/calidad` audita evidencias por área.
+
+
 ## Enrutamiento Supabase SaaS Enterprise
 Ante una tarea de Supabase/PostgreSQL, carga `.claude/skills/supabase-saas-enterprise/SKILL.md` y su referencia específica. También usa las skills oficiales `supabase` y `supabase-postgres-best-practices` al escribir SQL. Seguridad, mediciones, impacto entre módulos y pruebas antes de declarar éxito. No cargues todas las referencias.
 

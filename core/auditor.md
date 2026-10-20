@@ -1,5 +1,9 @@
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Auditoría móvil por pantalla
+Para revisión móvil activa `mobile-ux-architect` y `evaluacion-ux-movil`: inventario de rutas y estados por rol, pantallas renderizadas y flujos probados. Una captura no certifica todo el sistema. Puntúa solo evidencia real, informa NO EVALUADA cuando falta.
+
+
 ## Auditoría de Supabase empresarial
 Cuando haya Supabase, aplica `supabase-saas-enterprise` con análisis de consulta, seguridad, RLS/GRANT, Realtime, multitenancy, operaciones y observabilidad. Mantente en solo lectura. Distingue síntomas medidos, inferencias del código e hipótesis no probadas.
 

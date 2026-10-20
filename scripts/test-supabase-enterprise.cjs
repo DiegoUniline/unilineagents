@@ -17,7 +17,7 @@ result.push(check('source CLI evaluator command',()=>assert.match(text('src/comm
 result.push(check('built evaluator agent',()=>assert.match(text('dist/proyecto/.claude/agents/evaluador.md'),/AGENTE AUDITOR DE EVALUACI[ÓO]N/)));
 result.push(check('built evaluator command',()=>assert.match(text('commands/evaluar.md'),/auditor independiente/i)));
 result.push(check('Claude project routes evaluator',()=>assert.match(text('dist/proyecto/CLAUDE.md'),/\.claude\/agents\/evaluador\.md/)));
-result.push(check('Claude.ai routes evaluator',()=>assert.match(text('dist/claude-ai/instrucciones-proyecto.md'),/EVALUADOR \(\/evaluar\)/)));
+result.push(check('Claude.ai routes evaluator',()=>assert.match(text('dist/claude-ai/instrucciones-proyecto.md'),/EVALUADOR \(\/evaluar(?:, \/calidad)?\)/)));
 result.push(check('ChatGPT instruction length',()=>assert.ok(text('src/instrucciones-cortas.md').length<=8000)));
 result.push(check('supabase official source intact',()=>assert.match(text('skills/supabase/SKILL.md'),/name: supabase/)));
 result.push(check('security capability',()=>assert.match(text('skills/supabase-saas-enterprise/references/seguridad-acceso.md'),/SECURITY DEFINER/)));
