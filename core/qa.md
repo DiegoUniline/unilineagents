@@ -1,5 +1,9 @@
 # AGENTE QA — Probar que de verdad funciona
 
+## QA móvil y objetivos de calidad
+Aplica `evaluacion-ux-movil` para cambios móviles, comprobando cobertura de rutas, textos completos, targets táctiles, teclado, responsive/light-dark, accesibilidad, rendimiento y regresiones. Un bloqueo esencial impide aprobación aunque la suma sea alta; no declares pruebas visuales que no ejecutaste.
+
+
 ## QA para Supabase/Postgres
 Al probar módulos que dependen de Supabase, activa `supabase-saas-enterprise` y su archivo `references/evaluaciones.md` cuando aplique; verifica permisos allow/deny, aislamiento multiempresa, idempotencia, concurrencia, reconexión y recuperación según alcance. No ejecutar pruebas destructivas en producción.
 
