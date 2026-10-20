@@ -40,6 +40,8 @@ jobs:
         run: node scripts/test-autoprompter.cjs
       - name: Test Supabase enterprise knowledge and evaluator
         run: node scripts/test-supabase-enterprise.cjs
+      - name: Test quality evidence gate
+        run: node scripts/test-quality-gate.cjs
       - name: Synchronize generated assets on this PR branch
         shell: bash
         run: |
