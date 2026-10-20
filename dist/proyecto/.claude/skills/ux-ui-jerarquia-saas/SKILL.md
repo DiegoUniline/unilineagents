@@ -1,4 +1,8 @@
 ---
+
+## Extensión móvil sin duplicar Design System
+Cuando el trabajo se centre en teléfonos, formularios táctiles, tablas compactas o POS móvil, consulta `mobile-ux-architect` (especialización) y `evaluacion-ux-movil` para auditoría con evidencia. Conserva la identidad aprobada y evita adaptar escritorio mediante solo reducir tamaños.
+
 name: ux-ui-jerarquia-saas
 description: Estándar maestro de jerarquía visual, UX/UI y calidad SaaS. Cargar al diseñar, construir, modificar o auditar cualquier pantalla, tabla, formulario, dashboard o interfaz administrativa. Orquesta sistema-diseno, accesibilidad y frontend-design sin reemplazar las reglas de marca ya aprobadas.
 ---

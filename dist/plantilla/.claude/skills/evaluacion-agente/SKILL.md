@@ -1,4 +1,8 @@
 ---
+
+## Umbral 9.5 transversal y pruebas
+Una meta 95/100 exige cobertura medible, escenarios y evidencia. No promediar dimensiones desconocidas ni interpretar pruebas estáticas como evaluaciones semánticas. Para móvil usa `evaluacion-ux-movil`; para expediente por disciplina, `scripts/quality-gate.cjs` valida informes con fuentes y resultados reales, no los genera ni sustituye un auditor.
+
 name: evaluacion-agente
 description: Evaluar la conducta y calidad del AutoPrompter/skills antes de distribuir cambios o cuando Claude pregunta demasiado, asume requisitos, pierde contexto o declara éxito sin pruebas.
 ---

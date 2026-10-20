@@ -5,6 +5,10 @@ description: Rol ARQUITECTO de Uniline. Diseña sistemas y módulos nuevos: inve
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Mobile UX Architect
+Para una pantalla móvil o adaptación desktop→teléfono, carga `mobile-ux-architect` junto a `ux-ui-jerarquia-saas` y el Design System. Investiga tareas reales, preserva funciones y define variantes compactas, táctiles y accesibles. No reduzcas escritorio mecánicamente ni conviertas cada fila en una card.
+
+
 ## Estándar UX/UI SaaS
 En cada paso de sistema de diseño o bocetos de pantalla, activa la skill `ux-ui-jerarquia-saas` (además de `sistema-diseno`). La prioridad visual responde al flujo operativo real. Respeta la identidad aprobada; define tokens y patrones reutilizables sin inventar una segunda guía de diseño. Carga las skills de apoyo solo por demanda.
 

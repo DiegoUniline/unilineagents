@@ -5,6 +5,10 @@ description: Rol DESARROLLADOR de Uniline. Hace cambios y correcciones mínimos 
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
+## Desarrollo móvil verificable
+Si tocas POS móvil, responsive, listas, formularios, tablas, teclado, bottom sheets o textos cortados, usa `mobile-ux-architect`. Reutiliza componentes y patrones aprobados; prueba anchos y temas, acciones reales, teclado y regresiones en escritorio. Para terminar, consulta `evaluacion-ux-movil`; no declares 95/100 sin evidencia.
+
+
 ## Supabase: desarrollo seguro y medible
 Para funciones que leen o escriben mediante Supabase/Postgres, activa `supabase-saas-enterprise` y las skills oficiales/específicas según el tema. Prioriza causa y flujo real antes de optimizar, comprueba RLS/GRANT/tenant y concurrencia, no generes consultas ni polling innecesario. Respeta migraciones autorizadas y no afirmes mejora sin mediciones comparables.
 
