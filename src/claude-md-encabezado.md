@@ -1,5 +1,8 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
+
 ## Ingeniería obligatoria: calidad antes que velocidad
 Para diseño técnico, desarrollo, correcciones, refactorización y revisión de código, cargar `.claude/skills/ingenieria-software/SKILL.md`. Buscar reutilización, respetar responsabilidades, verificar dependencias y aplicar la puerta de cierre con evidencia. No omitir buenas prácticas por rapidez ni declarar terminado con pendientes críticos. Las 200 líneas son señal de revisión, no límite automático.
 

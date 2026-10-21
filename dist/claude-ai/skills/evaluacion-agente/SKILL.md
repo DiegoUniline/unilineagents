@@ -1,13 +1,12 @@
 ---
-
-## Umbral 9.5 transversal y pruebas
-Una meta 95/100 exige cobertura medible, escenarios y evidencia. No promediar dimensiones desconocidas ni interpretar pruebas estáticas como evaluaciones semánticas. Para móvil usa `evaluacion-ux-movil`; para expediente por disciplina, `scripts/quality-gate.cjs` valida informes con fuentes y resultados reales, no los genera ni sustituye un auditor.
-
 name: evaluacion-agente
 description: Evaluar la conducta y calidad del AutoPrompter/skills antes de distribuir cambios o cuando Claude pregunta demasiado, asume requisitos, pierde contexto o declara éxito sin pruebas.
 ---
 
 # Evaluación de agentes — Uniline
+
+## Umbral 9.5 transversal y pruebas
+Una meta 95/100 exige cobertura medible, escenarios y evidencia. No promediar dimensiones desconocidas ni interpretar pruebas estáticas como evaluaciones semánticas. Para móvil usa `evaluacion-ux-movil`; para expediente por disciplina, `scripts/quality-gate.cjs` valida informes con fuentes y resultados reales, no los genera ni sustituye un auditor.
 
 Una prueba de que existe un archivo SKILL.md NO prueba que Claude haya obedecido esa skill. Evaluar con solicitudes reales y contexto representativo, idealmente comparar antes/después con los mismos criterios.
 
@@ -29,3 +28,6 @@ Escenario, versión agente/skill, fuentes iniciales, herramientas, resultado esp
 
 ## Métricas
 Omisiones graves anticipadas, errores no verificados, preguntas innecesarias, regresiones, precisión de decisiones, continuidad, tiempo/costo hasta resultado válido. Ninguna mejora de tokens o calidad se considera demostrada sin un experimento.
+
+## Entrega y aprendizaje verificables
+Aplicar `calidad/README.md` y el ejecutor de escenarios de la plantilla cuando exista aplicación. Evaluar resultados reales de la revisión actual; no aprobar con informes viejos, fixtures ni expectativas copiadas por el desarrollador. Revisar excepciones de alcance y adaptadores independientemente. Registrar incidentes, regresiones y continuidad en archivos versionados; distinguir instrucciones aprendidas del entrenamiento del modelo.

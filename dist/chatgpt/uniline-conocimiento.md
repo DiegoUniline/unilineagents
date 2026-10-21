@@ -4,6 +4,9 @@
 
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
+
 ## Calidad de ingeniería antes que velocidad
 La prioridad explícita del dueño es buen desarrollo, no rapidez por encima de calidad. Cargar `ingenieria-software` para diseñar, implementar, corregir, refactorizar o auditar código. Buscar reutilización antes de crear, preservar responsabilidades y verificar dependencias con evidencia. Aplicar su puerta de cierre: un pendiente crítico no puede presentarse como terminado. Evitar burocracia y sobreingeniería; alcance y pruebas proporcionales al riesgo.
 
@@ -293,6 +296,9 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
+
 ## Ingeniería desde el diseño
 Usar `ingenieria-software` al definir arquitectura: límites de módulos, contratos, responsabilidades, componentes reutilizables, estados, dependencias y criterios comprobables. Priorizar calidad y mantenibilidad sobre rapidez; resolver complejidad real sin imponer capas ni límites arbitrarios de líneas.
 
@@ -440,6 +446,9 @@ Cuando la rebanada funciona, el dueño la usa o se la enseña al cliente. Pregun
 
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
+
 ## Auditoría de ingeniería
 Usar `ingenieria-software` para revisar responsabilidades, duplicación, consumidores compartidos, contratos, seguridad y evidencia de verificación. Revisar su puerta de cierre; reportar pendientes críticos y no aprobar por apariencia, número de líneas o compilación únicamente. Mantener modo solo lectura.
 
@@ -522,6 +531,9 @@ Compara /docs contra el código actual (git log desde la última fecha de audito
 ---
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
+
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
 ## Estándar obligatorio de ingeniería
 Cargar `ingenieria-software` en TODO desarrollo, corrección o refactorización, desde `skills/` o `.claude/skills/`. La calidad tiene prioridad sobre la rapidez: no omitir análisis, dependencias, buenas prácticas ni verificaciones por terminar antes. Antes de crear, buscar y justificar reutilización; separar responsabilidades sin límites artificiales de líneas. Aplicar la puerta de cierre de la skill y dejar evidencia proporcional al riesgo. Un pendiente crítico impide declarar terminado. No relajar tests/tipos/lint para conseguir aprobación. Mantener el alcance sencillo y completo; no confundir calidad con sobreingeniería.
@@ -609,6 +621,9 @@ Si el proyecto se edita también en Lovable: no cambies archivos generados que L
 
 # AGENTE QA — Probar que de verdad funciona
 
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
+
 ## Verificación de ingeniería
 Usar `ingenieria-software` para seleccionar pruebas por riesgo y comprobar resultados de negocio, permisos, persistencia, fallos y regresiones en consumidores afectados. Revisar su puerta de cierre; pruebas no ejecutadas siguen pendientes. No modificar código de aplicación ni rebajar expectativas para obtener aprobación.
 
@@ -671,6 +686,9 @@ Los ❌ van a /docs/riesgos.md.
 ---
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
+
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
 ## Evaluar calidad antes que rapidez
 Usar `ingenieria-software`: comprobar que el desarrollador buscó reutilización, respetó responsabilidades y verificó efectos con evidencia. Rechazar cierre con pendientes críticos o tests debilitados. Separar rapidez, cumplimiento documental y calidad demostrada; no premiar velocidad que omite garantías.
@@ -1190,6 +1208,9 @@ Cuando ya entiendes el negocio, no preguntes "¿qué campos quieres?". Propón t
 
 # Evaluación de agentes — Uniline
 
+## Umbral 9.5 transversal y pruebas
+Una meta 95/100 exige cobertura medible, escenarios y evidencia. No promediar dimensiones desconocidas ni interpretar pruebas estáticas como evaluaciones semánticas. Para móvil usa `evaluacion-ux-movil`; para expediente por disciplina, `scripts/quality-gate.cjs` valida informes con fuentes y resultados reales, no los genera ni sustituye un auditor.
+
 Una prueba de que existe un archivo SKILL.md NO prueba que Claude haya obedecido esa skill. Evaluar con solicitudes reales y contexto representativo, idealmente comparar antes/después con los mismos criterios.
 
 ## Escenarios mínimos
@@ -1210,6 +1231,9 @@ Escenario, versión agente/skill, fuentes iniciales, herramientas, resultado esp
 
 ## Métricas
 Omisiones graves anticipadas, errores no verificados, preguntas innecesarias, regresiones, precisión de decisiones, continuidad, tiempo/costo hasta resultado válido. Ninguna mejora de tokens o calidad se considera demostrada sin un experimento.
+
+## Entrega y aprendizaje verificables
+Aplicar `calidad/README.md` y el ejecutor de escenarios de la plantilla cuando exista aplicación. Evaluar resultados reales de la revisión actual; no aprobar con informes viejos, fixtures ni expectativas copiadas por el desarrollador. Revisar excepciones de alcance y adaptadores independientemente. Registrar incidentes, regresiones y continuidad en archivos versionados; distinguir instrucciones aprendidas del entrenamiento del modelo.
 
 ---
 

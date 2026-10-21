@@ -42,6 +42,8 @@ jobs:
         run: node scripts/test-supabase-enterprise.cjs
       - name: Test quality evidence gate
         run: node scripts/test-quality-gate.cjs
+      - name: Test executable delivery gate
+        run: node scripts/test-delivery-gate.cjs
       - name: Synchronize generated assets on this PR branch
         shell: bash
         run: |

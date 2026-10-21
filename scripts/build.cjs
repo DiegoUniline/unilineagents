@@ -146,6 +146,10 @@ fs.cpSync(path.join(R, 'templates/plantilla/README.md'), path.join(R, T, 'README
 fs.cpSync(path.join(R, 'templates/plantilla/NOTICE.md'), path.join(R, T, 'NOTICE.md'));
 fs.cpSync(path.join(R, 'templates/plantilla/gitignore'), path.join(R, T, '.gitignore'));
 fs.cpSync(path.join(R, 'LICENSE'), path.join(R, T, 'LICENSE'));
+fs.cpSync(path.join(R, 'templates/calidad'), path.join(R, T, 'calidad'), { recursive: true });
+fs.mkdirSync(path.join(R, T, '.github/workflows'), { recursive: true });
+fs.cpSync(path.join(R, 'templates/plantilla/quality.yml'), path.join(R, T, '.github/workflows/quality.yml'));
+
 const vacio = t => `# ${t}\n`;
 wr(`${T}/docs/00-estado.md`, rd('templates/docs/00-estado.md')
   .replace('<fecha y hora>', '—').replace('<arquitecto | auditor | desarrollador | qa>', '—')

@@ -5,6 +5,9 @@ description: Rol DESARROLLADOR de Uniline. Hace cambios y correcciones mínimos 
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
+
 ## Estándar obligatorio de ingeniería
 Cargar `ingenieria-software` en TODO desarrollo, corrección o refactorización, desde `skills/` o `.claude/skills/`. La calidad tiene prioridad sobre la rapidez: no omitir análisis, dependencias, buenas prácticas ni verificaciones por terminar antes. Antes de crear, buscar y justificar reutilización; separar responsabilidades sin límites artificiales de líneas. Aplicar la puerta de cierre de la skill y dejar evidencia proporcional al riesgo. Un pendiente crítico impide declarar terminado. No relajar tests/tipos/lint para conseguir aprobación. Mantener el alcance sencillo y completo; no confundir calidad con sobreingeniería.
 

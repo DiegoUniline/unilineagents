@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "sale-remove-cancel",
+      "description": "Venta editable, salida aplicada, sin entrega. Vender 3×100, quitar 1, cobrar 150, quitar 1 y cancelar remanente. Conservar cobro como saldo a favor.",
+      "applicable": true,
+      "adapter": null,
+      "input": {
+        "initialStock": 10
+      },
+      "expected": {
+        "stock": 10,
+        "amountDue": 0,
+        "customerCredit": 150,
+        "cashReceived": 150
+      }
+    },
+    {
+      "id": "payment-method",
+      "description": "Cobro 100 efectivo reclasificado a transferencia; misma venta.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "cashNet": 0,
+        "bankNet": 100,
+        "applied": 100,
+        "saleTotal": 100,
+        "due": 0
+      }
+    },
+    {
+      "id": "payment-excess",
+      "description": "Venta 100, cobro 150 con exceso permitido como crédito explícito.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "saleTotal": 100,
+        "due": 0,
+        "customerCredit": 50,
+        "received": 150
+      }
+    },
+    {
+      "id": "service-no-stock",
+      "description": "Vender y cancelar servicio que no maneja inventario.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "inventoryMovements": 0,
+        "due": 0
+      }
+    },
+    {
+      "id": "last-unit-concurrent",
+      "description": "Dos sesiones intentan vender simultáneamente la última unidad; negativos no permitidos.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "successfulSales": 1,
+        "stock": 0
+      }
+    },
+    {
+      "id": "retry-once",
+      "description": "Reintentar el mismo cobro 100 tras timeout usando la misma identidad de operación.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "paymentCount": 1,
+        "received": 100
+      }
+    },
+    {
+      "id": "rollback",
+      "description": "Provocar fallo entre documento y movimiento de una operación transaccional.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "partialDocuments": 0,
+        "partialMovements": 0
+      }
+    },
+    {
+      "id": "tenant-permissions",
+      "description": "Intentar operar sin permiso y acceder a datos de otra empresa desde servidor.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "unauthorizedWrites": 0,
+        "crossTenantRows": 0
+      }
+    },
+    {
+      "id": "transfer-partial",
+      "description": "Origen 10, destino 0; enviar 4, recibir 2 con tránsito explícito.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "origin": 6,
+        "destination": 2,
+        "inTransit": 2,
+        "total": 10
+      }
+    },
+    {
+      "id": "purchase-receipt",
+      "description": "Ordenar 5, recibir 3; reintentar misma recepción.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "stockBeforeReceipt": 0,
+        "stockAfterReceipt": 3,
+        "receiptCount": 1
+      }
+    },
+    {
+      "id": "catalog-create",
+      "description": "Producto sin categoría; crear categoría en modal y seleccionarla conservando borrador.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "categoryCreated": true,
+        "selectedCreatedId": true,
+        "draftPreserved": true
+      }
+    },
+    {
+      "id": "catalog-cancel",
+      "description": "Crear categoría y después cancelar alta del producto.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "categoryPersists": true,
+        "productCreated": false
+      }
+    },
+    {
+      "id": "catalog-permissions",
+      "description": "Usuario puede editar producto pero no crear categorías; intentar alta desde UI y servidor.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "categoryCreated": false,
+        "draftPreserved": true
+      }
+    },
+    {
+      "id": "resume-context",
+      "description": "Sesión independiente retoma decisiones aprobadas y siguiente paso desde archivos; conservar transcripción y evaluación.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "decisionsRecovered": true,
+        "inventedFacts": 0,
+        "nextStepCorrect": true
+      }
+    },
+    {
+      "id": "restore-recovery",
+      "description": "Restaurar respaldo de datos ficticios en destino aislado y comparar registros/relaciones.",
+      "applicable": true,
+      "adapter": null,
+      "input": {},
+      "expected": {
+        "restored": true,
+        "dataMatches": true,
+        "sourceUnchanged": true
+      }
+    }
+  ]
+}

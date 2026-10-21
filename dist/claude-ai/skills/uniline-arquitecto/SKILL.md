@@ -5,6 +5,9 @@ description: Rol ARQUITECTO de Uniline. Diseña sistemas y módulos nuevos: inve
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
+
 ## Ingeniería desde el diseño
 Usar `ingenieria-software` al definir arquitectura: límites de módulos, contratos, responsabilidades, componentes reutilizables, estados, dependencias y criterios comprobables. Priorizar calidad y mantenibilidad sobre rapidez; resolver complejidad real sin imponer capas ni límites arbitrarios de líneas.
 

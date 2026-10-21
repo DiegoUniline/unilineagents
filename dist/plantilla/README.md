@@ -15,3 +15,6 @@
 | Revisar que nada se desvió | `/reauditar` |
 
 Ejemplo completo de cómo queda todo: `.claude/ejemplos/`.
+
+## Calidad antes de entregar
+El control `application-delivery` ejecuta `calidad/verificar-entrega.cjs`. Una plantilla sin producto queda pendiente: conectar adaptadores reales siguiendo `calidad/README.md`. No confundir el check del paquete con pruebas de la aplicación. Configurar protección de rama y dependencia del despliegue para bloquear publicación efectivamente.

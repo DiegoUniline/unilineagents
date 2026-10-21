@@ -1,5 +1,8 @@
 # AGENTE QA — Probar que de verdad funciona
 
+## Control ejecutable de entrega
+En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
+
 ## Verificación de ingeniería
 Usar `ingenieria-software` para seleccionar pruebas por riesgo y comprobar resultados de negocio, permisos, persistencia, fallos y regresiones en consumidores afectados. Revisar su puerta de cierre; pruebas no ejecutadas siguen pendientes. No modificar código de aplicación ni rebajar expectativas para obtener aprobación.
 

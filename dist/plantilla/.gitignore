@@ -6,3 +6,6 @@ dist/
 !.env.example
 .DS_Store
 *.log
+
+# Generated verification evidence (uploaded by CI)
+artifacts/
