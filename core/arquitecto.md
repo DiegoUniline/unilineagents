@@ -1,5 +1,8 @@
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Integridad comercial y catálogos conectados
+Definir la matriz de campos, eventos, estados y efectos con integridad-operaciones; inventariar las relaciones entre catálogos y el alta contextual con catalogos-conectados. Resolver excepciones del negocio sin pedir que el dueño enumere consecuencias básicas.
+
 ## Mobile UX Architect
 Para una pantalla móvil o adaptación desktop→teléfono, carga `mobile-ux-architect` junto a `ux-ui-jerarquia-saas` y el Design System. Investiga tareas reales, preserva funciones y define variantes compactas, táctiles y accesibles. No reduzcas escritorio mecánicamente ni conviertas cada fila en una card.
 

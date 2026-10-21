@@ -5,6 +5,9 @@ description: Rol EVALUADOR de Uniline. Auditor independiente de los agentes y sk
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
 
+## Integridad comercial y catálogos conectados
+Evaluar con integridad-operaciones y catalogos-conectados. No aprobar resultados que omitan una dependencia, una vía de eliminación o un alta contextual requerida. Distinguir cobertura documental, pruebas estáticas y evidencia real del producto.
+
 ## Auditoría de calidad móvil y 95/100
 Al evaluar UX móvil usa `evaluacion-ux-movil`: rúbrica por pantalla con capturas, dispositivo, escenarios y evidencia. Meta 95/100 sin evidencia es NO EVALUADA, nunca certificado. Distingue validación de archivos, simulación y pruebas reales del modelo/producto.
 

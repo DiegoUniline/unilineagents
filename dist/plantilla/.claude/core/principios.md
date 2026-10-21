@@ -1,5 +1,10 @@
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Reglas base de negocio obligatorias
+- Para operaciones que afecten inventario, importes, cobros, pagos o deuda, cargar `integridad-operaciones` desde `skills/` o `.claude/skills/`. Clasificar campos y mapear dependencias antes de implementar. Toda creación, edición, eliminación o cancelación resuelve TODOS los efectos aplicados, sin duplicarlos, independientemente del botón.
+- Para formularios de catálogos con referencias configurables, cargar `catalogos-conectados`: crear relacionados en modal sin perder el borrador, con permisos y selección del nuevo registro. No extender automáticamente a documentos operativos ni listas fijas.
+- Son requisitos base aprobados de Uniline; no esperar que el dueño solicite cada consecuencia lógica. Documentar el momento de afectación y excepciones materiales. Una instalación de estas instrucciones no corrige aplicaciones existentes por sí sola.
+
 ## Objetivos de calidad medibles, no autocalificación
 - 9.5/10 es la meta para cada disciplina, NO una calificación ganada al instalar skills. Sin ensayos reales y cobertura: **NO EVALUADA**.
 - Diseño móvil: usar `mobile-ux-architect` y auditar con `evaluacion-ux-movil` por pantalla, sin perder funciones ni identidad aprobada.

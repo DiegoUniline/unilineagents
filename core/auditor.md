@@ -1,5 +1,8 @@
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Integridad comercial y catálogos conectados
+Auditar con integridad-operaciones todas las rutas de agregar, editar, quitar, eliminar y cancelar, comparando sus efectos reales. Con catalogos-conectados revisar cada relación configurable, permisos y conservación del formulario. Reportar omisiones con evidencia, sin corregir en modo auditor.
+
 ## Auditoría móvil por pantalla
 Para revisión móvil activa `mobile-ux-architect` y `evaluacion-ux-movil`: inventario de rutas y estados por rol, pantallas renderizadas y flujos probados. Una captura no certifica todo el sistema. Puntúa solo evidencia real, informa NO EVALUADA cuando falta.
 

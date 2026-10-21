@@ -45,6 +45,21 @@ Qué problema de negocio resuelve. [certeza]
 | Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
 |---|---|---|---|---|---|---|---|
 
+## 2b. Clasificación y dependencias obligatorias
+Aplicar `integridad-operaciones`. Informativo solo si no dispara efectos; cliente y método de pago son entradas de negocio.
+| Campo | Informativo / entrada / calculado | Fuente y fórmula / redondeo | Dependientes y módulos | Evento/estado de actualización | Evidencia |
+|---|---|---|---|---|---|
+
+## 2c. Matriz de acciones y efectos
+| Acción (incluye quitar/eliminar) | Estado inicial/final | Validación/permiso | Efecto anterior/nuevo y diferencia | Inventario / documento / deuda / dinero / automatizaciones | Reversión y prueba |
+|---|---|---|---|---|---|
+Marcar no aplicable con motivo. Incluir parciales, reintentos y concurrencia; no dejar acciones implícitas.
+
+## 2d. Alta contextual entre catálogos
+Aplicar `catalogos-conectados` a relaciones configurables entre catálogos, no automáticamente a documentos operativos.
+| Campo / destino | Fijo/configurable | Permiso de alta | Modal y campos requeridos | Jerarquía/filtros | Selección y conservación de borrador | Prueba / excepción |
+|---|---|---|---|---|---|---|
+
 ## 3. Catálogos
 | Catálogo | FIJO / CONFIGURABLE | Valores iniciales (seed) | ¿El cliente puede borrar seed? | Certeza |
 

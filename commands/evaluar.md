@@ -4,6 +4,11 @@ argument-hint: <agente | skill | modulo | todo>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Reglas base de negocio obligatorias
+- Para operaciones que afecten inventario, importes, cobros, pagos o deuda, cargar `integridad-operaciones` desde `skills/` o `.claude/skills/`. Clasificar campos y mapear dependencias antes de implementar. Toda creación, edición, eliminación o cancelación resuelve TODOS los efectos aplicados, sin duplicarlos, independientemente del botón.
+- Para formularios de catálogos con referencias configurables, cargar `catalogos-conectados`: crear relacionados en modal sin perder el borrador, con permisos y selección del nuevo registro. No extender automáticamente a documentos operativos ni listas fijas.
+- Son requisitos base aprobados de Uniline; no esperar que el dueño solicite cada consecuencia lógica. Documentar el momento de afectación y excepciones materiales. Una instalación de estas instrucciones no corrige aplicaciones existentes por sí sola.
+
 ## Objetivos de calidad medibles, no autocalificación
 - 9.5/10 es la meta para cada disciplina, NO una calificación ganada al instalar skills. Sin ensayos reales y cobertura: **NO EVALUADA**.
 - Diseño móvil: usar `mobile-ux-architect` y auditar con `evaluacion-ux-movil` por pantalla, sin perder funciones ni identidad aprobada.
@@ -170,6 +175,21 @@ Qué problema de negocio resuelve. [certeza]
 | Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
 |---|---|---|---|---|---|---|---|
 
+## 2b. Clasificación y dependencias obligatorias
+Aplicar `integridad-operaciones`. Informativo solo si no dispara efectos; cliente y método de pago son entradas de negocio.
+| Campo | Informativo / entrada / calculado | Fuente y fórmula / redondeo | Dependientes y módulos | Evento/estado de actualización | Evidencia |
+|---|---|---|---|---|---|
+
+## 2c. Matriz de acciones y efectos
+| Acción (incluye quitar/eliminar) | Estado inicial/final | Validación/permiso | Efecto anterior/nuevo y diferencia | Inventario / documento / deuda / dinero / automatizaciones | Reversión y prueba |
+|---|---|---|---|---|---|
+Marcar no aplicable con motivo. Incluir parciales, reintentos y concurrencia; no dejar acciones implícitas.
+
+## 2d. Alta contextual entre catálogos
+Aplicar `catalogos-conectados` a relaciones configurables entre catálogos, no automáticamente a documentos operativos.
+| Campo / destino | Fijo/configurable | Permiso de alta | Modal y campos requeridos | Jerarquía/filtros | Selección y conservación de borrador | Prueba / excepción |
+|---|---|---|---|---|---|---|
+
 ## 3. Catálogos
 | Catálogo | FIJO / CONFIGURABLE | Valores iniciales (seed) | ¿El cliente puede borrar seed? | Certeza |
 
@@ -268,6 +288,9 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
+
+## Integridad comercial y catálogos conectados
+Evaluar con integridad-operaciones y catalogos-conectados. No aprobar resultados que omitan una dependencia, una vía de eliminación o un alta contextual requerida. Distinguir cobertura documental, pruebas estáticas y evidencia real del producto.
 
 ## Auditoría de calidad móvil y 95/100
 Al evaluar UX móvil usa `evaluacion-ux-movil`: rúbrica por pantalla con capturas, dispositivo, escenarios y evidencia. Meta 95/100 sin evidencia es NO EVALUADA, nunca certificado. Distingue validación de archivos, simulación y pruebas reales del modelo/producto.

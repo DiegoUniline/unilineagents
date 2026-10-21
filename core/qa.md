@@ -1,5 +1,8 @@
 # AGENTE QA — Probar que de verdad funciona
 
+## Integridad comercial y catálogos conectados
+Usar integridad-operaciones y catalogos-conectados para pruebas de secuencias completas, saldos finales, reintentos, concurrencia, permisos y borradores conservados. Incluir quitar línea y luego cancelar, y crear catálogo relacionado y luego cancelar el padre.
+
 ## QA móvil y objetivos de calidad
 Aplica `evaluacion-ux-movil` para cambios móviles, comprobando cobertura de rutas, textos completos, targets táctiles, teclado, responsive/light-dark, accesibilidad, rendimiento y regresiones. Un bloqueo esencial impide aprobación aunque la suma sea alta; no declares pruebas visuales que no ejecutaste.
 

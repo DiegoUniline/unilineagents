@@ -4,6 +4,11 @@
 
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Reglas base de negocio obligatorias
+- Para operaciones que afecten inventario, importes, cobros, pagos o deuda, cargar `integridad-operaciones` desde `skills/` o `.claude/skills/`. Clasificar campos y mapear dependencias antes de implementar. Toda creación, edición, eliminación o cancelación resuelve TODOS los efectos aplicados, sin duplicarlos, independientemente del botón.
+- Para formularios de catálogos con referencias configurables, cargar `catalogos-conectados`: crear relacionados en modal sin perder el borrador, con permisos y selección del nuevo registro. No extender automáticamente a documentos operativos ni listas fijas.
+- Son requisitos base aprobados de Uniline; no esperar que el dueño solicite cada consecuencia lógica. Documentar el momento de afectación y excepciones materiales. Una instalación de estas instrucciones no corrige aplicaciones existentes por sí sola.
+
 ## Objetivos de calidad medibles, no autocalificación
 - 9.5/10 es la meta para cada disciplina, NO una calificación ganada al instalar skills. Sin ensayos reales y cobertura: **NO EVALUADA**.
 - Diseño móvil: usar `mobile-ux-architect` y auditar con `evaluacion-ux-movil` por pantalla, sin perder funciones ni identidad aprobada.
@@ -170,6 +175,21 @@ Qué problema de negocio resuelve. [certeza]
 | Campo | Tipo | Null | Default | Qué representa | Reglas / validación | Certeza | Evidencia / origen |
 |---|---|---|---|---|---|---|---|
 
+## 2b. Clasificación y dependencias obligatorias
+Aplicar `integridad-operaciones`. Informativo solo si no dispara efectos; cliente y método de pago son entradas de negocio.
+| Campo | Informativo / entrada / calculado | Fuente y fórmula / redondeo | Dependientes y módulos | Evento/estado de actualización | Evidencia |
+|---|---|---|---|---|---|
+
+## 2c. Matriz de acciones y efectos
+| Acción (incluye quitar/eliminar) | Estado inicial/final | Validación/permiso | Efecto anterior/nuevo y diferencia | Inventario / documento / deuda / dinero / automatizaciones | Reversión y prueba |
+|---|---|---|---|---|---|
+Marcar no aplicable con motivo. Incluir parciales, reintentos y concurrencia; no dejar acciones implícitas.
+
+## 2d. Alta contextual entre catálogos
+Aplicar `catalogos-conectados` a relaciones configurables entre catálogos, no automáticamente a documentos operativos.
+| Campo / destino | Fijo/configurable | Permiso de alta | Modal y campos requeridos | Jerarquía/filtros | Selección y conservación de borrador | Prueba / excepción |
+|---|---|---|---|---|---|---|
+
 ## 3. Catálogos
 | Catálogo | FIJO / CONFIGURABLE | Valores iniciales (seed) | ¿El cliente puede borrar seed? | Certeza |
 
@@ -269,6 +289,9 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
+
+## Integridad comercial y catálogos conectados
+Definir la matriz de campos, eventos, estados y efectos con integridad-operaciones; inventariar las relaciones entre catálogos y el alta contextual con catalogos-conectados. Resolver excepciones del negocio sin pedir que el dueño enumere consecuencias básicas.
 
 ## Mobile UX Architect
 Para una pantalla móvil o adaptación desktop→teléfono, carga `mobile-ux-architect` junto a `ux-ui-jerarquia-saas` y el Design System. Investiga tareas reales, preserva funciones y define variantes compactas, táctiles y accesibles. No reduzcas escritorio mecánicamente ni conviertas cada fila en una card.
@@ -411,6 +434,9 @@ Cuando la rebanada funciona, el dueño la usa o se la enseña al cliente. Pregun
 
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Integridad comercial y catálogos conectados
+Auditar con integridad-operaciones todas las rutas de agregar, editar, quitar, eliminar y cancelar, comparando sus efectos reales. Con catalogos-conectados revisar cada relación configurable, permisos y conservación del formulario. Reportar omisiones con evidencia, sin corregir en modo auditor.
+
 ## Auditoría móvil por pantalla
 Para revisión móvil activa `mobile-ux-architect` y `evaluacion-ux-movil`: inventario de rutas y estados por rol, pantallas renderizadas y flujos probados. Una captura no certifica todo el sistema. Puntúa solo evidencia real, informa NO EVALUADA cuando falta.
 
@@ -487,6 +513,9 @@ Compara /docs contra el código actual (git log desde la última fecha de audito
 ---
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
+
+## Integridad comercial y catálogos conectados
+Implementar integridad-operaciones en todas las vías de escritura y catalogos-conectados en formularios de catálogos. Reutilizar reglas y servicios; eliminar/quitar no puede omitir efectos que cancelar sí resuelve. Verificar dependencias y pruebas antes de terminar.
 
 ## Desarrollo móvil verificable
 Si tocas POS móvil, responsive, listas, formularios, tablas, teclado, bottom sheets o textos cortados, usa `mobile-ux-architect`. Reutiliza componentes y patrones aprobados; prueba anchos y temas, acciones reales, teclado y regresiones en escritorio. Para terminar, consulta `evaluacion-ux-movil`; no declares 95/100 sin evidencia.
@@ -567,6 +596,9 @@ Si el proyecto se edita también en Lovable: no cambies archivos generados que L
 
 # AGENTE QA — Probar que de verdad funciona
 
+## Integridad comercial y catálogos conectados
+Usar integridad-operaciones y catalogos-conectados para pruebas de secuencias completas, saldos finales, reintentos, concurrencia, permisos y borradores conservados. Incluir quitar línea y luego cancelar, y crear catálogo relacionado y luego cancelar el padre.
+
 ## QA móvil y objetivos de calidad
 Aplica `evaluacion-ux-movil` para cambios móviles, comprobando cobertura de rutas, textos completos, targets táctiles, teclado, responsive/light-dark, accesibilidad, rendimiento y regresiones. Un bloqueo esencial impide aprobación aunque la suma sea alta; no declares pruebas visuales que no ejecutaste.
 
@@ -623,6 +655,9 @@ Los ❌ van a /docs/riesgos.md.
 ---
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
+
+## Integridad comercial y catálogos conectados
+Evaluar con integridad-operaciones y catalogos-conectados. No aprobar resultados que omitan una dependencia, una vía de eliminación o un alta contextual requerida. Distinguir cobertura documental, pruebas estáticas y evidencia real del producto.
 
 ## Auditoría de calidad móvil y 95/100
 Al evaluar UX móvil usa `evaluacion-ux-movil`: rúbrica por pantalla con capturas, dispositivo, escenarios y evidencia. Meta 95/100 sin evidencia es NO EVALUADA, nunca certificado. Distingue validación de archivos, simulación y pruebas reales del modelo/producto.
@@ -871,6 +906,42 @@ Después de una decisión confirmada o un cambio verificado: registrar decisión
 **"Corrige esta falta de ortografía":** corregir de inmediato, sin entrevista.
 
 Esta skill guía al modelo; **no sustituye** permisos, pruebas reales, control de versiones, revisión humana ni barreras técnicas.
+
+---
+
+# SKILL: catalogos-conectados
+
+# Catálogos conectados
+
+## Alcance y regla
+En todo formulario de alta/edición de un catálogo, cada campo relacionado con otro catálogo configurable debe permitir crear un registro del catálogo relacionado desde ese mismo contexto, si el usuario tiene permiso. Ejemplo: producto → categoría, subcategoría, marca, unidad. Aplicar a todos los catálogos del proyecto, no solo productos.
+No aplicar automáticamente a ventas, compras, cobros, traspasos u otros documentos operativos. No convertir listas fijas, estados internos o catálogos de sistema de solo lectura en configurables. Registrar la excepción y su motivo; no omitir silenciosamente el acceso porque el catálogo esté vacío.
+
+## Contrato del formulario
+1. Mostrar acción explícita «Crear categoría», «Crear marca», etc., junto al selector o dentro de él; disponible también con cero resultados. Escribir un nombre no lo crea automáticamente.
+2. Abrir modal accesible con el formulario del catálogo destino: mismas validaciones, campos obligatorios y reglas del alta normal. Mantener íntegro el borrador del formulario padre, incluso archivos y errores vigentes; no guardarlo anticipadamente.
+3. Tras guardar con éxito, incorporar la opción y seleccionarla por su ID real; refrescar solo opciones afectadas, sin recargar la página ni perder datos. Mostrar confirmación breve y devolver el foco al campo de origen.
+4. Cancelar el modal no crea nada ni altera la selección anterior. Un error conserva lo capturado para corregir/reintentar. Prevenir doble envío y duplicados concurrentes con validación autoritativa.
+5. Respetar permisos para crear en el catálogo DESTINO, aunque pueda editar el padre. Sin permiso, mantener selección permitida y explicar la restricción sin ofrecer una acción ejecutable. Verificar permisos y empresa también en servidor.
+6. Mantener jerarquías: al crear subcategoría, preseleccionar y validar la categoría activa. Al cambiar categoría, limpiar/solicitar corrección de la subcategoría incompatible; nunca guardar una relación inválida. No usar IDs de otra empresa.
+7. Si el alta relacionada requiere otro catálogo, permitir el mismo flujo con retorno ordenado y borradores conservados; evitar pilas de modales y ciclos sin salida. Usar pasos dentro del diálogo cuando corresponda.
+8. En móvil, usar diálogo adaptado/pantalla completa si hace falta; nombre accesible, foco contenido, teclado usable y retorno de foco. Cerrar el diálogo no debe cerrar el formulario padre accidentalmente.
+9. El registro relacionado guardado existe independientemente: cancelar después el producto no elimina la categoría creada. Hacer explícito el guardado del catálogo; no limpiar registros compartidos automáticamente.
+
+Verificar por separado permiso de alta/edición del catálogo padre y del destino. Definir campos obligatorios y actualización de permisos durante la sesión. Al cancelar edición de un padre existente, conservar su versión persistida y descartar solo cambios no guardados; no borrar el padre.
+
+## Diseño e implementación
+Inventariar cada relación: catálogo padre, campo, destino, fijo/configurable, permiso, acción contextual, campos requeridos, filtros/jerarquía, selección tras guardar y prueba. Reutilizar un componente/patrón común y el mismo servicio de alta del destino, no implementar versiones sin validaciones por pantalla. No crear catálogos nuevos que el negocio no tenga.
+
+## Pruebas obligatorias según alcance
+- Producto en borrador sin categorías: crear categoría desde selector, verla seleccionada y conservar todos los datos del producto.
+- Catálogo con opciones: crear otra marca/unidad y seleccionarla; validar nombre duplicado y doble clic.
+- Cancelar modal, fallo de servidor y pérdida de permiso: conservar borrador y selección; no generar registro fantasma.
+- Crear subcategoría bajo categoría correcta; cambiar categoría y comprobar invalidación de relación previa.
+- Usuario sin permiso y empresa distinta: impedir alta/acceso indebido en servidor, no solo ocultar botón.
+- Cancelar producto después de crear categoría: categoría persiste; producto no se guarda.
+- Probar teclado y móvil; comprobar que ventas/documentos operativos y listas fijas no reciben el alta contextual por una extensión indiscriminada del componente.
+Registrar evidencia real y lo no ejecutado. No aprobar solo porque aparece un botón «+».
 
 ---
 
@@ -1187,6 +1258,68 @@ de navegador, dispositivos reales, lector de pantalla, rendimiento medido y prue
 de negocio. Accesibilidad/rendimiento no obtiene 5 por pasar lint, build o axe.
 En cada retest conservar la captura/version anterior, la versión nueva y el alcance
 exacto. El resultado de una pantalla no aprueba otros módulos ni otros estados.
+
+---
+
+# SKILL: integridad-operaciones
+
+# Integridad de operaciones comerciales
+
+## Principio obligatorio
+Resolver todos los efectos de una operación, independientemente del nombre del botón o vía de entrada (UI, API, importación, automatización, sincronización). «No me dijiste que eliminar devolvía inventario» nunca es una justificación válida. Quitar una línea con efectos aplicados exige recalcular, revertir o compensar esos efectos, una sola vez. Baja lógica tampoco revierte por sí sola.
+Aplicar estas reglas como base Uniline aprobada. Preguntar solo decisiones materiales del negocio no resueltas (momento de afectación, excepciones, estados); no preguntar si deben cuadrar saldos. En sistemas existentes distinguir requisito de comportamiento comprobado y documentar discrepancias antes de modificar.
+
+## Clasificar y mapear antes de implementar
+- Informativo: describe sin efectos operativos (p. ej., observación cuando no dispara automatizaciones).
+- Entrada de negocio: producto, cliente, cantidad, precio, descuento, impuesto, almacén, método y monto de pago. Revisar sus dependencias; cliente y método de pago NO son necesariamente informativos.
+- Calculado: subtotal, total, aplicado, saldo, existencia, reservado, disponible. Derivar de una fuente autoritativa; no permitir edición libre.
+Para cada campo registrar fuente, fórmula, precisión/redondeo, dependientes directos e indirectos, evento de actualización y evidencia. Congelar valores históricos: editar el catálogo de precios, unidades o maneja_inventario no reescribe documentos ni revierte usando la configuración actual; usar los efectos y valores originales.
+Para cada acción registrar estado inicial/final, precondiciones, permisos, efecto anterior/nuevo, diferencia, módulos afectados, reversión y prueba. Cubrir crear, agregar/quitar línea, editar, confirmar, entregar/recibir parcialmente, cancelar, eliminar, devolver y reintentar; marcar no aplicable con motivo.
+
+## Reglas base
+| Operación | Inventario | Importe, deuda y dinero |
+|---|---|---|
+| Venta | Salida para productos con maneja_inventario en el evento definido. Separar reserva, físico y disponible. | Total = líneas con descuentos, impuestos y cargos según reglas documentadas. Importe exigible no cubierto genera cuenta por cobrar. |
+| Orden de compra | No aumenta físico por crear la orden. | Compromiso no equivale automáticamente a deuda exigible. |
+| Recepción de compra | Sumar solo cantidad realmente recibida/aceptada, en su almacén; impedir doble entrada por compra y recepción. | Reconocer cuenta por pagar en el evento acordado, sin duplicarla. |
+| Traspaso | Restar origen, sumar destino; si son dos eventos, origen → tránsito → destino. Conservar cantidad total incluyendo tránsito. | No generar venta, cobro o deuda por defecto. |
+| Ajuste | Sumar o restar en almacén/producto indicado, con motivo e historial. | No crear pagos ni ventas automáticamente. |
+| Cobro a cliente | Sin movimiento de unidades. | Entrada a caja/banco; disminuir deuda SOLO por importe aplicado a documentos identificados. |
+| Pago a proveedor | Sin movimiento de unidades. | Salida de caja/banco; disminuir deuda SOLO por importe aplicado. |
+| Devolución de cliente | Reingresar solo mercancía recibida, con condición y destino (vendible, cuarentena, etc.). | Crédito, saldo a favor o reembolso registrado, sin duplicarlos. |
+| Devolución a proveedor | Salida de mercancía efectivamente devuelta. | Ajustar deuda o saldo a favor según aplicación. |
+| Cancelación/eliminación con efectos | Revertir únicamente efecto pendiente de revertir; comprobar entrega y retornos reales. | Resolver deuda y pagos existentes con compensaciones trazables. Nunca borrar el dinero recibido. |
+
+Productos sin maneja_inventario, incluidos servicios: no mover existencia del producto, sí importes y saldos. Consumos de componentes/recetas requieren reglas propias explícitas.
+No permitir stock negativo salvo configuración y permiso explícitos. Revalidar disponibilidad en el servidor al confirmar, dentro de la misma operación protegida contra concurrencia; consultar desde el front no basta. Considerar reservas, almacén, unidades/presentaciones, lotes y series/IMEI cuando existan; una serie no puede salir dos veces.
+
+## Ediciones y compensaciones
+- Cantidad de 2 a 5: ajustar las 3 adicionales cuando el estado admita edición; de 5 a 2 liberar/revertir 3 según efecto aplicado. Si ya se entregó, usar devolución, no inventar regreso físico.
+- Cambio de producto, almacén, lote o unidad: resolver efecto en la identidad anterior y aplicar en la nueva con sus conversiones, no solo restar cantidades de productos distintos.
+- Cambio de precio/descuento/impuesto: recalcular dependientes monetarios, no unidades por sí mismo. Validar límites y reglas aprobadas de redondeo.
+- Cambio de método de pago sin cambio de monto: reclasificar caja/banco/cuenta y sus dependencias; no cobrar otra vez ni alterar el total de venta. En periodos cerrados, usar corrección autorizada/compensación.
+- Cambio de monto del pago: ajustar movimiento monetario, aplicaciones y saldos; no modificar subtotal/total de venta por el hecho de pagar. No aplicar a otras ventas arbitrariamente.
+- Separar importe del documento, deuda pendiente, dinero recibido/pagado, importe aplicado, anticipos y saldo a favor. Si disminuye una venta ya pagada, conservar excedente como saldo a favor o reembolso explícito; no esconderlo con un saldo truncado a cero.
+- Eliminar borrador sin efectos: permitir según permisos. Si hay reserva, liberarla. Documento confirmado/con dependencias: bloquear borrado físico y usar corrección o compensación con historial. Cancelar después de devolver/quitar una línea solo compensa el remanente.
+- No cancelar recepción/traspaso ignorando mercancía consumida, vendida o trasladada después. Revisar dependencias y resolverlas mediante el flujo autorizado.
+
+Definir qué representa cada saldo: físico observado, existencia registrada, reservado y disponible. Una salida al confirmar no prueba entrega física; evitar descontar además la misma reserva. Al cancelar, conservar total histórico y mostrar estado cancelado e importe exigible neto; no sobrescribir el documento original a cero.
+
+## Implementación consistente
+Centralizar reglas de dominio para todas las rutas. Persistir documento, movimientos, aplicaciones e historial en una transacción cuando compartan base; si falla una parte, rollback. Proteger reintentos con identificador idempotente y concurrencia con control de versión/bloqueo/actualización condicional según arquitectura. No hacer read-modify-write desprotegido.
+Conservar movimientos con origen, línea, empresa, almacén/cuenta, cantidad/importe, actor, fecha, motivo y referencia a la reversión; no sobrescribir el historial. Existencia y deuda deben reconciliarse contra movimientos y aplicaciones.
+Revisar también kardex, costos, comisiones, reportes, caches, automatizaciones y otras dependencias existentes. Publicar efectos externos después del commit mediante entrega durable, deduplicación y reintentos; no afirmar atomicidad entre sistemas independientes. Refrescar consultas afectadas sin polling masivo. Offline requiere política explícita de conflicto/disponibilidad, nunca prometer stock global garantizado sin coordinación.
+
+## Evidencia de aceptación
+Probar en entorno de pruebas todas las rutas equivalentes, no solo el botón cancelar. Como mínimo según alcance:
+1. Agregar, subir/bajar cantidad, cambiar producto/almacén/precio, quitar línea y cancelar después; verificar unidades e importes finales y ausencia de doble reversión.
+2. Servicio sin stock y producto con stock; insuficiencia, permiso de negativos y dos ventas simultáneas de la última unidad.
+3. Cobro parcial/total, cambio de método/monto, cancelación de cobro, excedente y aplicación a varias ventas con desglose.
+4. Recepción y traspaso parciales, devolución parcial y cancelación con movimientos posteriores.
+5. Doble clic, reintento tras timeout, edición concurrente, fallo intermedio y aislamiento entre empresas.
+6. Reconciliar documento, kardex, caja/banco, deuda y reportes; verificar automatizaciones sin duplicados.
+Ejemplo controlado (venta editable, mercancía no entregada, salida aplicada): stock 10, vender 3×100 → stock 7/deuda 300; quitar 1 → stock 8/deuda 200; cobrar 150 → deuda 50; quitar 1 → stock 9/total 100/deuda 0/saldo a favor 50. El cobro sigue siendo 150 hasta un reembolso registrado.
+No dar por terminado con revisión textual: adjuntar entradas, resultados esperados/observados, evidencia y escenarios no ejecutados. Las pruebas del paquete de agentes no demuestran integridad de una aplicación real.
 
 ---
 

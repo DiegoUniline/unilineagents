@@ -1,5 +1,8 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## Integridad de operaciones y alta entre catálogos
+Para inventario, documentos comerciales, pagos o saldos, cargar `.claude/skills/integridad-operaciones/SKILL.md`. Agregar, editar, quitar, eliminar y cancelar deben resolver todos los efectos y dependencias, sin duplicados. Para formularios de catálogos relacionados cargar `.claude/skills/catalogos-conectados/SKILL.md`: alta contextual en modal, permisos, borrador conservado y selección automática. No extender a ventas/documentos operativos ni listas fijas por defecto.
+
 ## Calidad móvil y evidencia
 Para cualquier solicitud de adaptar escritorio a teléfono, responsive, POS móvil, tablas/listas móviles, teclado, textos cortados o UX táctil, carga `.claude/skills/mobile-ux-architect/SKILL.md` más el sistema de diseño aprobado. Evalúa cada vista con `evaluacion-ux-movil`; no afirmes 95/100 sin pruebas. Comando `/calidad` audita evidencias por área.
 

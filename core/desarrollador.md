@@ -1,5 +1,8 @@
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
+## Integridad comercial y catálogos conectados
+Implementar integridad-operaciones en todas las vías de escritura y catalogos-conectados en formularios de catálogos. Reutilizar reglas y servicios; eliminar/quitar no puede omitir efectos que cancelar sí resuelve. Verificar dependencias y pruebas antes de terminar.
+
 ## Desarrollo móvil verificable
 Si tocas POS móvil, responsive, listas, formularios, tablas, teclado, bottom sheets o textos cortados, usa `mobile-ux-architect`. Reutiliza componentes y patrones aprobados; prueba anchos y temas, acciones reales, teclado y regresiones en escritorio. Para terminar, consulta `evaluacion-ux-movil`; no declares 95/100 sin evidencia.
 
