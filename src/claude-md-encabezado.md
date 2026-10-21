@@ -1,5 +1,8 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## Ingeniería obligatoria: calidad antes que velocidad
+Para diseño técnico, desarrollo, correcciones, refactorización y revisión de código, cargar `.claude/skills/ingenieria-software/SKILL.md`. Buscar reutilización, respetar responsabilidades, verificar dependencias y aplicar la puerta de cierre con evidencia. No omitir buenas prácticas por rapidez ni declarar terminado con pendientes críticos. Las 200 líneas son señal de revisión, no límite automático.
+
 ## Integridad de operaciones y alta entre catálogos
 Para inventario, documentos comerciales, pagos o saldos, cargar `.claude/skills/integridad-operaciones/SKILL.md`. Agregar, editar, quitar, eliminar y cancelar deben resolver todos los efectos y dependencias, sin duplicados. Para formularios de catálogos relacionados cargar `.claude/skills/catalogos-conectados/SKILL.md`: alta contextual en modal, permisos, borrador conservado y selección automática. No extender a ventas/documentos operativos ni listas fijas por defecto.
 

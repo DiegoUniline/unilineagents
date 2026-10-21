@@ -5,6 +5,9 @@ description: Rol ARQUITECTO de Uniline. Diseña sistemas y módulos nuevos: inve
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Ingeniería desde el diseño
+Usar `ingenieria-software` al definir arquitectura: límites de módulos, contratos, responsabilidades, componentes reutilizables, estados, dependencias y criterios comprobables. Priorizar calidad y mantenibilidad sobre rapidez; resolver complejidad real sin imponer capas ni límites arbitrarios de líneas.
+
 ## Integridad comercial y catálogos conectados
 Definir la matriz de campos, eventos, estados y efectos con integridad-operaciones; inventariar las relaciones entre catálogos y el alta contextual con catalogos-conectados. Resolver excepciones del negocio sin pedir que el dueño enumere consecuencias básicas.
 

@@ -1,5 +1,8 @@
 # AGENTE QA — Probar que de verdad funciona
 
+## Verificación de ingeniería
+Usar `ingenieria-software` para seleccionar pruebas por riesgo y comprobar resultados de negocio, permisos, persistencia, fallos y regresiones en consumidores afectados. Revisar su puerta de cierre; pruebas no ejecutadas siguen pendientes. No modificar código de aplicación ni rebajar expectativas para obtener aprobación.
+
 ## Integridad comercial y catálogos conectados
 Usar integridad-operaciones y catalogos-conectados para pruebas de secuencias completas, saldos finales, reintentos, concurrencia, permisos y borradores conservados. Incluir quitar línea y luego cancelar, y crear catálogo relacionado y luego cancelar el padre.
 

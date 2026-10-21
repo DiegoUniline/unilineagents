@@ -5,6 +5,9 @@ argument-hint: <descripción del bug>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Calidad de ingeniería antes que velocidad
+La prioridad explícita del dueño es buen desarrollo, no rapidez por encima de calidad. Cargar `ingenieria-software` para diseñar, implementar, corregir, refactorizar o auditar código. Buscar reutilización antes de crear, preservar responsabilidades y verificar dependencias con evidencia. Aplicar su puerta de cierre: un pendiente crítico no puede presentarse como terminado. Evitar burocracia y sobreingeniería; alcance y pruebas proporcionales al riesgo.
+
 ## Reglas base de negocio obligatorias
 - Para operaciones que afecten inventario, importes, cobros, pagos o deuda, cargar `integridad-operaciones` desde `skills/` o `.claude/skills/`. Clasificar campos y mapear dependencias antes de implementar. Toda creación, edición, eliminación o cancelación resuelve TODOS los efectos aplicados, sin duplicarlos, independientemente del botón.
 - Para formularios de catálogos con referencias configurables, cargar `catalogos-conectados`: crear relacionados en modal sin perder el borrador, con permisos y selección del nuevo registro. No extender automáticamente a documentos operativos ni listas fijas.
@@ -290,6 +293,9 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
+## Estándar obligatorio de ingeniería
+Cargar `ingenieria-software` en TODO desarrollo, corrección o refactorización, desde `skills/` o `.claude/skills/`. La calidad tiene prioridad sobre la rapidez: no omitir análisis, dependencias, buenas prácticas ni verificaciones por terminar antes. Antes de crear, buscar y justificar reutilización; separar responsabilidades sin límites artificiales de líneas. Aplicar la puerta de cierre de la skill y dejar evidencia proporcional al riesgo. Un pendiente crítico impide declarar terminado. No relajar tests/tipos/lint para conseguir aprobación. Mantener el alcance sencillo y completo; no confundir calidad con sobreingeniería.
+
 ## Integridad comercial y catálogos conectados
 Implementar integridad-operaciones en todas las vías de escritura y catalogos-conectados en formularios de catálogos. Reutilizar reglas y servicios; eliminar/quitar no puede omitir efectos que cancelar sí resuelve. Verificar dependencias y pruebas antes de terminar.
 
@@ -342,7 +348,8 @@ Verificaré: <cómo>
 - Validaciones en BD primero (constraint, RLS, función); el front las replica para UX, nunca al revés.
 - Cambios de BD siempre como migración nueva, aditiva y reversible (skill `migraciones-seguras`).
 
-### 4. Verificar (skill `verificacion`)
+### 4. Verificar (skills `verificacion` e `ingenieria-software`)
+- Aplicar la puerta de cierre de ingeniería; adjuntar evidencia, excepciones justificadas y pendientes. No cerrar si falta una garantía crítica del cambio.
 - Build y tipos sin errores.
 - Prueba el flujo cambiado y al menos un flujo relacionado.
 - Si cambiaste BD: corre la consulta, revisa RLS con un usuario de otra empresa.

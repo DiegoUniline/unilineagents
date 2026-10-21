@@ -4,6 +4,9 @@ argument-hint: <descripción del sistema>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Calidad de ingeniería antes que velocidad
+La prioridad explícita del dueño es buen desarrollo, no rapidez por encima de calidad. Cargar `ingenieria-software` para diseñar, implementar, corregir, refactorizar o auditar código. Buscar reutilización antes de crear, preservar responsabilidades y verificar dependencias con evidencia. Aplicar su puerta de cierre: un pendiente crítico no puede presentarse como terminado. Evitar burocracia y sobreingeniería; alcance y pruebas proporcionales al riesgo.
+
 ## Reglas base de negocio obligatorias
 - Para operaciones que afecten inventario, importes, cobros, pagos o deuda, cargar `integridad-operaciones` desde `skills/` o `.claude/skills/`. Clasificar campos y mapear dependencias antes de implementar. Toda creación, edición, eliminación o cancelación resuelve TODOS los efectos aplicados, sin duplicarlos, independientemente del botón.
 - Para formularios de catálogos con referencias configurables, cargar `catalogos-conectados`: crear relacionados en modal sin perder el borrador, con permisos y selección del nuevo registro. No extender automáticamente a documentos operativos ni listas fijas.
@@ -288,6 +291,9 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
+
+## Ingeniería desde el diseño
+Usar `ingenieria-software` al definir arquitectura: límites de módulos, contratos, responsabilidades, componentes reutilizables, estados, dependencias y criterios comprobables. Priorizar calidad y mantenibilidad sobre rapidez; resolver complejidad real sin imponer capas ni límites arbitrarios de líneas.
 
 ## Integridad comercial y catálogos conectados
 Definir la matriz de campos, eventos, estados y efectos con integridad-operaciones; inventariar las relaciones entre catálogos y el alta contextual con catalogos-conectados. Resolver excepciones del negocio sin pedir que el dueño enumere consecuencias básicas.

@@ -5,6 +5,9 @@ description: Rol AUDITOR de Uniline. Audita sistemas existentes en solo lectura:
 
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Auditoría de ingeniería
+Usar `ingenieria-software` para revisar responsabilidades, duplicación, consumidores compartidos, contratos, seguridad y evidencia de verificación. Revisar su puerta de cierre; reportar pendientes críticos y no aprobar por apariencia, número de líneas o compilación únicamente. Mantener modo solo lectura.
+
 ## Integridad comercial y catálogos conectados
 Auditar con integridad-operaciones todas las rutas de agregar, editar, quitar, eliminar y cancelar, comparando sus efectos reales. Con catalogos-conectados revisar cada relación configurable, permisos y conservación del formulario. Reportar omisiones con evidencia, sin corregir en modo auditor.
 

@@ -5,6 +5,9 @@ argument-hint: <modulo | todo>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Calidad de ingeniería antes que velocidad
+La prioridad explícita del dueño es buen desarrollo, no rapidez por encima de calidad. Cargar `ingenieria-software` para diseñar, implementar, corregir, refactorizar o auditar código. Buscar reutilización antes de crear, preservar responsabilidades y verificar dependencias con evidencia. Aplicar su puerta de cierre: un pendiente crítico no puede presentarse como terminado. Evitar burocracia y sobreingeniería; alcance y pruebas proporcionales al riesgo.
+
 ## Reglas base de negocio obligatorias
 - Para operaciones que afecten inventario, importes, cobros, pagos o deuda, cargar `integridad-operaciones` desde `skills/` o `.claude/skills/`. Clasificar campos y mapear dependencias antes de implementar. Toda creación, edición, eliminación o cancelación resuelve TODOS los efectos aplicados, sin duplicarlos, independientemente del botón.
 - Para formularios de catálogos con referencias configurables, cargar `catalogos-conectados`: crear relacionados en modal sin perder el borrador, con permisos y selección del nuevo registro. No extender automáticamente a documentos operativos ni listas fijas.
@@ -289,6 +292,9 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE QA — Probar que de verdad funciona
+
+## Verificación de ingeniería
+Usar `ingenieria-software` para seleccionar pruebas por riesgo y comprobar resultados de negocio, permisos, persistencia, fallos y regresiones en consumidores afectados. Revisar su puerta de cierre; pruebas no ejecutadas siguen pendientes. No modificar código de aplicación ni rebajar expectativas para obtener aprobación.
 
 ## Integridad comercial y catálogos conectados
 Usar integridad-operaciones y catalogos-conectados para pruebas de secuencias completas, saldos finales, reintentos, concurrencia, permisos y borradores conservados. Incluir quitar línea y luego cancelar, y crear catálogo relacionado y luego cancelar el padre.

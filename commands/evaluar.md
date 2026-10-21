@@ -4,6 +4,9 @@ argument-hint: <agente | skill | modulo | todo>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Calidad de ingeniería antes que velocidad
+La prioridad explícita del dueño es buen desarrollo, no rapidez por encima de calidad. Cargar `ingenieria-software` para diseñar, implementar, corregir, refactorizar o auditar código. Buscar reutilización antes de crear, preservar responsabilidades y verificar dependencias con evidencia. Aplicar su puerta de cierre: un pendiente crítico no puede presentarse como terminado. Evitar burocracia y sobreingeniería; alcance y pruebas proporcionales al riesgo.
+
 ## Reglas base de negocio obligatorias
 - Para operaciones que afecten inventario, importes, cobros, pagos o deuda, cargar `integridad-operaciones` desde `skills/` o `.claude/skills/`. Clasificar campos y mapear dependencias antes de implementar. Toda creación, edición, eliminación o cancelación resuelve TODOS los efectos aplicados, sin duplicarlos, independientemente del botón.
 - Para formularios de catálogos con referencias configurables, cargar `catalogos-conectados`: crear relacionados en modal sin perder el borrador, con permisos y selección del nuevo registro. No extender automáticamente a documentos operativos ni listas fijas.
@@ -288,6 +291,9 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
+
+## Evaluar calidad antes que rapidez
+Usar `ingenieria-software`: comprobar que el desarrollador buscó reutilización, respetó responsabilidades y verificó efectos con evidencia. Rechazar cierre con pendientes críticos o tests debilitados. Separar rapidez, cumplimiento documental y calidad demostrada; no premiar velocidad que omite garantías.
 
 ## Integridad comercial y catálogos conectados
 Evaluar con integridad-operaciones y catalogos-conectados. No aprobar resultados que omitan una dependencia, una vía de eliminación o un alta contextual requerida. Distinguir cobertura documental, pruebas estáticas y evidencia real del producto.

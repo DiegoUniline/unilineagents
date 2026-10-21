@@ -5,6 +5,9 @@ argument-hint: <modulo>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Calidad de ingeniería antes que velocidad
+La prioridad explícita del dueño es buen desarrollo, no rapidez por encima de calidad. Cargar `ingenieria-software` para diseñar, implementar, corregir, refactorizar o auditar código. Buscar reutilización antes de crear, preservar responsabilidades y verificar dependencias con evidencia. Aplicar su puerta de cierre: un pendiente crítico no puede presentarse como terminado. Evitar burocracia y sobreingeniería; alcance y pruebas proporcionales al riesgo.
+
 ## Reglas base de negocio obligatorias
 - Para operaciones que afecten inventario, importes, cobros, pagos o deuda, cargar `integridad-operaciones` desde `skills/` o `.claude/skills/`. Clasificar campos y mapear dependencias antes de implementar. Toda creación, edición, eliminación o cancelación resuelve TODOS los efectos aplicados, sin duplicarlos, independientemente del botón.
 - Para formularios de catálogos con referencias configurables, cargar `catalogos-conectados`: crear relacionados en modal sin perder el borrador, con permisos y selección del nuevo registro. No extender automáticamente a documentos operativos ni listas fijas.
@@ -289,6 +292,9 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
+
+## Auditoría de ingeniería
+Usar `ingenieria-software` para revisar responsabilidades, duplicación, consumidores compartidos, contratos, seguridad y evidencia de verificación. Revisar su puerta de cierre; reportar pendientes críticos y no aprobar por apariencia, número de líneas o compilación únicamente. Mantener modo solo lectura.
 
 ## Integridad comercial y catálogos conectados
 Auditar con integridad-operaciones todas las rutas de agregar, editar, quitar, eliminar y cancelar, comparando sus efectos reales. Con catalogos-conectados revisar cada relación configurable, permisos y conservación del formulario. Reportar omisiones con evidencia, sin corregir en modo auditor.
