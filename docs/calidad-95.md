@@ -1,5 +1,9 @@
 # Uniline Agents — Estándar de calidad 9.5/10 (objetivo, no puntuación actual)
 
+## Clasificación justa antes de cualquier calificación
+La skill `clasificacion-hallazgos` distingue defectos reproducidos, inferencias, riesgos de diseño, decisiones de negocio pendientes, recomendaciones, brechas de prueba y desviaciones de proceso. El auditor atribuye responsabilidad a arquitectura/desarrollo/QA/auditoría/negocio **según causa y evidencia**. No resta puntos por una preferencia técnica o comercial válida aún por decidir. No descuenta dos veces el mismo defecto dentro de una dimensión. Vulnerabilidad reproducida conserva bloqueo aunque exista una decisión comercial pendiente. Las evaluaciones numéricas necesitan rúbrica previa y evidencia; meta ≥95 no se impone por decreto.
+
+
 ## Diferenciar cuatro resultados
 1. **Integración documental**: la skill existe y se distribuye.
 2. **Ejecución de controles**: hooks/pruebas de integridad pasan en una máquina.
