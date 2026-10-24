@@ -7,5 +7,5 @@ argument-hint: <agente | skill | modulo | todo>
 
 ## Tarea
 Audita: $ARGUMENTS
-Aplica `evaluacion-agente` y, si es Supabase, `supabase-saas-enterprise/references/evaluaciones.md`.
+Aplica `evaluacion-agente` y `clasificacion-hallazgos` con su rúbrica. Separa recomendaciones, decisiones pendientes, defectos reproducidos e inferidos y brechas QA; atribuye responsabilidades por fase con evidencia. Si hay Supabase carga sus evaluaciones específicas.
 Antes de declarar un resultado, distingue prueba REAL, fixture SIMULADO y chequeo ESTÁTICO. No edites productos o datos de producción.
