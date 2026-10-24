@@ -1,4 +1,8 @@
 ---
+
+## Clasificar antes de puntuar
+Cargar `clasificacion-hallazgos` y `references/rubrica.md` al analizar calidad de software o imputar notas bajas al agente. Separar hipótesis, defectos técnicos, recomendaciones y decisiones comerciales no definidas. Identificar arquitectura/desarrollo/QA/auditoría/dueño por fase y nivel de certeza; no fabricar cifras para llegar a 9.5. La severidad y el bloqueo técnico pueden persistir aunque la política de negocio esté pendiente.
+
 name: evaluacion-agente
 description: Evaluar la conducta y calidad del AutoPrompter/skills antes de distribuir cambios o cuando Claude pregunta demasiado, asume requisitos, pierde contexto o declara éxito sin pruebas.
 ---

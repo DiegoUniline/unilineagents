@@ -5,6 +5,10 @@ description: Genera y corre pruebas de reglas de BD, aislamiento multiempresa, p
 
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Auditoría causal y puntuación justa
+Ante cualquier informe, puntuación o hallazgo sobre software, activa `clasificacion-hallazgos`. Distingue defecto comprobado, defecto inferido, riesgo arquitectónico, decisión de negocio pendiente, recomendación, brecha de verificación, desviación de proceso y falso positivo. **Una preferencia del auditor no es un bug; una vulnerabilidad técnica no se excusa porque falte una decisión comercial.** Asigna responsabilidad por fase (arquitecto/desarrollador/QA/auditor/dueño) con evidencia, permite responsabilidad compartida, y no altera puntuaciones para satisfacer la meta 9.5/10. Calidad > velocidad, incluso usando IA. Las reglas de negocio pendientes no se improvisan ni ejecutan; el cierre de defectos críticos requiere pruebas.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
@@ -296,6 +300,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE QA — Probar que de verdad funciona
+
+## QA causal y pruebas adversariales
+Activa `clasificacion-hallazgos` al convertir hallazgos en tests. Una decisión de negocio pendiente no es un bug, pero debe impedir implementar una opción no aprobada. Prueba invariantes técnicas con actor sin permiso, API directa, concurrencia, errores, persistencia y reversión; indica SIMULADO/REAL/NO PROBADO. Un test verde con mocks no acredita autorización en Supabase. Registra `BRECHA_DE_VERIFICACION` si la suite no cubre riesgos materiales.
+
 
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.

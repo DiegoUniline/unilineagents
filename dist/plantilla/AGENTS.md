@@ -4,6 +4,10 @@
 
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Auditoría causal y puntuación justa
+Ante cualquier informe, puntuación o hallazgo sobre software, activa `clasificacion-hallazgos`. Distingue defecto comprobado, defecto inferido, riesgo arquitectónico, decisión de negocio pendiente, recomendación, brecha de verificación, desviación de proceso y falso positivo. **Una preferencia del auditor no es un bug; una vulnerabilidad técnica no se excusa porque falte una decisión comercial.** Asigna responsabilidad por fase (arquitecto/desarrollador/QA/auditor/dueño) con evidencia, permite responsabilidad compartida, y no altera puntuaciones para satisfacer la meta 9.5/10. Calidad > velocidad, incluso usando IA. Las reglas de negocio pendientes no se improvisan ni ejecutan; el cierre de defectos críticos requiere pruebas.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
@@ -296,6 +300,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Análisis de reglas, garantías y responsabilidades
+Para decisiones ambiguas y diseños sujetos a auditoría activa `clasificacion-hallazgos`. Separa política de negocio (decisión del dueño) de invariante técnico obligatorio (seguridad, autorización, consistencia). Define criterios adversariales/roles/concurrencia antes de desarrollo. No culpes al desarrollador por una política que nunca definiste; una frontera de confianza insegura sí exige corrección y pruebas. Documenta decisión pendiente, recomendación y riesgo por separado.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
@@ -446,6 +454,10 @@ Cuando la rebanada funciona, el dueño la usa o se la enseña al cliente. Pregun
 
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Clasificación de hallazgos fundamentada
+Usa siempre `clasificacion-hallazgos` en auditorías. Etiqueta cada hallazgo por naturaleza, evidencia y severidad por separado. **No califiques como defecto lo que solo es una preferencia o decisión comercial no aprobada**, y tampoco reetiquetes una vulnerabilidad como recomendación. Señala responsables posibles por fase sin atribuir culpabilidad no demostrada. Solo lectura; no ajustes notas para conseguir 9.5/10 sin nuevas pruebas.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
@@ -531,6 +543,10 @@ Compara /docs contra el código actual (git log desde la última fecha de audito
 ---
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
+
+## Responsabilidad técnica y clasificación justa
+Al recibir auditorías o requisitos ambiguos, activa `clasificacion-hallazgos`. No implementes por intuición una política comercial pendiente; plantea opciones al dueño. Valida en backend/API/BD invariantes de autorización y coherencia incluso cuando una opción empresarial admita excepciones. Defecto reproducido → prueba que falle primero, reparación mínima, regresión. Recomendación sin defecto → no cambiar ni penalizar. Atribuye causa a la fase correcta. Priorizamos calidad por encima de rapidez.
+
 
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
@@ -621,6 +637,10 @@ Si el proyecto se edita también en Lovable: no cambies archivos generados que L
 
 # AGENTE QA — Probar que de verdad funciona
 
+## QA causal y pruebas adversariales
+Activa `clasificacion-hallazgos` al convertir hallazgos en tests. Una decisión de negocio pendiente no es un bug, pero debe impedir implementar una opción no aprobada. Prueba invariantes técnicas con actor sin permiso, API directa, concurrencia, errores, persistencia y reversión; indica SIMULADO/REAL/NO PROBADO. Un test verde con mocks no acredita autorización en Supabase. Registra `BRECHA_DE_VERIFICACION` si la suite no cubre riesgos materiales.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
@@ -686,6 +706,10 @@ Los ❌ van a /docs/riesgos.md.
 ---
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
+
+## Evaluación causal y puntuación por responsable
+Ante calificaciones de arquitectura, desarrollo, QA o agentes carga `clasificacion-hallazgos` y su rúbrica. Reporta clases separadas, evidencia/certeza, severidad y responsabilidad por fase. Un mismo fallo puede ser implementación defectuosa, omisión arquitectónica y brecha de QA, pero evita penalizar dos veces el mismo hecho dentro de una dimensión. No conviertas recomendaciones personales ni políticas pendientes en bugs. La meta 9.5/10 depende de evidencia real por disciplina, no del número de recomendaciones.
+
 
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
@@ -1018,6 +1042,64 @@ Tabla `facturas`: empresa_id, documento origen (venta/pedido), serie, folio, uui
 - Venta facturada se cancela → ¿se cancela factura o nota de crédito? (preguntar).
 - Facturar fuera del mes de la venta → ¿se permite? (preguntar).
 - Falla el PAC → estado `error`, reintento idempotente (no timbrar dos veces).
+
+---
+
+# SKILL: clasificacion-hallazgos
+
+# Clasificación causal de hallazgos · Uniline Agents
+
+## Propósito
+Evitar que una preferencia del auditor se convierta en supuesto «bug», sin trivializar vulnerabilidades reales ni desplazar indebidamente la responsabilidad al dueño. La calidad se evalúa por **corrección respecto a reglas aprobadas Y garantías técnicas de seguridad e integridad**, no por cantidad de recomendaciones o velocidad de entrega.
+
+Esta skill es transversal y obligatoria en auditorías, diagnósticos, revisión de PR, diseño de reglas de negocio, calificación por disciplina y análisis de incidentes. Se combina con `evaluacion-agente`, `autoprompter`, `ingenieria-software`, `supabase-saas-enterprise` y `verificacion` **solo cuando correspondan**; no duplica su contenido.
+
+## Paso 1 · Clasificar naturaleza (campo obligatorio, no mezclar)
+
+Cada hallazgo lleva **una clase primaria** y, si procede, etiquetas secundarias:
+
+| Clase | Definición | Consecuencia |
+|---|---|---|
+| `DEFECTO_COMPROBADO` | Código/resultado contradice una regla aprobada o garantía técnica y se reprodujo con evidencia | Se corrige y se prueba regresión |
+| `DEFECTO_INFERIDO` | Código sugiere fallo pero no se ha reproducido; contexto o precondición inciertos | Investigar/reproducir, no afirmar explotación |
+| `RIESGO_ARQUITECTONICO` | Posible fallo relevante de diseño, seguridad, escalabilidad o integridad con vía causal fundamentada | Poner control preventivo o probar exposición |
+| `DECISION_NEGOCIO_PENDIENTE` | Hay varias políticas comerciales legítimas sin decisión aprobada | Presentar opciones y recomendación al dueño; no elegir unilateralmente |
+| `RECOMENDACION` | Mejora opcional de legibilidad, costos, tecnología, UX o procesos; el estado actual puede ser válido | No contabilizar automáticamente como bug, defecto o bloqueo |
+| `BRECHA_DE_VERIFICACION` | Falta cobertura, prueba pertinente, prueba remota o evidencia para afirmar una garantía | Es fallo de aseguramiento/QA; mantener estado NO VERIFICADO |
+| `DESVIACION_PROCESO` | Se incumplió una autorización, criterio de cierre, trazabilidad, memoria o procedimiento acordado | Corregir proceso y controles verificables |
+| `FALSO_POSITIVO` | El supuesto defecto quedó refutado con evidencia | Retirar penalización, documentar razón y cómo se evitó |
+
+**No cambiar la clase de un hallazgo para mejorar artificialmente la nota.** Una decisión pendiente puede coexistir con un defecto de seguridad observado. Registra ambos hallazgos, con pruebas separadas.
+
+## Paso 2 · Cuatro preguntas causales
+1. **¿Qué se aprobó?** Buscar D-XXX, criterios de aceptación, reglas del dominio y excepciones. «No encontré» ≠ «no existe».
+2. **¿Qué pasó en realidad?** Archivo/líneas, test, usuario/rol, input, salida, entorno/versión. Distinguir `OBSERVADO`, `REPRODUCIDO`, `INFERIDO`, `NO VERIFICADO`.
+3. **¿La operación es inherentemente peligrosa aunque no exista regla comercial?** Protección de privilegios, aislamiento, saldos no negativos, validaciones servidor, consistencia monetaria, trazabilidad y autenticación tienen garantías técnicas mínimas. No se excusa una vulnerabilidad por no haber preguntado al dueño la política exacta.
+4. **¿Qué decisión de negocio falta?** Preguntar una regla material si existen varias opciones aceptables, sin confundir el debate con la existencia o severidad de un defecto técnico.
+
+## Paso 3 · Responsabilidades independientes, no buscar culpables
+- **Arquitecto:** detecta políticas faltantes, modela invariantes, permisos, impacto, excepciones y fronteras de confianza antes del desarrollo.
+- **Desarrollador:** implementa reglas aprobadas, protege límites de seguridad, valida entradas del servidor, evita condiciones de carrera y verifica su cambio. Un permiso no definido es decisión pendiente; aceptar un valor arbitrario que permite desviar importes es riesgo/defecto técnico aparte.
+- **QA:** diseña y ejecuta pruebas que intenten romper invariantes, roles, errores y concurrencia. Si el código falla y su suite pasó, hay defecto de implementación **y** brecha de cobertura.
+- **Auditor/evaluador:** clasifica hechos, riesgos, pendientes y recomendaciones por separado, no infiere culpabilidad ni puntuaciones a partir del estilo o preferencias personales.
+- **Dueño del negocio:** resuelve políticas comerciales y prioridades que legítimamente admiten alternativas. No debe diseñar controles técnicos elementales para que el sistema sea seguro.
+
+Un hallazgo puede tener **responsables múltiples**. Separar `causa_raiz`, `responsable_decision`, `responsable_implementacion`, `responsable_verificacion`, `responsable_clasificacion`. Distinguir responsable de la etapa donde se detectó. Sin evidencia suficiente: «responsabilidad por determinar».
+
+## Paso 4 · Severidad y puntuación (independientes)
+Clasificar severidad por **impacto × probabilidad/plausibilidad × exposición**, no por desacuerdo del auditor. Permitir severidad alta para riesgo fundado no reproducido, **sin decir que ya ocurrió**. La categoría `RECOMENDACION` o `DECISION_NEGOCIO_PENDIENTE` por sí sola NO reduce la nota técnica.
+Una `BRECHA_DE_VERIFICACION` sí afecta confianza/calidad de pruebas; el desarrollo queda NO VERIFICADO donde falte evidencia crítica.
+La nota 0–10 por disciplina requiere rúbrica acordada **antes** del examen, escenario, denominador, evidencia y severidad. No asignar «4/10» por un puñado de opiniones ni otorgar 9.5/10 por tests verdes. No promediar dimensiones para ocultar fallos críticos. Ver [rubrica.md](references/rubrica.md).
+
+## Caso tipo de cambio (distinción obligatoria)
+- **Negocio:** ¿quién puede modificar el TC, cuál es la fuente, cuándo aplica una excepción y quién la autoriza? Pueden existir varias políticas válidas. Clase `DECISION_NEGOCIO_PENDIENTE`; no penalizar al desarrollador por NO elegir una política arbitraria.
+- **Técnico:** si el cajero manda `tipo_cambio=1000` a la API y el servidor lo usa sin validar la autorización/coherencia, pese a poder alterar cobros y cortes, hay un problema de frontera de confianza. Si reproducido: `DEFECTO_COMPROBADO`; si solo inferido: `DEFECTO_INFERIDO`/`RIESGO_ARQUITECTONICO`. **NO desaparece porque la empresa permita modificar TC en algún escenario**.
+- **Proceso:** si la política quedó indeterminada y el agente decidió sin preguntar, `DESVIACION_PROCESO` atribuible a diseño/análisis. Si QA no probó manipulación por API, `BRECHA_DE_VERIFICACION`.
+- **Remedio:** especificar política con el dueño, añadir validación en el límite de confianza y prueba por rol/reintento; no imponer «nunca editable» ni «editable para todos».
+
+## Informe exigido
+Para cada hallazgo: ID, clase primaria, secundaria, evidencia y nivel, regla aprobada (o ausente), escenario causal, severidad, impacto, rol/entorno, responsables por fase (o por determinar), decisión pendiente, corrección mínima propuesta, prueba de aceptación y estado. Mantener recomendaciones fuera del cómputo de defectos. Exigir confirmación para cambios productivos.
+Usar [plantilla](references/rubrica.md) para revisar notas y responsabilidades. Ante evidencia insuficiente, no inventar.
 
 ---
 

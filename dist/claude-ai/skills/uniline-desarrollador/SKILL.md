@@ -5,6 +5,10 @@ description: Rol DESARROLLADOR de Uniline. Hace cambios y correcciones mínimos 
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
+## Responsabilidad técnica y clasificación justa
+Al recibir auditorías o requisitos ambiguos, activa `clasificacion-hallazgos`. No implementes por intuición una política comercial pendiente; plantea opciones al dueño. Valida en backend/API/BD invariantes de autorización y coherencia incluso cuando una opción empresarial admita excepciones. Defecto reproducido → prueba que falle primero, reparación mínima, regresión. Recomendación sin defecto → no cambiar ni penalizar. Atribuye causa a la fase correcta. Priorizamos calidad por encima de rapidez.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 

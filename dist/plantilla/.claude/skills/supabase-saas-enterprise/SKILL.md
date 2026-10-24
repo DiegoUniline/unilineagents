@@ -1,4 +1,8 @@
 ---
+
+## Análisis causal de hallazgos Supabase
+Ante auditorías de RLS, FX, pagos, concurrencia, Realtime o rendimiento, cargar `clasificacion-hallazgos`. Política comercial (por ejemplo quién puede modificar el tipo de cambio) y garantía técnica (API nunca confía en valor arbitrario que altera importes) son temas distintos. Una recomendación de arquitectura no es automáticamente un defecto; una explotación reproducida de permisos sí lo es. Probar con roles reales y entorno aislado antes de recalificar.
+
 name: supabase-saas-enterprise
 description: Orquestador experto Supabase/PostgreSQL para SaaS empresariales, POS, ventas, inventario, pagos, Realtime, seguridad RLS, sincronización, rendimiento y operaciones. Actívalo al investigar, diseñar, corregir, optimizar o auditar funcionalidades cuya infraestructura, datos o autorización dependen de Supabase. Carga solo referencias específicas por necesidad.
 ---
