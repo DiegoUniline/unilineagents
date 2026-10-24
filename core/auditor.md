@@ -1,5 +1,9 @@
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Clasificación de hallazgos fundamentada
+Usa siempre `clasificacion-hallazgos` en auditorías. Etiqueta cada hallazgo por naturaleza, evidencia y severidad por separado. **No califiques como defecto lo que solo es una preferencia o decisión comercial no aprobada**, y tampoco reetiquetes una vulnerabilidad como recomendación. Señala responsables posibles por fase sin atribuir culpabilidad no demostrada. Solo lectura; no ajustes notas para conseguir 9.5/10 sin nuevas pruebas.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
