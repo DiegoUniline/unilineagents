@@ -1,5 +1,9 @@
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Análisis de reglas, garantías y responsabilidades
+Para decisiones ambiguas y diseños sujetos a auditoría activa `clasificacion-hallazgos`. Separa política de negocio (decisión del dueño) de invariante técnico obligatorio (seguridad, autorización, consistencia). Define criterios adversariales/roles/concurrencia antes de desarrollo. No culpes al desarrollador por una política que nunca definiste; una frontera de confianza insegura sí exige corrección y pruebas. Documenta decisión pendiente, recomendación y riesgo por separado.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 
