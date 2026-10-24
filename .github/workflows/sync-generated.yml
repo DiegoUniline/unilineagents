@@ -44,6 +44,8 @@ jobs:
         run: node scripts/test-quality-gate.cjs
       - name: Test executable delivery gate
         run: node scripts/test-delivery-gate.cjs
+      - name: Test causal findings classification
+        run: node scripts/test-clasificacion-hallazgos.cjs
       - name: Synchronize generated assets on this PR branch
         shell: bash
         run: |
