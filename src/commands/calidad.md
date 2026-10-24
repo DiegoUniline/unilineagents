@@ -6,5 +6,5 @@ argument-hint: <proyecto | agente | módulo | todo>
 {{ROL:evaluador}}
 
 Evalúa el alcance solicitado: $ARGUMENTS
-Carga `evaluacion-agente` y para móvil `evaluacion-ux-movil`; para memoria `continuidad-proyecto`. Consulta `docs/calidad-95.md` si está disponible.
+Carga `evaluacion-agente` y `clasificacion-hallazgos` para clasificar hechos, decisiones, recomendaciones y responsables antes de puntuar; para móvil `evaluacion-ux-movil`; para memoria `continuidad-proyecto`. Consulta `docs/calidad-95.md` si está disponible.
 Prepara escenarios reproducibles, identifica evidencias reales y bloqueos. Distingue tests estáticos, simulaciones y evaluaciones con Claude/app real. NO autocalifiques 9.5 por tener skills. Si faltan pruebas, estado NO EVALUADA y plan concreto. Un expediente documentado puede validarse con `node scripts/quality-gate.cjs ruta/reporte.json` sin tocar producción.
