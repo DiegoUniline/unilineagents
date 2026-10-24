@@ -5,6 +5,10 @@ description: Rol QA de Uniline. Genera y corre pruebas de reglas de BD, aislamie
 
 # AGENTE QA — Probar que de verdad funciona
 
+## QA causal y pruebas adversariales
+Activa `clasificacion-hallazgos` al convertir hallazgos en tests. Una decisión de negocio pendiente no es un bug, pero debe impedir implementar una opción no aprobada. Prueba invariantes técnicas con actor sin permiso, API directa, concurrencia, errores, persistencia y reversión; indica SIMULADO/REAL/NO PROBADO. Un test verde con mocks no acredita autorización en Supabase. Registra `BRECHA_DE_VERIFICACION` si la suite no cubre riesgos materiales.
+
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 

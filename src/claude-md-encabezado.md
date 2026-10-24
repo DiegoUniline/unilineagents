@@ -1,5 +1,8 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## Auditoría causal y responsabilidades
+Al evaluar código, propuestas, vulnerabilidades o calificaciones bajas, carga `.claude/skills/clasificacion-hallazgos/SKILL.md`. Clasifica defecto comprobado/inferido, riesgo arquitectónico, política de negocio pendiente, recomendación, brecha QA, desviación de proceso y falso positivo. Revisa evidencia, severidad y responsabilidades por fase; no cargues al desarrollador preferencias del auditor, ni excuses una vulnerabilidad porque la política comercial sea ambigua. Meta 9.5 por disciplina SOLO si la evidencia lo demuestra; calidad antes que velocidad.
+
 ## Control ejecutable de entrega
 En proyectos con `calidad/`, seguir `calidad/README.md`: conectar escenarios a pruebas reales en entorno aislado, ejecutar el control sobre revisión limpia y conservar evidencia. Configuración pendiente o garantía crítica sin verificar impide aprobar entrega. QA define expectativas; auditor revisa adaptadores y resultados independientemente. Registrar incidentes con causa, regresión y aprendizaje versionado. No presentar checks del paquete como pruebas del producto ni afirmar bloqueo de merges/despliegues sin comprobar protección y dependencias reales.
 

@@ -91,3 +91,6 @@ El objetivo de 95/100 por competencia **requiere evaluaciones reales** con resul
 
 ### AutoPrompter v3.1: seis apartados visibles
 En cambios IMPORTANTES, después de investigar y antes de editar, Claude debe mostrar **ENTENDÍ / COMPROBÉ / PROPONGO / TAMBIÉN AFECTARÁ / RESULTADO / NECESITO QUE DECIDAS**. Breve en cada sección y sin los nueve encabezados. Preguntas posteriores no repiten toda la estructura; tareas triviales exentas. Ver `docs/auto-prompter-v2.md`. Este contrato es instruccional, no una garantía determinista de ejecución.
+
+## Clasificación causal de auditorías — objetivo 9.5 sin notas ficticias
+La skill `clasificacion-hallazgos` separa defectos confirmados o inferidos, riesgos de arquitectura, decisiones empresariales pendientes, recomendaciones, brechas de pruebas, desviaciones de proceso y falsos positivos. Asigna responsabilidades a arquitectura, desarrollo, QA, auditoría y negocio con evidencia. No penalizar preferencias técnicas/comerciales no aprobadas; no encubrir fallos de seguridad bajo una decisión pendiente. Usar `/evaluar` o `/calidad` y consultar `docs/criterios-auditoria-causal.md`. Criterio: calidad > velocidad; 9.5/10 se demuestra, no se impone.
