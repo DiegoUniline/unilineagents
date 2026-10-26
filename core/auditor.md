@@ -1,5 +1,9 @@
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Auditoría de reincidencias
+Cuando evalúes calidad o regresiones, usa `aprendizaje-verificable` con `clasificacion-hallazgos`. Comprueba independientemente que el escenario reproduce el defecto original y que pasa en la revisión nueva sin renunciar a integridad/seguridad. Clasifica causas, responsables por fase y decisiones pendientes sin penalizar recomendaciones. Un registro vacío no implica que no haya fallos: busca posibles incidentes omitidos y prueba riesgos.
+
+
 ## Clasificación de hallazgos fundamentada
 Usa siempre `clasificacion-hallazgos` en auditorías. Etiqueta cada hallazgo por naturaleza, evidencia y severidad por separado. **No califiques como defecto lo que solo es una preferencia o decisión comercial no aprobada**, y tampoco reetiquetes una vulnerabilidad como recomendación. Señala responsables posibles por fase sin atribuir culpabilidad no demostrada. Solo lectura; no ajustes notas para conseguir 9.5/10 sin nuevas pruebas.
 
