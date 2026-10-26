@@ -48,6 +48,8 @@ jobs:
         run: node scripts/test-clasificacion-hallazgos.cjs
       - name: Test selective associative context routing
         run: node scripts/test-contexto.cjs
+      - name: Test executable learning and regression ledger
+        run: node scripts/test-aprendizajes.cjs
       - name: Synchronize generated assets on this PR branch
         shell: bash
         run: |
