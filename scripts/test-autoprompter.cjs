@@ -40,6 +40,11 @@ test('Ruta móvil activada en desarrollador',()=>assert.match(read('core/desarro
 test('Rúbrica QA incluida',()=>assert.match(read('core/qa.md'),/evaluacion-ux-movil/));
 test('Comando calidad distribuido',()=>assert.match(read('dist/proyecto/.claude/skills/calidad/SKILL.md'),/calidad/));
 test('Continuidad documentada',()=>assert.match(read('dist/proyecto/.claude/skills/continuidad-proyecto/references/checkpoint-esquema.md'),/Checkpoint/));
+test('Memoria asociativa activada',()=>assert.match(read('src/claude-md-encabezado.md'),/memoria-asociativa/));
+test('Skill asociativa distribuida',()=>assert.equal(read('dist/proyecto/.claude/skills/memoria-asociativa/SKILL.md').trim(),read('skills/memoria-asociativa/SKILL.md').trim()));
+test('Router distribuido en Claude Code',()=>assert.equal(read('dist/proyecto/.claude/scripts/contexto.cjs').trim(),read('scripts/contexto.cjs').trim()));
+test('Router distribuido en plantilla nueva',()=>assert.equal(read('dist/plantilla/.claude/scripts/contexto.cjs').trim(),read('scripts/contexto.cjs').trim()));
+test('Índice inicial vacío, sin relaciones inventadas',()=>assert.deepEqual(JSON.parse(read('dist/plantilla/docs/contexto/relaciones.json')).modules,[]));
 let ok=0; for(const [n,fn] of checks){try{fn();console.log('OK '+n);ok++;}catch(e){console.error('FAIL '+n+': '+e.message)}}
 console.log(ok+'/'+checks.length+' validaciones estáticas. Comprobar conducta con el modelo real sigue pendiente.');
 process.exit(ok===checks.length?0:1);
