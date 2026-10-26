@@ -1,5 +1,9 @@
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
 
+## Medir aprendizaje real, no solo número de skills
+Con `aprendizaje-verificable` evalúa cuántos incidentes se repiten, cuáles adquirieron regresión ejecutable y cuántos se escaparon a QA, bajo revisiones comparables. Cruza registros/evidencias y reproduce escenarios adversariales. El gate estructural y scripts pueden pasar con fixtures simulados: jamás inferir que Claude o el producto lograron 9.5/10 solo por instalarlos.
+
+
 ## Evaluación del contexto y memoria neuronal solo como analogía
 Para calificar ahorro de tokens, memoria o pérdida de contexto, usa `memoria-asociativa` y compara dos versiones con los mismos escenarios. Mide recuperación de dependencias críticas, precisión de documentos leídos, actualizaciones de fuentes y tokens reales (si disponibles). No atribuyas autoaprendizaje de pesos o ahorros porcentuales a un índice JSON. Calidad e integridad prevalecen sobre reducción de lecturas.
 
