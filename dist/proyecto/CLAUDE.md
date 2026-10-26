@@ -1,5 +1,8 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## Memoria asociativa · contexto selectivo
+Para cambios de vista, campo, función o regla, carga `.claude/skills/memoria-asociativa/SKILL.md` y usa `node .claude/scripts/contexto.cjs route <modulo> --risk normal` (`high` en dinero, seguridad, stock o permisos). Recupera rutas y vínculos por riesgo, NO todos los MD. Grafo vacío o obsoleto exige contrastar código/BD antes de concluir independencia. Al cerrar cambio funcional actualiza docs, relaciones con evidencia y checkpoint; revisa `contexto.cjs check --base <ref>`. No afirmar ahorro de tokens sin medir.
+
 ## Auditoría causal y responsabilidades
 Al evaluar código, propuestas, vulnerabilidades o calificaciones bajas, carga `.claude/skills/clasificacion-hallazgos/SKILL.md`. Clasifica defecto comprobado/inferido, riesgo arquitectónico, política de negocio pendiente, recomendación, brecha QA, desviación de proceso y falso positivo. Revisa evidencia, severidad y responsabilidades por fase; no cargues al desarrollador preferencias del auditor, ni excuses una vulnerabilidad porque la política comercial sea ambigua. Meta 9.5 por disciplina SOLO si la evidencia lo demuestra; calidad antes que velocidad.
 

@@ -4,6 +4,12 @@ argument-hint: <modulo | todo>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Memoria asociativa y recuperación selectiva
+- Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
+- **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
+- Cuando un cambio material altere reglas, campos o relaciones, consolidar información en docs del módulo, grafo, decisiones y pruebas con procedencia. No duplicar toda la documentación ni actualizar ER por CSS trivial; ejecutar `contexto.cjs check --base <ref>` al cerrar, interpretar advertencias y justificar lo pendiente. Ahorro de tokens solo se declara medido.
+
+
 ## Auditoría causal y puntuación justa
 Ante cualquier informe, puntuación o hallazgo sobre software, activa `clasificacion-hallazgos`. Distingue defecto comprobado, defecto inferido, riesgo arquitectónico, decisión de negocio pendiente, recomendación, brecha de verificación, desviación de proceso y falso positivo. **Una preferencia del auditor no es un bug; una vulnerabilidad técnica no se excusa porque falte una decisión comercial.** Asigna responsabilidad por fase (arquitecto/desarrollador/QA/auditor/dueño) con evidencia, permite responsabilidad compartida, y no altera puntuaciones para satisfacer la meta 9.5/10. Calidad > velocidad, incluso usando IA. Las reglas de negocio pendientes no se improvisan ni ejecutan; el cierre de defectos críticos requiere pruebas.
 
@@ -298,6 +304,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE QA — Probar que de verdad funciona
+
+## Pruebas de memoria asociativa
+Al evaluar un cambio funcional, usa `memoria-asociativa`: prueba escenarios con dependencias entrantes/salientes y casos de alto riesgo, no omitas consecuencias por un índice vacío. Comprueba si el documento del módulo y el grafo siguen vigentes, ejecuta la revisión del router y conserva evidencia. Reporta límites del grafo y no atribuyas cumplimiento de memoria solo a una lista vacía de advertencias.
+
 
 ## QA causal y pruebas adversariales
 Activa `clasificacion-hallazgos` al convertir hallazgos en tests. Una decisión de negocio pendiente no es un bug, pero debe impedir implementar una opción no aprobada. Prueba invariantes técnicas con actor sin permiso, API directa, concurrencia, errores, persistencia y reversión; indica SIMULADO/REAL/NO PROBADO. Un test verde con mocks no acredita autorización en Supabase. Registra `BRECHA_DE_VERIFICACION` si la suite no cubre riesgos materiales.

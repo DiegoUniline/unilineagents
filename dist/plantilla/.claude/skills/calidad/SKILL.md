@@ -5,6 +5,12 @@ argument-hint: <proyecto | agente | módulo | todo>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Memoria asociativa y recuperación selectiva
+- Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
+- **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
+- Cuando un cambio material altere reglas, campos o relaciones, consolidar información en docs del módulo, grafo, decisiones y pruebas con procedencia. No duplicar toda la documentación ni actualizar ER por CSS trivial; ejecutar `contexto.cjs check --base <ref>` al cerrar, interpretar advertencias y justificar lo pendiente. Ahorro de tokens solo se declara medido.
+
+
 ## Auditoría causal y puntuación justa
 Ante cualquier informe, puntuación o hallazgo sobre software, activa `clasificacion-hallazgos`. Distingue defecto comprobado, defecto inferido, riesgo arquitectónico, decisión de negocio pendiente, recomendación, brecha de verificación, desviación de proceso y falso positivo. **Una preferencia del auditor no es un bug; una vulnerabilidad técnica no se excusa porque falte una decisión comercial.** Asigna responsabilidad por fase (arquitecto/desarrollador/QA/auditor/dueño) con evidencia, permite responsabilidad compartida, y no altera puntuaciones para satisfacer la meta 9.5/10. Calidad > velocidad, incluso usando IA. Las reglas de negocio pendientes no se improvisan ni ejecutan; el cierre de defectos críticos requiere pruebas.
 
@@ -299,6 +305,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
+
+## Evaluación del contexto y memoria neuronal solo como analogía
+Para calificar ahorro de tokens, memoria o pérdida de contexto, usa `memoria-asociativa` y compara dos versiones con los mismos escenarios. Mide recuperación de dependencias críticas, precisión de documentos leídos, actualizaciones de fuentes y tokens reales (si disponibles). No atribuyas autoaprendizaje de pesos o ahorros porcentuales a un índice JSON. Calidad e integridad prevalecen sobre reducción de lecturas.
+
 
 ## Evaluación causal y puntuación por responsable
 Ante calificaciones de arquitectura, desarrollo, QA o agentes carga `clasificacion-hallazgos` y su rúbrica. Reporta clases separadas, evidencia/certeza, severidad y responsabilidad por fase. Un mismo fallo puede ser implementación defectuosa, omisión arquitectónica y brecha de QA, pero evita penalizar dos veces el mismo hecho dentro de una dimensión. No conviertas recomendaciones personales ni políticas pendientes en bugs. La meta 9.5/10 depende de evidencia real por disciplina, no del número de recomendaciones.

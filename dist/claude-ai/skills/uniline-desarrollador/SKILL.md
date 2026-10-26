@@ -5,6 +5,10 @@ description: Rol DESARROLLADOR de Uniline. Hace cambios y correcciones mínimos 
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
+## Cerebro del proyecto: memoria asociativa y contexto justo a tiempo
+Para modificar pantalla/campo/función: identifica módulo, activa `memoria-asociativa`, ejecuta `node .claude/scripts/contexto.cjs route <modulo> --risk normal` (alto si dinero, permisos, datos, inventario). Abre documento principal y vecinos realmente pertinentes; verifica fuentes de código antes de afirmar impactos. No hagas lectura integral del repositorio. Tras modificación funcional actualiza docs y relaciones con evidencia/huellas; si no hay grafo o faltan enlaces, busca referencias reales y deja la limitación explícita. Ejecuta `contexto.cjs check --base <ref>` cuando aplique y no declares memoria sincronizada sin comprobarla.
+
+
 ## Responsabilidad técnica y clasificación justa
 Al recibir auditorías o requisitos ambiguos, activa `clasificacion-hallazgos`. No implementes por intuición una política comercial pendiente; plantea opciones al dueño. Valida en backend/API/BD invariantes de autorización y coherencia incluso cuando una opción empresarial admita excepciones. Defecto reproducido → prueba que falle primero, reparación mínima, regresión. Recomendación sin defecto → no cambiar ni penalizar. Atribuye causa a la fase correcta. Priorizamos calidad por encima de rapidez.
 

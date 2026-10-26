@@ -4,6 +4,12 @@ argument-hint: <descripción del bug>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Memoria asociativa y recuperación selectiva
+- Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
+- **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
+- Cuando un cambio material altere reglas, campos o relaciones, consolidar información en docs del módulo, grafo, decisiones y pruebas con procedencia. No duplicar toda la documentación ni actualizar ER por CSS trivial; ejecutar `contexto.cjs check --base <ref>` al cerrar, interpretar advertencias y justificar lo pendiente. Ahorro de tokens solo se declara medido.
+
+
 ## Auditoría causal y puntuación justa
 Ante cualquier informe, puntuación o hallazgo sobre software, activa `clasificacion-hallazgos`. Distingue defecto comprobado, defecto inferido, riesgo arquitectónico, decisión de negocio pendiente, recomendación, brecha de verificación, desviación de proceso y falso positivo. **Una preferencia del auditor no es un bug; una vulnerabilidad técnica no se excusa porque falte una decisión comercial.** Asigna responsabilidad por fase (arquitecto/desarrollador/QA/auditor/dueño) con evidencia, permite responsabilidad compartida, y no altera puntuaciones para satisfacer la meta 9.5/10. Calidad > velocidad, incluso usando IA. Las reglas de negocio pendientes no se improvisan ni ejecutan; el cierre de defectos críticos requiere pruebas.
 
@@ -298,6 +304,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
+
+## Cerebro del proyecto: memoria asociativa y contexto justo a tiempo
+Para modificar pantalla/campo/función: identifica módulo, activa `memoria-asociativa`, ejecuta `node .claude/scripts/contexto.cjs route <modulo> --risk normal` (alto si dinero, permisos, datos, inventario). Abre documento principal y vecinos realmente pertinentes; verifica fuentes de código antes de afirmar impactos. No hagas lectura integral del repositorio. Tras modificación funcional actualiza docs y relaciones con evidencia/huellas; si no hay grafo o faltan enlaces, busca referencias reales y deja la limitación explícita. Ejecuta `contexto.cjs check --base <ref>` cuando aplique y no declares memoria sincronizada sin comprobarla.
+
 
 ## Responsabilidad técnica y clasificación justa
 Al recibir auditorías o requisitos ambiguos, activa `clasificacion-hallazgos`. No implementes por intuición una política comercial pendiente; plantea opciones al dueño. Valida en backend/API/BD invariantes de autorización y coherencia incluso cuando una opción empresarial admita excepciones. Defecto reproducido → prueba que falle primero, reparación mínima, regresión. Recomendación sin defecto → no cambiar ni penalizar. Atribuye causa a la fase correcta. Priorizamos calidad por encima de rapidez.
