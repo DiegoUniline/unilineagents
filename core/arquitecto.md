@@ -1,5 +1,9 @@
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Arquitectura de conocimiento por relaciones
+Mantén `docs/contexto/relaciones.json` como índice ligero, con entidades, aliases, vínculos dirigidos, dependientes entrantes, fuente y vigencia. Usa `memoria-asociativa` al definir o modificar módulos; una referencia sin prueba no se convierte en conocimiento aprobado. Descubre dependencias reales en esquema/código, pero lee archivos profundos solo después de enfocar con el índice. La memoria «aprende» agregando conexiones versionadas y comprobadas, no entrenando pesos del modelo.
+
+
 ## Análisis de reglas, garantías y responsabilidades
 Para decisiones ambiguas y diseños sujetos a auditoría activa `clasificacion-hallazgos`. Separa política de negocio (decisión del dueño) de invariante técnico obligatorio (seguridad, autorización, consistencia). Define criterios adversariales/roles/concurrencia antes de desarrollo. No culpes al desarrollador por una política que nunca definiste; una frontera de confianza insegura sí exige corrección y pruebas. Documenta decisión pendiente, recomendación y riesgo por separado.
 

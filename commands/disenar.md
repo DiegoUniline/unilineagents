@@ -4,6 +4,12 @@ argument-hint: <descripción del sistema>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Memoria asociativa y recuperación selectiva
+- Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
+- **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
+- Cuando un cambio material altere reglas, campos o relaciones, consolidar información en docs del módulo, grafo, decisiones y pruebas con procedencia. No duplicar toda la documentación ni actualizar ER por CSS trivial; ejecutar `contexto.cjs check --base <ref>` al cerrar, interpretar advertencias y justificar lo pendiente. Ahorro de tokens solo se declara medido.
+
+
 ## Auditoría causal y puntuación justa
 Ante cualquier informe, puntuación o hallazgo sobre software, activa `clasificacion-hallazgos`. Distingue defecto comprobado, defecto inferido, riesgo arquitectónico, decisión de negocio pendiente, recomendación, brecha de verificación, desviación de proceso y falso positivo. **Una preferencia del auditor no es un bug; una vulnerabilidad técnica no se excusa porque falte una decisión comercial.** Asigna responsabilidad por fase (arquitecto/desarrollador/QA/auditor/dueño) con evidencia, permite responsabilidad compartida, y no altera puntuaciones para satisfacer la meta 9.5/10. Calidad > velocidad, incluso usando IA. Las reglas de negocio pendientes no se improvisan ni ejecutan; el cierre de defectos críticos requiere pruebas.
 
@@ -298,6 +304,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
+
+## Arquitectura de conocimiento por relaciones
+Mantén `docs/contexto/relaciones.json` como índice ligero, con entidades, aliases, vínculos dirigidos, dependientes entrantes, fuente y vigencia. Usa `memoria-asociativa` al definir o modificar módulos; una referencia sin prueba no se convierte en conocimiento aprobado. Descubre dependencias reales en esquema/código, pero lee archivos profundos solo después de enfocar con el índice. La memoria «aprende» agregando conexiones versionadas y comprobadas, no entrenando pesos del modelo.
+
 
 ## Análisis de reglas, garantías y responsabilidades
 Para decisiones ambiguas y diseños sujetos a auditoría activa `clasificacion-hallazgos`. Separa política de negocio (decisión del dueño) de invariante técnico obligatorio (seguridad, autorización, consistencia). Define criterios adversariales/roles/concurrencia antes de desarrollo. No culpes al desarrollador por una política que nunca definiste; una frontera de confianza insegura sí exige corrección y pruebas. Documenta decisión pendiente, recomendación y riesgo por separado.

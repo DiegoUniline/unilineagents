@@ -5,6 +5,10 @@ description: Recuperación selectiva y economía de contexto para repositorios g
 
 # Contexto eficiente — Uniline
 
+## Enrutamiento selectivo de módulos
+Cuando exista documentación modular y la petición afecte una vista, campo, flujo o función, comienza por `memoria-asociativa` y su enrutador `.claude/scripts/contexto.cjs`. Retorna rutas y aristas verificadas sin cargar todos los archivos. Consulta primero el documento principal y expande vecinos por riesgo; alto riesgo exige búsqueda adicional incluso si el índice no registra vínculos. La ausencia de relaciones registradas no es prueba de independencia.
+
+
 **Meta:** menor contexto suficiente para un resultado correcto; nunca menor costo a expensas de integridad o seguridad.
 
 1. **Orientar:** propósito de la tarea, módulo, fuentes, /docs/00-estado.md e índices. No leer toda /docs.

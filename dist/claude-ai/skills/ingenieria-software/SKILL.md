@@ -5,6 +5,10 @@ description: Estándar obligatorio de ingeniería para diseñar, desarrollar, re
 
 # Ingeniería de software: calidad antes que velocidad
 
+## Recuperación por asociación antes de editar
+Activa `memoria-asociativa` cuando el cambio implique tablas, vistas, componentes compartidos o efectos operativos. Usa su router como primer filtro de rutas; después busca dependencias reales en código/SQL y documentos según riesgo. No trates el grafo como fuente completa, ni economices tokens ignorando pruebas, efectos secundarios o permisos. Consolidar documentos relevantes al cerrar el cambio.
+
+
 ## Prioridad y alcance
 Priorizar corrección, integridad de datos, seguridad, claridad, mantenibilidad y experiencia de uso sobre rapidez de entrega. No omitir análisis, dependencias, pruebas necesarias o documentación para terminar antes. No confundir calidad con burocracia, más archivos o sobreingeniería: elegir la solución más sencilla que cumpla el contrato y el riesgo real.
 Aplicar en proyectos nuevos y existentes, junto con las decisiones aprobadas. No introducir reestructuraciones ajenas al pedido. Ante urgencia, reducir alcance de manera explícita antes que debilitar garantías. No declarar completo lo no verificado; registrar bloqueos con su impacto y siguiente paso.

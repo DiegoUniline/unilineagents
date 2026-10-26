@@ -1,13 +1,16 @@
 ---
-
-## Esquema de checkpoint verificable
-Usa `references/checkpoint-esquema.md` para registrar estado, origen, versión, decisiones D-XXX, hechos, dependencias confirmadas/posibles, invalidez por cambios, pruebas, riesgos y siguiente paso. Nunca persistas propuesta como hecho ni secretos como memoria. Al cambiar una regla, marca relaciones antiguas como `requiere revalidación` hasta comprobarlas.
-
 name: continuidad-proyecto
 description: Conservar y recuperar decisiones, estado, dependencias y evidencias entre sesiones o antes de compactar. Usar al retomar un trabajo interrumpido, después de un hito y cuando un cambio vuelve obsoleta una relación.
 ---
 
 # Continuidad y memoria viva — Uniline
+
+## Esquema de checkpoint verificable
+Usa `references/checkpoint-esquema.md` para registrar estado, origen, versión, decisiones D-XXX, hechos, dependencias confirmadas/posibles, invalidez por cambios, pruebas, riesgos y siguiente paso. Nunca persistas propuesta como hecho ni secretos como memoria. Al cambiar una regla, marca relaciones antiguas como `requiere revalidación` hasta comprobarlas.
+
+## Consolidación e invalidación de relaciones
+Usa `memoria-asociativa` para conservar una red de referencias de módulos/decisiones/código en `docs/contexto/relaciones.json`, cuando el proyecto tenga índice. Actualiza solo relaciones realmente verificadas; si cambia una fuente, detecta vínculos potencialmente obsoletos y exige revalidación. El checkpoint conserva referencias y motivos, no copias enteras de documentos. No guardes secretos ni claims no probados.
+
 
 **El historial de chat no sustituye una memoria persistente verificable.**
 
