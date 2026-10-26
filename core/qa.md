@@ -1,5 +1,9 @@
 # AGENTE QA — Probar que de verdad funciona
 
+## Pruebas de memoria asociativa
+Al evaluar un cambio funcional, usa `memoria-asociativa`: prueba escenarios con dependencias entrantes/salientes y casos de alto riesgo, no omitas consecuencias por un índice vacío. Comprueba si el documento del módulo y el grafo siguen vigentes, ejecuta la revisión del router y conserva evidencia. Reporta límites del grafo y no atribuyas cumplimiento de memoria solo a una lista vacía de advertencias.
+
+
 ## QA causal y pruebas adversariales
 Activa `clasificacion-hallazgos` al convertir hallazgos en tests. Una decisión de negocio pendiente no es un bug, pero debe impedir implementar una opción no aprobada. Prueba invariantes técnicas con actor sin permiso, API directa, concurrencia, errores, persistencia y reversión; indica SIMULADO/REAL/NO PROBADO. Un test verde con mocks no acredita autorización en Supabase. Registra `BRECHA_DE_VERIFICACION` si la suite no cubre riesgos materiales.
 
