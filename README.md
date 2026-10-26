@@ -94,3 +94,6 @@ En cambios IMPORTANTES, después de investigar y antes de editar, Claude debe mo
 
 ## Clasificación causal de auditorías — objetivo 9.5 sin notas ficticias
 La skill `clasificacion-hallazgos` separa defectos confirmados o inferidos, riesgos de arquitectura, decisiones empresariales pendientes, recomendaciones, brechas de pruebas, desviaciones de proceso y falsos positivos. Asigna responsabilidades a arquitectura, desarrollo, QA, auditoría y negocio con evidencia. No penalizar preferencias técnicas/comerciales no aprobadas; no encubrir fallos de seguridad bajo una decisión pendiente. Usar `/evaluar` o `/calidad` y consultar `docs/criterios-auditoria-causal.md`. Criterio: calidad > velocidad; 9.5/10 se demuestra, no se impone.
+
+## Memoria asociativa por módulo
+La skill `memoria-asociativa` y el router `node .claude/scripts/contexto.cjs route ventas --risk normal` descubren rutas, no leen todo el repositorio. Con `--risk high` amplían relaciones; `check --base HEAD~1` señala documentación potencialmente obsoleta. Un índice sin vínculos no prueba ausencia de efectos. Conserva fuentes y decisiones al consolidar cambios. El ahorro real de tokens requiere medición. Ver `docs/memoria-asociativa.md`.
