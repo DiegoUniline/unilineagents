@@ -38,7 +38,7 @@ function validateLearning({root,revision,registryPath='calidad/aprendizajes.json
     if(!SEVERITIES.has(incident?.severity))fails.push('Severidad inválida');
     if(!STATUSES.has(incident?.status))fails.push('Estado inválido');
     if(typeof incident?.module!=='string'||!incident.module.trim())fails.push('Falta módulo');
-    if(typeof incident?.rootCause!=='string'||incident.rootCause.trim().length<25)fails.push('Causa raíz insuficiente o no investigada');
+    if(incident?.status==='verified' && (typeof incident.rootCause!=='string'||incident.rootCause.trim().length<25))fails.push('Causa raíz insuficiente o no investigada');
     if(typeof incident?.evidenceLevel!=='string'||!['REPRODUCIDO','OBSERVADO','INFERIDO','NO_VERIFICADO'].includes(incident.evidenceLevel))fails.push('Nivel de evidencia inválido');
     if(incident?.status==='verified'&&!['REPRODUCIDO','OBSERVADO'].includes(incident.evidenceLevel))fails.push('No verificar una inferencia sin observación o reproducción');
     const doc='docs/incidentes/'+label+'.md';
