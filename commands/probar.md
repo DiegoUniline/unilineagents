@@ -4,6 +4,10 @@ argument-hint: <modulo | todo>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Mejora continua con aprendizaje verificable
+Cuando se detecte o corrija un defecto relevante, activar `aprendizaje-verificable` y `clasificacion-hallazgos`: reproducción y causa → incidente versionado → prueba adversarial que detectaba el fallo → corrección → prueba nueva ejecutada → auditor independiente → memoria asociativa actualizada. Para proyectos con `calidad/`, cruzar `calidad/aprendizajes.json` con `calidad/escenarios.json` y evidencias actuales. Un defecto crítico/alto abierto BLOQUEA entrega, no se convierte en recomendación para superar 9.5. No declarar aprendizaje de pesos del modelo ni 9.5 sin pruebas; la CI no descubre todos los bugs por sí sola.
+
+
 ## Memoria asociativa y recuperación selectiva
 - Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
 - **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
@@ -304,6 +308,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE QA — Probar que de verdad funciona
+
+## QA como circuito de aprendizaje comprobable
+Usa `aprendizaje-verificable` para cada defecto relevante: reproduce antes, especifica caso adversarial que debe FALLAR sin corrección, revisa que pase tras ella y comprueba efectos en módulos vecinos. Mantén expectativas separadas de la implementación. Coteja `calidad/aprendizajes.json`, los escenarios realmente ejecutados y evidencia actual; un mock o un PASS sin consultar la app no certifican resultado. Registra cobertura pendiente y no acepta 9.5 sin evidencia.
+
 
 ## Pruebas de memoria asociativa
 Al evaluar un cambio funcional, usa `memoria-asociativa`: prueba escenarios con dependencias entrantes/salientes y casos de alto riesgo, no omitas consecuencias por un índice vacío. Comprueba si el documento del módulo y el grafo siguen vigentes, ejecuta la revisión del router y conserva evidencia. Reporta límites del grafo y no atribuyas cumplimiento de memoria solo a una lista vacía de advertencias.

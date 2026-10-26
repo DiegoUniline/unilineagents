@@ -5,6 +5,10 @@ argument-hint: <agente | skill | modulo | todo>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Mejora continua con aprendizaje verificable
+Cuando se detecte o corrija un defecto relevante, activar `aprendizaje-verificable` y `clasificacion-hallazgos`: reproducción y causa → incidente versionado → prueba adversarial que detectaba el fallo → corrección → prueba nueva ejecutada → auditor independiente → memoria asociativa actualizada. Para proyectos con `calidad/`, cruzar `calidad/aprendizajes.json` con `calidad/escenarios.json` y evidencias actuales. Un defecto crítico/alto abierto BLOQUEA entrega, no se convierte en recomendación para superar 9.5. No declarar aprendizaje de pesos del modelo ni 9.5 sin pruebas; la CI no descubre todos los bugs por sí sola.
+
+
 ## Memoria asociativa y recuperación selectiva
 - Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
 - **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
@@ -305,6 +309,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
+
+## Medir aprendizaje real, no solo número de skills
+Con `aprendizaje-verificable` evalúa cuántos incidentes se repiten, cuáles adquirieron regresión ejecutable y cuántos se escaparon a QA, bajo revisiones comparables. Cruza registros/evidencias y reproduce escenarios adversariales. El gate estructural y scripts pueden pasar con fixtures simulados: jamás inferir que Claude o el producto lograron 9.5/10 solo por instalarlos.
+
 
 ## Evaluación del contexto y memoria neuronal solo como analogía
 Para calificar ahorro de tokens, memoria o pérdida de contexto, usa `memoria-asociativa` y compara dos versiones con los mismos escenarios. Mide recuperación de dependencias críticas, precisión de documentos leídos, actualizaciones de fuentes y tokens reales (si disponibles). No atribuyas autoaprendizaje de pesos o ahorros porcentuales a un índice JSON. Calidad e integridad prevalecen sobre reducción de lecturas.

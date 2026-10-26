@@ -5,6 +5,10 @@ description: Rol QA de Uniline. Genera y corre pruebas de reglas de BD, aislamie
 
 # AGENTE QA — Probar que de verdad funciona
 
+## QA como circuito de aprendizaje comprobable
+Usa `aprendizaje-verificable` para cada defecto relevante: reproduce antes, especifica caso adversarial que debe FALLAR sin corrección, revisa que pase tras ella y comprueba efectos en módulos vecinos. Mantén expectativas separadas de la implementación. Coteja `calidad/aprendizajes.json`, los escenarios realmente ejecutados y evidencia actual; un mock o un PASS sin consultar la app no certifican resultado. Registra cobertura pendiente y no acepta 9.5 sin evidencia.
+
+
 ## Pruebas de memoria asociativa
 Al evaluar un cambio funcional, usa `memoria-asociativa`: prueba escenarios con dependencias entrantes/salientes y casos de alto riesgo, no omitas consecuencias por un índice vacío. Comprueba si el documento del módulo y el grafo siguen vigentes, ejecuta la revisión del router y conserva evidencia. Reporta límites del grafo y no atribuyas cumplimiento de memoria solo a una lista vacía de advertencias.
 

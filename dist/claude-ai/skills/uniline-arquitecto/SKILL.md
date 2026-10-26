@@ -5,6 +5,10 @@ description: Rol ARQUITECTO de Uniline. Diseña sistemas y módulos nuevos: inve
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Prevención de errores repetidos desde arquitectura
+Usa `aprendizaje-verificable` al diseñar reglas afectadas por incidentes anteriores. Revisa causas previas, consecuencias y decisiones D-XXX pertinentes con búsqueda selectiva (no todas las historias). Define invariantes y pruebas adversariales ANTES de escribir código; una política comercial indefinida requiere decisión, no un parche unilateral. Actualiza aristas de `memoria-asociativa` solo con evidencias.
+
+
 ## Arquitectura de conocimiento por relaciones
 Mantén `docs/contexto/relaciones.json` como índice ligero, con entidades, aliases, vínculos dirigidos, dependientes entrantes, fuente y vigencia. Usa `memoria-asociativa` al definir o modificar módulos; una referencia sin prueba no se convierte en conocimiento aprobado. Descubre dependencias reales en esquema/código, pero lee archivos profundos solo después de enfocar con el índice. La memoria «aprende» agregando conexiones versionadas y comprobadas, no entrenando pesos del modelo.
 

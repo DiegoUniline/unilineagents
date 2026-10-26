@@ -17,6 +17,11 @@ El workflow genera un check fallido cuando el control falla. Para impedir merges
 
 El repositorio de agentes tiene su propio check `package-verification`; comprueba el paquete, nunca la calidad de una aplicación. No sustituir `application-delivery` por ese check.
 
+## Incidentes con regresión obligatoria
+El proyecto trae `calidad/aprendizajes.json` vacío y `calidad/validar-aprendizajes.cjs`. Cuando se identifica un defecto, registrar `INC-XXX` y su causa en `docs/incidentes/INC-XXX.md`. Al corregirlo, no marcar `verified` hasta aportar prueba de reproducción anterior al arreglo, referencia del escenario/adaptador real en `calidad/escenarios.json`, evidencia nueva de ejecución y revisión independiente. La ejecución principal `node calidad/verificar-entrega.cjs` cruza automáticamente esas pruebas con el registro y falla si hay defectos altos/críticos abiertos o correcciones sin regresión.
+
+**No equivale a detectar todos los errores:** el registro es declarativo y puede omitir incidentes; QA y auditoría deben buscar fallos fuera de él. Tampoco prueba que los adaptadores consulten la aplicación real: auditoría independiente continúa siendo necesaria. Mantener expectativas y pruebas separadas del desarrollador, sin relajar el caso para que pase. Ver `calidad/ejemplo-incidente.md` para formato y `.claude/skills/aprendizaje-verificable/references/registro.md`.
+
 ## Incidentes y aprendizaje
 Cada incidente importante debe dejar en `docs/incidentes/` fecha, revisión afectada, reproducción, causa, alcance, corrección, caso de regresión y evidencia de verificación. Revisar otros consumidores del mismo patrón. Registrar la decisión y actualizar `docs/00-estado.md`. Reejecutar el caso antes de cerrar. Una nota de chat no es memoria duradera.
 

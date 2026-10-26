@@ -5,6 +5,10 @@ description: Estándar obligatorio de ingeniería para diseñar, desarrollar, re
 
 # Ingeniería de software: calidad antes que velocidad
 
+## Aprender del fallo mediante verificación
+Cuando una corrección implique un bug real, cargar `aprendizaje-verificable`: documentar causa, prueba que antes fallaba, regresión automática y ejecución observada tras el cambio. Integrar prueba con el control de entrega `calidad/` si está instalado. No crear una lista de consejos genéricos como sustituto de pruebas. El cierre de severidades críticas/altas requiere auditoría e independencia real.
+
+
 ## Recuperación por asociación antes de editar
 Activa `memoria-asociativa` cuando el cambio implique tablas, vistas, componentes compartidos o efectos operativos. Usa su router como primer filtro de rutas; después busca dependencias reales en código/SQL y documentos según riesgo. No trates el grafo como fuente completa, ni economices tokens ignorando pruebas, efectos secundarios o permisos. Consolidar documentos relevantes al cerrar el cambio.
 

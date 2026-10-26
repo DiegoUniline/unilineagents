@@ -4,6 +4,10 @@ argument-hint: <descripción del sistema>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Mejora continua con aprendizaje verificable
+Cuando se detecte o corrija un defecto relevante, activar `aprendizaje-verificable` y `clasificacion-hallazgos`: reproducción y causa → incidente versionado → prueba adversarial que detectaba el fallo → corrección → prueba nueva ejecutada → auditor independiente → memoria asociativa actualizada. Para proyectos con `calidad/`, cruzar `calidad/aprendizajes.json` con `calidad/escenarios.json` y evidencias actuales. Un defecto crítico/alto abierto BLOQUEA entrega, no se convierte en recomendación para superar 9.5. No declarar aprendizaje de pesos del modelo ni 9.5 sin pruebas; la CI no descubre todos los bugs por sí sola.
+
+
 ## Memoria asociativa y recuperación selectiva
 - Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
 - **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
@@ -304,6 +308,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
+
+## Prevención de errores repetidos desde arquitectura
+Usa `aprendizaje-verificable` al diseñar reglas afectadas por incidentes anteriores. Revisa causas previas, consecuencias y decisiones D-XXX pertinentes con búsqueda selectiva (no todas las historias). Define invariantes y pruebas adversariales ANTES de escribir código; una política comercial indefinida requiere decisión, no un parche unilateral. Actualiza aristas de `memoria-asociativa` solo con evidencias.
+
 
 ## Arquitectura de conocimiento por relaciones
 Mantén `docs/contexto/relaciones.json` como índice ligero, con entidades, aliases, vínculos dirigidos, dependientes entrantes, fuente y vigencia. Usa `memoria-asociativa` al definir o modificar módulos; una referencia sin prueba no se convierte en conocimiento aprobado. Descubre dependencias reales en esquema/código, pero lee archivos profundos solo después de enfocar con el índice. La memoria «aprende» agregando conexiones versionadas y comprobadas, no entrenando pesos del modelo.

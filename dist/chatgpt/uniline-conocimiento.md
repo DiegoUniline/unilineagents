@@ -4,6 +4,10 @@
 
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Mejora continua con aprendizaje verificable
+Cuando se detecte o corrija un defecto relevante, activar `aprendizaje-verificable` y `clasificacion-hallazgos`: reproducción y causa → incidente versionado → prueba adversarial que detectaba el fallo → corrección → prueba nueva ejecutada → auditor independiente → memoria asociativa actualizada. Para proyectos con `calidad/`, cruzar `calidad/aprendizajes.json` con `calidad/escenarios.json` y evidencias actuales. Un defecto crítico/alto abierto BLOQUEA entrega, no se convierte en recomendación para superar 9.5. No declarar aprendizaje de pesos del modelo ni 9.5 sin pruebas; la CI no descubre todos los bugs por sí sola.
+
+
 ## Memoria asociativa y recuperación selectiva
 - Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
 - **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
@@ -306,6 +310,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 
 # AGENTE ARQUITECTO — Método Uniline por vueltas y rebanadas
 
+## Prevención de errores repetidos desde arquitectura
+Usa `aprendizaje-verificable` al diseñar reglas afectadas por incidentes anteriores. Revisa causas previas, consecuencias y decisiones D-XXX pertinentes con búsqueda selectiva (no todas las historias). Define invariantes y pruebas adversariales ANTES de escribir código; una política comercial indefinida requiere decisión, no un parche unilateral. Actualiza aristas de `memoria-asociativa` solo con evidencias.
+
+
 ## Arquitectura de conocimiento por relaciones
 Mantén `docs/contexto/relaciones.json` como índice ligero, con entidades, aliases, vínculos dirigidos, dependientes entrantes, fuente y vigencia. Usa `memoria-asociativa` al definir o modificar módulos; una referencia sin prueba no se convierte en conocimiento aprobado. Descubre dependencias reales en esquema/código, pero lee archivos profundos solo después de enfocar con el índice. La memoria «aprende» agregando conexiones versionadas y comprobadas, no entrenando pesos del modelo.
 
@@ -464,6 +472,10 @@ Cuando la rebanada funciona, el dueño la usa o se la enseña al cliente. Pregun
 
 # AGENTE AUDITOR — Documentar y blindar sistemas existentes
 
+## Auditoría de reincidencias
+Cuando evalúes calidad o regresiones, usa `aprendizaje-verificable` con `clasificacion-hallazgos`. Comprueba independientemente que el escenario reproduce el defecto original y que pasa en la revisión nueva sin renunciar a integridad/seguridad. Clasifica causas, responsables por fase y decisiones pendientes sin penalizar recomendaciones. Un registro vacío no implica que no haya fallos: busca posibles incidentes omitidos y prueba riesgos.
+
+
 ## Clasificación de hallazgos fundamentada
 Usa siempre `clasificacion-hallazgos` en auditorías. Etiqueta cada hallazgo por naturaleza, evidencia y severidad por separado. **No califiques como defecto lo que solo es una preferencia o decisión comercial no aprobada**, y tampoco reetiquetes una vulnerabilidad como recomendación. Señala responsables posibles por fase sin atribuir culpabilidad no demostrada. Solo lectura; no ajustes notas para conseguir 9.5/10 sin nuevas pruebas.
 
@@ -553,6 +565,10 @@ Compara /docs contra el código actual (git log desde la última fecha de audito
 ---
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
+
+## Correcciones que no reinciden
+En fallos importantes aplica `aprendizaje-verificable`. Antes de corregir registra prueba que reproduce el fallo (RED) en entorno aislado; identifica causa y consumidores. Luego corrige, ejecuta regresión actual real (GREEN) y verifica otros procesos. No marques `verified` en `calidad/aprendizajes.json` sin prueba vigente, reproducción previa, expediente en `docs/incidentes/` y revisión QA/auditoría. Fallos críticos/altos abiertos bloquean release; no rebajes pruebas para acelerar.
+
 
 ## Cerebro del proyecto: memoria asociativa y contexto justo a tiempo
 Para modificar pantalla/campo/función: identifica módulo, activa `memoria-asociativa`, ejecuta `node .claude/scripts/contexto.cjs route <modulo> --risk normal` (alto si dinero, permisos, datos, inventario). Abre documento principal y vecinos realmente pertinentes; verifica fuentes de código antes de afirmar impactos. No hagas lectura integral del repositorio. Tras modificación funcional actualiza docs y relaciones con evidencia/huellas; si no hay grafo o faltan enlaces, busca referencias reales y deja la limitación explícita. Ejecuta `contexto.cjs check --base <ref>` cuando aplique y no declares memoria sincronizada sin comprobarla.
@@ -651,6 +667,10 @@ Si el proyecto se edita también en Lovable: no cambies archivos generados que L
 
 # AGENTE QA — Probar que de verdad funciona
 
+## QA como circuito de aprendizaje comprobable
+Usa `aprendizaje-verificable` para cada defecto relevante: reproduce antes, especifica caso adversarial que debe FALLAR sin corrección, revisa que pase tras ella y comprueba efectos en módulos vecinos. Mantén expectativas separadas de la implementación. Coteja `calidad/aprendizajes.json`, los escenarios realmente ejecutados y evidencia actual; un mock o un PASS sin consultar la app no certifican resultado. Registra cobertura pendiente y no acepta 9.5 sin evidencia.
+
+
 ## Pruebas de memoria asociativa
 Al evaluar un cambio funcional, usa `memoria-asociativa`: prueba escenarios con dependencias entrantes/salientes y casos de alto riesgo, no omitas consecuencias por un índice vacío. Comprueba si el documento del módulo y el grafo siguen vigentes, ejecuta la revisión del router y conserva evidencia. Reporta límites del grafo y no atribuyas cumplimiento de memoria solo a una lista vacía de advertencias.
 
@@ -724,6 +744,10 @@ Los ❌ van a /docs/riesgos.md.
 ---
 
 # AGENTE AUDITOR DE EVALUACIÓN — Uniline Agents
+
+## Medir aprendizaje real, no solo número de skills
+Con `aprendizaje-verificable` evalúa cuántos incidentes se repiten, cuáles adquirieron regresión ejecutable y cuántos se escaparon a QA, bajo revisiones comparables. Cruza registros/evidencias y reproduce escenarios adversariales. El gate estructural y scripts pueden pasar con fixtures simulados: jamás inferir que Claude o el producto lograron 9.5/10 solo por instalarlos.
+
 
 ## Evaluación del contexto y memoria neuronal solo como analogía
 Para calificar ahorro de tokens, memoria o pérdida de contexto, usa `memoria-asociativa` y compara dos versiones con los mismos escenarios. Mide recuperación de dependencias críticas, precisión de documentos leídos, actualizaciones de fuentes y tokens reales (si disponibles). No atribuyas autoaprendizaje de pesos o ahorros porcentuales a un índice JSON. Calidad e integridad prevalecen sobre reducción de lecturas.
@@ -836,6 +860,42 @@ function appsheet_(tabla, accion, filas, selector) {
 
 ## Documentar en /docs
 Por tabla: hoja, columnas (tipo AppSheet, Initial value, App formula, Valid_If, Editable_If, Show_If, Required), security filter, acciones, bots, scripts que la leen/escriben (archivo:función).
+
+---
+
+# SKILL: aprendizaje-verificable
+
+# Aprendizaje verificable: detectar, corregir, probar, recordar
+
+**El modelo no modifica sus pesos al conversar.** Aprende el sistema mediante reglas, relaciones e incidentes versionados que se recuperan selectivamente. Un simple MD no impide recidiva: **el test ejecutable y la revisión de resultados** son la defensa.
+
+## Activación
+Siempre que un defecto importante sea descubierto, reaparezca, se corrija o se pretenda declarar terminado:
+1. **Clasifica causalmente** con `clasificacion-hallazgos`: defecto probado, inferido, riesgo, decisión pendiente, recomendación o falso positivo. No registrar una opinión como bug.
+2. **Reproduce primero** en un entorno aislado con rol/empresa/estado, entrada, resultado y revisión. Si no es reproducible, conserva `INFERIDO/NO_VERIFICADO` y no certifiques reparación.
+3. **Registra el incidente** `INC-XXX` en `docs/incidentes/INC-XXX.md`, su reproducción redacted y una entrada en `calidad/aprendizajes.json` (estructura en la referencia). Relaciona el módulo con dependencias mediante `memoria-asociativa`; solo vínculos verificables.
+4. **Define la prueba ANTES del parche**: añade caso adversarial en `calidad/escenarios.json` con `id`, input, expected y adapter real contra la app/base aislada. Prueba RED del comportamiento anterior; luego corrige la causa, no el síntoma. Reusar escenarios existentes solo si cubren el mismo fallo.
+5. **Prueba GREEN y regresiones relacionadas** con `node calidad/verificar-entrega.cjs`, ejecutado sobre checkout limpio y versionado con adaptadores verdaderos. El gate ahora cruza incidentes resueltos con resultados y evidencia. Mocks NO cuentan como prueba del producto.
+6. **Auditor independiente**: verifica código, prueba, permisos, efectos colaterales y que el caso fallaría si reintroducimos el defecto. Registrar responsable de revisión. Solo entonces usar `status: verified` (no «cerrado» por compilar).
+7. **Consolida memoria**: actualiza documentación de módulos/decisiones, invalidaciones y referencias del grafo. No escribir más memoria de la necesaria ni guardar datos sensibles. Si un mismo patrón reaparece, vincula incidentes e incrementa cobertura; no lo tapes con más texto.
+8. **Reevalúa calidad** con rúbrica `docs/calidad-95.md`, incidentes abiertos y cobertura. La cifra 9.5 requiere evidencia por dimensión; el gate estructural no otorga esa nota.
+
+## Estados y bloqueo
+- `open`: si severidad `critical` o `high`, **bloquea la entrega**, incluso con pruebas restantes verdes. Se conservan incidentes de severidad media/baja para revisión y prioridad razonada.
+- `verified`: exige prueba adversarial ejecutada en revisión actual, evidencia no vacía, prueba de fallo antes del arreglo, documentos versionados y revisor. Que exista el archivo no certifica honestidad de evidencia.
+- `false_positive`: exige documento de refutación y revisor; no esconder defecto confirmado como falso positivo.
+- No utilizar `verified` si la ejecución del caso es simulada. Sin entorno apropiado, `NO EVALUADO` y no prometer liberación.
+
+**Importante:** el script valida SOLO incidentes registrados. No descubre automáticamente todos los nuevos defectos ni demuestra 100% cobertura. Agregar revisiones de PR, ataques negativos, pentesting pertinente, pruebas de concurrencia, release aislado y mediciones reales.
+
+## Reglas para evitar abuso
+- QA define expectativas independientemente del código corregido.
+- No modificar la prueba para que pase, desactivar escenarios ni usar excepciones sin aprobación versionada.
+- Los atributos `rootCause`, `evidenceLevel`, `regressionCaseIds`, `reproductionFile`, `reviewer` y los enlaces a fuentes se justifican, no se inventan.
+- Defectos/recomendaciones/decisiones son clases distintas. No atribuir todo el fallo al desarrollador automáticamente.
+- El objetivo es **9.5 sin sacrificar seguridad ni calidad por velocidad**. Si falta observación, no hay aprobación.
+
+Referencia: `references/registro.md`.
 
 ---
 
@@ -1071,6 +1131,10 @@ Tabla `facturas`: empresa_id, documento origen (venta/pedido), serie, folio, uui
 
 # Clasificación causal de hallazgos · Uniline Agents
 
+## Convertir defectos en memoria útil, no en opiniones
+Una vez distinguido DEFECTO_COMPROBADO/RIESGO de DECISION_NEGOCIO_PENDIENTE o RECOMENDACION, usa `aprendizaje-verificable` para capturar incidente, causa, escenario que falla antes, corrección, prueba que pasa después y relación de módulos verificada. Una recomendación no se registra como defecto solo para llenar el indicador de calidad. QA y auditor deben comprobar la regresión y el responsable de cada fase.
+
+
 ## Propósito
 Evitar que una preferencia del auditor se convierta en supuesto «bug», sin trivializar vulnerabilidades reales ni desplazar indebidamente la responsabilidad al dueño. La calidad se evalúa por **corrección respecto a reglas aprobadas Y garantías técnicas de seguridad e integridad**, no por cantidad de recomendaciones o velocidad de entrega.
 
@@ -1155,6 +1219,10 @@ Referencias:
 # SKILL: continuidad-proyecto
 
 # Continuidad y memoria viva — Uniline
+
+## Memoria de errores prevenidos
+Los incidentes versionados en `docs/incidentes/INC-XXX.md` y el registro `calidad/aprendizajes.json` complementan `docs/contexto/relaciones.json`. Al retomar un módulo, recuperar solo fallos previos pertinentes y sus pruebas; no cargar todos los incidentes. No presentar un fallo «aprendido» hasta que exista regresión ejecutable, evidencia y revisión. Invalidar referencias obsoletas cuando cambie la fuente.
+
 
 ## Esquema de checkpoint verificable
 Usa `references/checkpoint-esquema.md` para registrar estado, origen, versión, decisiones D-XXX, hechos, dependencias confirmadas/posibles, invalidez por cambios, pruebas, riesgos y siguiente paso. Nunca persistas propuesta como hecho ni secretos como memoria. Al cambiar una regla, marca relaciones antiguas como `requiere revalidación` hasta comprobarlas.
@@ -1422,6 +1490,10 @@ exacto. El resultado de una pantalla no aprueba otros módulos ni otros estados.
 # SKILL: ingenieria-software
 
 # Ingeniería de software: calidad antes que velocidad
+
+## Aprender del fallo mediante verificación
+Cuando una corrección implique un bug real, cargar `aprendizaje-verificable`: documentar causa, prueba que antes fallaba, regresión automática y ejecución observada tras el cambio. Integrar prueba con el control de entrega `calidad/` si está instalado. No crear una lista de consejos genéricos como sustituto de pruebas. El cierre de severidades críticas/altas requiere auditoría e independencia real.
+
 
 ## Recuperación por asociación antes de editar
 Activa `memoria-asociativa` cuando el cambio implique tablas, vistas, componentes compartidos o efectos operativos. Usa su router como primer filtro de rutas; después busca dependencias reales en código/SQL y documentos según riesgo. No trates el grafo como fuente completa, ni economices tokens ignorando pruebas, efectos secundarios o permisos. Consolidar documentos relevantes al cerrar el cambio.

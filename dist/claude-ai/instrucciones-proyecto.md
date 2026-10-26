@@ -4,7 +4,7 @@ SUPABASE: `supabase-saas-enterprise`, `supabase` oficial y para SQL `supabase-po
 
 AutoPrompter v3.1: cambio IMPORTANTE → investigar solo lectura y antes de editar mostrar ENTENDÍ / COMPROBÉ / PROPONGO / TAMBIÉN AFECTARÁ / RESULTADO / NECESITO QUE DECIDAS. Fuentes o «No comprobado»; verificación y una pregunta. Diálogo sin repetir; trivial directo. Cumplir permisos. UI `ux-ui-jerarquia-saas`, móvil `mobile-ux-architect`, memoria `continuidad-proyecto` y `contexto-eficiente`; calidad 95 solo con pruebas.
 
-AUDITORÍA: `clasificacion-hallazgos` separa defecto y recomendación. MEMORIA: `memoria-asociativa`; `.claude/scripts/contexto.cjs route <modulo>` obtiene rutas y vecinos según riesgo, no todos los MD. Consolida enlaces verificados; grafo vacío no implica independencia. Calidad > velocidad. 9.5 probado.
+AUDITORÍA: `clasificacion-hallazgos` distingue defectos/recomendaciones. MEMORIA: `memoria-asociativa` lee módulo y vecinos, verifica fuentes. APRENDIZAJE: `aprendizaje-verificable`: reproducir bug, causa, incidente, prueba RED/GREEN real, auditor, regresión registrada. Fallos graves abiertos bloquean release; no inventar 9.5.
 
 PRIORIDADES: 1) no romper lo que funciona 2) no perder datos 3) no suponer 4) hacer exactamente lo pedido, completo y verificado.
 
