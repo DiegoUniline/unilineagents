@@ -93,7 +93,7 @@ function check(base){
    warnings.push('Revisar doc de '+m.id+': cambios potencialmente relacionados en '+[...changedEvidence.map(x=>x.sourcePath),...maybe].join(', '));
   for(const l of changedEvidence)warnings.push('Huella de relación para '+m.id+' → '+l.to+' requiere revalidación: '+l.sourcePath);
  }
- if(g.missing&&changed.some(p=>p.startsWith('app/src/')||p.startsWith('supabase/')))
+ if((g.missing||g.modules.length===0)&&changed.some(p=>p.startsWith('app/src/')||p.startsWith('src/')||p.startsWith('supabase/')))
   warnings.push('Sin índice asociativo: cambios funcionales pueden no tener documentación de dependencias; revisar manualmente');
  return {ok:true,base,changedCount:changed.length,changed,warnings,
   claim:'Revisión heurística: ninguna advertencia NO significa que todas las dependencias están cubiertas'};
