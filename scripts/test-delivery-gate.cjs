@@ -9,6 +9,7 @@ function fixture(options={}) {
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'uniline-gate-'));
  const write=(p,s)=>{fs.mkdirSync(path.dirname(path.join(root,p)),{recursive:true});fs.writeFileSync(path.join(root,p),s);};
  write('.gitignore','artifacts/\n');write('decision.md','SIMULATED fixture decision; not real project evidence.');
+ write('calidad/aprendizajes.json',JSON.stringify({schemaVersion:1,incidents:[]}));
  const adapter=`const fs=require('node:fs');const x=JSON.parse(fs.readFileSync(0,'utf8'));${options.fail?'process.exit(2);':''}fs.mkdirSync('artifacts/calidad',{recursive:true});fs.writeFileSync('artifacts/calidad/probe.log','SIMULATED TEST ONLY');${options.stale?"fs.utimesSync('artifacts/calidad/probe.log',1,1);":''}${options.mutate?"fs.writeFileSync('decision.md','tampered');":''}console.log(JSON.stringify({kind:'application-observation',actual:{value:${options.wrong?2:1}},evidence:${options.noEvidence?'[]':"['artifacts/calidad/probe.log']"}}));`;
  write('adapter.cjs',options.outside?adapter.replaceAll('artifacts/calidad','artifacts/other'):adapter);
  const config={schemaVersion:1,cases:REQUIRED.map((id,i)=>i===0?{id,applicable:true,adapter:'adapter.cjs',input:{},expected:{value:1}}:{id,applicable:false,exception:{reason:'Simulated case outside fixture scope only',decisionFile:'decision.md'}})};
@@ -20,6 +21,7 @@ function fixture(options={}) {
 }
 function execute(options={}){const f=fixture(options);try{return run(f.root,'config.json',path.join(f.root,'artifacts/calidad/report.json'));}finally{f.cleanup();}}
 check('complete simulated execution passes',()=>assert.equal(execute().passed,true));
+check('missing learning registry fails closed',()=>{const f=fixture();try{fs.unlinkSync(path.join(f.root,'calidad/aprendizajes.json'));const x=run(f.root,'config.json',path.join(f.root,'artifacts/calidad/report.json'));assert.equal(x.passed,false);assert(x.errors.some(e=>e.includes('Registro no disponible')));}finally{f.cleanup();}});
 check('wrong observed value rejected',()=>assert.equal(execute({wrong:true}).passed,false));
 check('process failure rejected',()=>assert.equal(execute({fail:true}).passed,false));
 check('missing evidence rejected',()=>assert.equal(execute({noEvidence:true}).passed,false));
