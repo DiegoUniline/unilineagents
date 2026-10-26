@@ -97,3 +97,6 @@ La skill `clasificacion-hallazgos` separa defectos confirmados o inferidos, ries
 
 ## Memoria asociativa por módulo
 La skill `memoria-asociativa` y el router `node .claude/scripts/contexto.cjs route ventas --risk normal` descubren rutas, no leen todo el repositorio. Con `--risk high` amplían relaciones; `check --base HEAD~1` señala documentación potencialmente obsoleta. Un índice sin vínculos no prueba ausencia de efectos. Conserva fuentes y decisiones al consolidar cambios. El ahorro real de tokens requiere medición. Ver `docs/memoria-asociativa.md`.
+
+## Aprendizaje comprobable de errores (objetivo 9.5)
+La skill `aprendizaje-verificable` convierte fallos comprobados en incidentes `docs/incidentes/INC-XXX.md` con causa, evidencia reproducible anterior al arreglo, caso de regresión y revisión independiente. La plantilla `calidad/aprendizajes.json` registra hallazgos y `calidad/verificar-entrega.cjs` exige prueba vigente + evidencia para `verified` y bloquea críticas/altas abiertas. Se conserva el mapa `memoria-asociativa` sin copiar todos los módulos. **Los controles estáticos, CI y registro vacío no garantizan ausencia de fallos ni nota 9.5:** QA debe buscar defectos no registrados y un auditor revisar adaptadores reales.
