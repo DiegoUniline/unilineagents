@@ -51,3 +51,6 @@ No registrar log ni token de acceso en el expediente.
 
 ## Cómo demostrar ahorro de contexto
 Medir tokens (input, output, cache read/write si el proveedor los expone), calidad final, latencia, número de intentos y coste hasta completar la misma tarea. Reducir caracteres de CLAUDE.md no demuestra automáticamente ahorro facturable.
+
+## Memoria de errores con regresiones ejecutables
+La skill `aprendizaje-verificable` añade `calidad/aprendizajes.json` y obliga a registrar incidentes reales en `docs/incidentes/INC-XXX.md` con causa, evidencia anterior, prueba de regresión y revisor. `calidad/verificar-entrega.cjs` ejecuta escenarios de aplicación y cruza los incidentes resueltos con los casos exitosos; defectos críticos/altos abiertos bloquean entrega. Que el registro esté vacío no demuestra que la app carece de fallos: auditor y QA deben investigar activamente. Ni el gate estructural ni las puntuaciones 95 sustituyen escenarios reales y revisión independiente.
