@@ -9,6 +9,10 @@ description: Conservar y recuperar decisiones, estado, dependencias y evidencias
 
 # Continuidad y memoria viva — Uniline
 
+## Consolidación e invalidación de relaciones
+Usa `memoria-asociativa` para conservar una red de referencias de módulos/decisiones/código en `docs/contexto/relaciones.json`, cuando el proyecto tenga índice. Actualiza solo relaciones realmente verificadas; si cambia una fuente, detecta vínculos potencialmente obsoletos y exige revalidación. El checkpoint conserva referencias y motivos, no copias enteras de documentos. No guardes secretos ni claims no probados.
+
+
 **El historial de chat no sustituye una memoria persistente verificable.**
 
 ## Tres capas
