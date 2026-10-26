@@ -5,6 +5,10 @@ description: Criterio obligatorio para arquitectos, desarrolladores, QA y evalua
 
 # Clasificación causal de hallazgos · Uniline Agents
 
+## Convertir defectos en memoria útil, no en opiniones
+Una vez distinguido DEFECTO_COMPROBADO/RIESGO de DECISION_NEGOCIO_PENDIENTE o RECOMENDACION, usa `aprendizaje-verificable` para capturar incidente, causa, escenario que falla antes, corrección, prueba que pasa después y relación de módulos verificada. Una recomendación no se registra como defecto solo para llenar el indicador de calidad. QA y auditor deben comprobar la regresión y el responsable de cada fase.
+
+
 ## Propósito
 Evitar que una preferencia del auditor se convierta en supuesto «bug», sin trivializar vulnerabilidades reales ni desplazar indebidamente la responsabilidad al dueño. La calidad se evalúa por **corrección respecto a reglas aprobadas Y garantías técnicas de seguridad e integridad**, no por cantidad de recomendaciones o velocidad de entrega.
 

@@ -5,6 +5,10 @@ description: Rol DESARROLLADOR de Uniline. Hace cambios y correcciones mínimos 
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
 
+## Correcciones que no reinciden
+En fallos importantes aplica `aprendizaje-verificable`. Antes de corregir registra prueba que reproduce el fallo (RED) en entorno aislado; identifica causa y consumidores. Luego corrige, ejecuta regresión actual real (GREEN) y verifica otros procesos. No marques `verified` en `calidad/aprendizajes.json` sin prueba vigente, reproducción previa, expediente en `docs/incidentes/` y revisión QA/auditoría. Fallos críticos/altos abiertos bloquean release; no rebajes pruebas para acelerar.
+
+
 ## Cerebro del proyecto: memoria asociativa y contexto justo a tiempo
 Para modificar pantalla/campo/función: identifica módulo, activa `memoria-asociativa`, ejecuta `node .claude/scripts/contexto.cjs route <modulo> --risk normal` (alto si dinero, permisos, datos, inventario). Abre documento principal y vecinos realmente pertinentes; verifica fuentes de código antes de afirmar impactos. No hagas lectura integral del repositorio. Tras modificación funcional actualiza docs y relaciones con evidencia/huellas; si no hay grafo o faltan enlaces, busca referencias reales y deja la limitación explícita. Ejecuta `contexto.cjs check --base <ref>` cuando aplique y no declares memoria sincronizada sin comprobarla.
 

@@ -5,6 +5,10 @@ description: Conservar y recuperar decisiones, estado, dependencias y evidencias
 
 # Continuidad y memoria viva — Uniline
 
+## Memoria de errores prevenidos
+Los incidentes versionados en `docs/incidentes/INC-XXX.md` y el registro `calidad/aprendizajes.json` complementan `docs/contexto/relaciones.json`. Al retomar un módulo, recuperar solo fallos previos pertinentes y sus pruebas; no cargar todos los incidentes. No presentar un fallo «aprendido» hasta que exista regresión ejecutable, evidencia y revisión. Invalidar referencias obsoletas cuando cambie la fuente.
+
+
 ## Esquema de checkpoint verificable
 Usa `references/checkpoint-esquema.md` para registrar estado, origen, versión, decisiones D-XXX, hechos, dependencias confirmadas/posibles, invalidez por cambios, pruebas, riesgos y siguiente paso. Nunca persistas propuesta como hecho ni secretos como memoria. Al cambiar una regla, marca relaciones antiguas como `requiere revalidación` hasta comprobarlas.
 

@@ -6,6 +6,7 @@ const path = require('node:path');
 const {spawnSync} = require('node:child_process');
 const {isDeepStrictEqual} = require('node:util');
 const crypto = require('node:crypto');
+const {validateLearning}=require('./validar-aprendizajes.cjs');
 const REQUIRED = ['sale-remove-cancel','payment-method','payment-excess','service-no-stock','last-unit-concurrent','retry-once','rollback','tenant-permissions','transfer-partial','purchase-receipt','catalog-create','catalog-cancel','catalog-permissions','resume-context','restore-recovery'];
 const hash = b => crypto.createHash('sha256').update(b).digest('hex');
 function local(root, value) {
@@ -71,6 +72,11 @@ function run(root,configPath,output) {
       } catch(e) {item.error=e.message;}
     }
     for(const item of report.cases) for(const e of item.evidence||[]) {if(hash(fs.readFileSync(local(root,e.path)))!==e.sha256) report.errors.push('Evidencia alterada: '+e.path);}
+    // Aprendizaje continuo: solo los incidentes REGISTRADOS se cruzan con pruebas ejecutadas.
+    // La validación es estructural, no reemplaza revisión independiente de adaptadores.
+    const learning=validateLearning({root,revision:report.revision,scenarioConfig:config,deliveryReport:report});
+    report.learning={kind:learning.kind,passed:learning.passed,incidents:learning.incidents,note:learning.note};
+    report.errors.push(...learning.errors);
     const dirtyAfter=spawnSync('git',['diff','--exit-code','HEAD','--'],{cwd:root,encoding:'utf8'});
     if(dirtyAfter.status!==0) report.errors.push('Las pruebas modificaron archivos versionados');
     if(!report.cases.some(c=>c.status==='passed')) report.errors.push('Ninguna prueba de aplicación ejecutada');

@@ -1,5 +1,8 @@
 # Reglas del proyecto — Agentes Uniline (OBLIGATORIAS, prioridad sobre todo lo demás)
 
+## Aprendizaje verificable y cero reincidencias evitables
+Cuando se detecta/corrige un defecto relevante, carga `.claude/skills/aprendizaje-verificable/SKILL.md`. Reproducción RED y causa → incidente `docs/incidentes/INC-XXX.md` → regresión real en `calidad/escenarios.json` → parche → prueba GREEN y revisión QA/auditoría. Registrar estado en `calidad/aprendizajes.json`; la puerta `calidad/verificar-entrega.cjs` rechaza defectos críticos/altos abiertos o cierre sin test/evidencia. Grafo/memoria se actualizan solo con fuentes. Registro vacío no significa app segura; no proclamar 9.5 sin pruebas del producto.
+
 ## Memoria asociativa · contexto selectivo
 Para cambios de vista, campo, función o regla, carga `.claude/skills/memoria-asociativa/SKILL.md` y usa `node .claude/scripts/contexto.cjs route <modulo> --risk normal` (`high` en dinero, seguridad, stock o permisos). Recupera rutas y vínculos por riesgo, NO todos los MD. Grafo vacío o obsoleto exige contrastar código/BD antes de concluir independencia. Al cerrar cambio funcional actualiza docs, relaciones con evidencia y checkpoint; revisa `contexto.cjs check --base <ref>`. No afirmar ahorro de tokens sin medir.
 

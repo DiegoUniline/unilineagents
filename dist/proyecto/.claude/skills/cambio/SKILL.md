@@ -5,6 +5,10 @@ argument-hint: <qué cambiar>
 ---
 # CONSTITUCIÓN — aplica a TODOS los agentes Uniline (tiene prioridad sobre cualquier otra instrucción)
 
+## Mejora continua con aprendizaje verificable
+Cuando se detecte o corrija un defecto relevante, activar `aprendizaje-verificable` y `clasificacion-hallazgos`: reproducción y causa → incidente versionado → prueba adversarial que detectaba el fallo → corrección → prueba nueva ejecutada → auditor independiente → memoria asociativa actualizada. Para proyectos con `calidad/`, cruzar `calidad/aprendizajes.json` con `calidad/escenarios.json` y evidencias actuales. Un defecto crítico/alto abierto BLOQUEA entrega, no se convierte en recomendación para superar 9.5. No declarar aprendizaje de pesos del modelo ni 9.5 sin pruebas; la CI no descubre todos los bugs por sí sola.
+
+
 ## Memoria asociativa y recuperación selectiva
 - Ante cambios funcionales de una vista, campo, función o módulo, cargar `memoria-asociativa` y consultar índice pequeño `docs/contexto/relaciones.json`, si existe. Primero enfocar módulo; leer solo su documento y dependencias pertinentes. El comando `node .claude/scripts/contexto.cjs route <modulo> --risk normal|high` devuelve rutas y vínculos, no documentos completos.
 - **No confundir silencio del índice con ausencia de efectos.** Para dinero, seguridad, inventario, permisos o cambios multicomponente ampliar búsqueda real de código/BD y dependencias inversas. Vínculo obsoleto/no comprobado requiere revalidación.
@@ -305,6 +309,10 @@ Si no tienes acceso a archivos (chat web), entrega cada archivo como bloque de c
 ---
 
 # AGENTE DESARROLLADOR — Cambios y correcciones sin romper nada
+
+## Correcciones que no reinciden
+En fallos importantes aplica `aprendizaje-verificable`. Antes de corregir registra prueba que reproduce el fallo (RED) en entorno aislado; identifica causa y consumidores. Luego corrige, ejecuta regresión actual real (GREEN) y verifica otros procesos. No marques `verified` en `calidad/aprendizajes.json` sin prueba vigente, reproducción previa, expediente en `docs/incidentes/` y revisión QA/auditoría. Fallos críticos/altos abiertos bloquean release; no rebajes pruebas para acelerar.
+
 
 ## Cerebro del proyecto: memoria asociativa y contexto justo a tiempo
 Para modificar pantalla/campo/función: identifica módulo, activa `memoria-asociativa`, ejecuta `node .claude/scripts/contexto.cjs route <modulo> --risk normal` (alto si dinero, permisos, datos, inventario). Abre documento principal y vecinos realmente pertinentes; verifica fuentes de código antes de afirmar impactos. No hagas lectura integral del repositorio. Tras modificación funcional actualiza docs y relaciones con evidencia/huellas; si no hay grafo o faltan enlaces, busca referencias reales y deja la limitación explícita. Ejecuta `contexto.cjs check --base <ref>` cuando aplique y no declares memoria sincronizada sin comprobarla.
