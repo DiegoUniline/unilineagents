@@ -36,6 +36,7 @@ try{
  check('invalidación de huella',()=>{const x=cmd('route','ventas');assert(x.links.some(y=>y.status==='STALE'));});
  check('módulo no existente NO implica ausencia de dependencias',()=>{const x=cmd('route','desconocido');assert.equal(x.ok,false);});
  check('index ausente cae a módulo verificable y advierte',()=>{fs.unlinkSync(path.join(dir,'docs/contexto/relaciones.json'));const x=cmd('route','ventas');assert.equal(x.ok,true);assert.equal(x.indexMissing,true);assert(x.warnings.some(w=>/NO inferir/.test(w)));});
+ check('grafo vacío advierte cobertura incompleta',()=>{file('docs/contexto/relaciones.json',JSON.stringify({version:1,modules:[]}));const x=cmd('route','ventas');assert(x.warnings.some(w=>w.includes('NO inferir')));});
  check('rechaza traversal en rutas del grafo',()=>{file('docs/contexto/relaciones.json',JSON.stringify({version:1,modules:[{id:'ventas',doc:'../secreto',links:[]}]}));const r=spawnSync(process.execPath,[router,'route','ventas'],{cwd:dir,env:{...process.env,UNILINE_PROJECT_DIR:dir},encoding:'utf8'});assert.notEqual(r.status,0);});
  file('docs/contexto/relaciones.json',JSON.stringify(graph));
  execFileSync('git',['init','-q'],{cwd:dir});
