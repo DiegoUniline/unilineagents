@@ -123,6 +123,7 @@ for (const f of fs.readdirSync(path.join(R, 'commands'))) {
 // CLAUDE.md es un enrutador conciso; la constitución detallada existe en .claude/core y los agentes especializados.
 wr('dist/proyecto/CLAUDE.md', rd('src/claude-md-encabezado.md') + '\n\nLee `.claude/core/principios.md` cuando necesites las políticas completas. Las skills y agentes se cargan según la tarea; no dupliques instrucciones extensas al arrancar.\n');
 for (const s of SKILLS) cpDir(`skills/${s}`, `${P}/skills/${s}`);
+wr(`${P}/scripts/contexto.cjs`, rd('scripts/contexto.cjs'));
 wr(`${P}/hooks/guardian.cjs`, rd('hooks/guardian.cjs'));
 wr(`${P}/hooks/sesion.cjs`, rd('hooks/sesion.cjs'));
 wr(`${P}/hooks/recordatorio.cjs`, rd('hooks/recordatorio.cjs'));
@@ -147,6 +148,7 @@ fs.cpSync(path.join(R, 'templates/plantilla/NOTICE.md'), path.join(R, T, 'NOTICE
 fs.cpSync(path.join(R, 'templates/plantilla/gitignore'), path.join(R, T, '.gitignore'));
 fs.cpSync(path.join(R, 'LICENSE'), path.join(R, T, 'LICENSE'));
 fs.cpSync(path.join(R, 'templates/calidad'), path.join(R, T, 'calidad'), { recursive: true });
+wr(`${T}/docs/contexto/relaciones.json`, rd('templates/contexto/relaciones.json'));
 fs.mkdirSync(path.join(R, T, '.github/workflows'), { recursive: true });
 fs.cpSync(path.join(R, 'templates/plantilla/quality.yml'), path.join(R, T, '.github/workflows/quality.yml'));
 
