@@ -36,6 +36,8 @@ jobs:
         run: node scripts/build.cjs
       - name: Test guardrails
         run: node scripts/test-guardian.cjs
+      - name: Test cerebro (diseño determinista por mundos)
+        run: node --test cerebro/pruebas/cerebro.test.cjs
       - name: Test AutoPrompter integration
         run: node scripts/test-autoprompter.cjs
       - name: Test Supabase enterprise knowledge and evaluator

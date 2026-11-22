@@ -1,0 +1,849 @@
+{
+  "version": 1,
+  "proyecto": {
+    "nombre": "Ferretería Demo",
+    "giro": "ferreteria",
+    "creado": "2026-11-22"
+  },
+  "condiciones": {
+    "multiempresa": "si",
+    "cfdi": "si",
+    "almacenes": "no"
+  },
+  "mapa": {
+    "procesos": [
+      "ventas en mostrador",
+      "compras a proveedores"
+    ],
+    "modulos": [
+      {
+        "id": "productos",
+        "nombre": "Productos",
+        "estado": "cerrado",
+        "depende_de": []
+      },
+      {
+        "id": "clientes",
+        "nombre": "Clientes",
+        "estado": "pendiente",
+        "depende_de": []
+      },
+      {
+        "id": "ventas",
+        "nombre": "Ventas",
+        "estado": "en_curso",
+        "depende_de": [
+          "productos",
+          "clientes"
+        ]
+      }
+    ]
+  },
+  "tablas": {
+    "productos": {
+      "entidad": "producto",
+      "modulo": "productos",
+      "estado": "aprobada",
+      "origen": "biblioteca:producto",
+      "campos": [
+        {
+          "nombre": "codigo",
+          "tipo": "texto",
+          "obligatorio": true,
+          "por_que": "Identifica el producto sin ambigüedad (SKU) en ventas, compras e inventario",
+          "fuente": "CR-14",
+          "estado": "aprobado",
+          "unico": true
+        },
+        {
+          "nombre": "nombre",
+          "tipo": "texto",
+          "obligatorio": true,
+          "por_que": "Lo que ve el usuario en pantallas y tickets",
+          "fuente": "base",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "descripcion",
+          "tipo": "texto_largo",
+          "obligatorio": false,
+          "por_que": "Detalle para cotizaciones o catálogo",
+          "fuente": "base",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "codigo_barras",
+          "tipo": "texto",
+          "obligatorio": false,
+          "por_que": "Venta rápida con lector; único para no confundir productos",
+          "fuente": "CR-14",
+          "estado": "aprobado",
+          "unico": true
+        },
+        {
+          "nombre": "categoria_id",
+          "tipo": "referencia",
+          "obligatorio": false,
+          "por_que": "Agrupar para reportes y búsqueda",
+          "fuente": "base",
+          "estado": "aprobado",
+          "ref": "categorias"
+        },
+        {
+          "nombre": "marca",
+          "tipo": "lista",
+          "obligatorio": false,
+          "por_que": "Filtrar y reportar por fabricante",
+          "fuente": "base",
+          "estado": "aprobado",
+          "valores": [
+            "truper",
+            "urrea",
+            "generica"
+          ]
+        },
+        {
+          "nombre": "unidad_id",
+          "tipo": "referencia",
+          "obligatorio": true,
+          "por_que": "Cómo se mide (pieza, kg, litro); necesaria para inventario y factura",
+          "fuente": "base",
+          "estado": "aprobado",
+          "ref": "unidades"
+        },
+        {
+          "nombre": "precio_venta",
+          "tipo": "dinero",
+          "obligatorio": true,
+          "por_que": "Precio base que se copia a la venta al momento; nunca se lee el precio vivo",
+          "fuente": "CR-10 / CR-12",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "costo",
+          "tipo": "dinero",
+          "obligatorio": false,
+          "por_que": "Calcular utilidad; se actualiza con las compras",
+          "fuente": "CR-12",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "tasa_iva",
+          "tipo": "lista",
+          "obligatorio": true,
+          "por_que": "Impuesto explícito por producto; valores fijos de ley",
+          "fuente": "CR-01 / CR-12",
+          "estado": "aprobado",
+          "default": "16",
+          "valores": [
+            "16",
+            "8",
+            "0",
+            "exento"
+          ]
+        },
+        {
+          "nombre": "clave_prod_serv_sat",
+          "tipo": "texto",
+          "obligatorio": true,
+          "por_que": "Obligatoria en cada concepto del CFDI 4.0",
+          "fuente": "cfdi-mexico",
+          "estado": "aprobado",
+          "solo_si": {
+            "cfdi": "si"
+          }
+        },
+        {
+          "nombre": "stock_minimo",
+          "tipo": "cantidad",
+          "obligatorio": false,
+          "por_que": "Avisar cuándo reordenar",
+          "fuente": "dueño",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "maneja_lote",
+          "tipo": "si_no",
+          "obligatorio": true,
+          "por_que": "Indica qué productos exigen lote en compras, inventario y ventas",
+          "fuente": "receta lotes",
+          "estado": "aprobado",
+          "default": "false"
+        }
+      ],
+      "unicos": []
+    },
+    "categorias": {
+      "entidad": "categoria",
+      "modulo": "productos",
+      "estado": "aprobada",
+      "origen": "biblioteca:categoria",
+      "campos": [
+        {
+          "nombre": "nombre",
+          "tipo": "texto",
+          "obligatorio": true,
+          "por_que": "Lo que se muestra; único para no duplicar categorías",
+          "fuente": "CR-03 / CR-14",
+          "estado": "aprobado",
+          "unico": true
+        },
+        {
+          "nombre": "color",
+          "tipo": "texto",
+          "obligatorio": false,
+          "por_que": "Chip de color en listados",
+          "fuente": "CR-03",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "orden",
+          "tipo": "entero",
+          "obligatorio": false,
+          "por_que": "Orden en que aparece en las listas",
+          "fuente": "CR-03",
+          "estado": "aprobado",
+          "default": "0"
+        },
+        {
+          "nombre": "es_sistema",
+          "tipo": "si_no",
+          "obligatorio": true,
+          "por_que": "Los valores iniciales del sistema no se borran",
+          "fuente": "CR-03",
+          "estado": "aprobado",
+          "default": "false"
+        }
+      ],
+      "unicos": []
+    },
+    "unidades": {
+      "entidad": "unidad",
+      "modulo": "productos",
+      "estado": "aprobada",
+      "origen": "biblioteca:unidad",
+      "campos": [
+        {
+          "nombre": "nombre",
+          "tipo": "texto",
+          "obligatorio": true,
+          "por_que": "Nombre visible (Pieza, Kilogramo)",
+          "fuente": "CR-14",
+          "estado": "aprobado",
+          "unico": true
+        },
+        {
+          "nombre": "abreviatura",
+          "tipo": "texto",
+          "obligatorio": true,
+          "por_que": "Se muestra junto a cantidades (pz, kg)",
+          "fuente": "CR-06",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "permite_decimales",
+          "tipo": "si_no",
+          "obligatorio": true,
+          "por_que": "Pieza no admite 1.5; kilo sí. Valida cantidades en ventas e inventario",
+          "fuente": "CR-06",
+          "estado": "aprobado",
+          "default": "false"
+        },
+        {
+          "nombre": "clave_unidad_sat",
+          "tipo": "texto",
+          "obligatorio": true,
+          "por_que": "Obligatoria en cada concepto del CFDI 4.0 (H87 pieza, KGM kilo)",
+          "fuente": "cfdi-mexico",
+          "estado": "aprobado",
+          "solo_si": {
+            "cfdi": "si"
+          }
+        },
+        {
+          "nombre": "es_sistema",
+          "tipo": "si_no",
+          "obligatorio": true,
+          "por_que": "Los valores iniciales del sistema no se borran",
+          "fuente": "CR-03",
+          "estado": "aprobado",
+          "default": "false"
+        }
+      ],
+      "unicos": []
+    },
+    "lotes": {
+      "entidad": "lote",
+      "modulo": "productos",
+      "estado": "aprobada",
+      "origen": "receta:lotes",
+      "campos": [
+        {
+          "nombre": "producto_id",
+          "tipo": "referencia",
+          "obligatorio": true,
+          "por_que": "Cada lote pertenece a un producto",
+          "fuente": "receta lotes",
+          "estado": "aprobado",
+          "ref": "productos"
+        },
+        {
+          "nombre": "numero",
+          "tipo": "texto",
+          "obligatorio": true,
+          "por_que": "Número de lote del proveedor; único por producto",
+          "fuente": "receta lotes",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "fecha_entrada",
+          "tipo": "fecha",
+          "obligatorio": true,
+          "por_que": "Cuándo entró; base para «primero el que entró»",
+          "fuente": "receta lotes",
+          "estado": "aprobado"
+        },
+        {
+          "nombre": "fecha_caducidad",
+          "tipo": "fecha",
+          "obligatorio": true,
+          "por_que": "Avisos de por vencer y salida por caducidad",
+          "fuente": "receta lotes",
+          "estado": "aprobado"
+        }
+      ],
+      "unicos": [
+        [
+          "producto_id",
+          "numero"
+        ]
+      ]
+    },
+    "ventas_detalle": {
+      "entidad": "venta_detalle",
+      "modulo": "ventas",
+      "estado": "propuesta",
+      "origen": "dueño",
+      "campos": [
+        {
+          "nombre": "lote_id",
+          "tipo": "referencia",
+          "obligatorio": false,
+          "por_que": "Lote vendido; exigido si el producto maneja lote",
+          "fuente": "receta lotes",
+          "estado": "propuesto",
+          "ref": "lotes"
+        }
+      ],
+      "unicos": []
+    }
+  },
+  "pendientes": [],
+  "compromisos": [
+    {
+      "entidad": "movimiento_inventario",
+      "campo": {
+        "nombre": "lote",
+        "tipo": "referencia",
+        "ref_entidad": "lote",
+        "obligatorio": false,
+        "por_que": "Lote del movimiento; exigido si el producto maneja lote",
+        "fuente": "receta lotes"
+      },
+      "origen": "lotes",
+      "desde": "2026-11-22",
+      "cumplido": null
+    },
+    {
+      "entidad": "compra_detalle",
+      "campo": {
+        "nombre": "lote",
+        "tipo": "referencia",
+        "ref_entidad": "lote",
+        "obligatorio": false,
+        "por_que": "Lote recibido; exigido si el producto maneja lote",
+        "fuente": "receta lotes"
+      },
+      "origen": "lotes",
+      "desde": "2026-11-22",
+      "cumplido": null
+    },
+    {
+      "entidad": "venta_detalle",
+      "campo": {
+        "nombre": "lote",
+        "tipo": "referencia",
+        "ref_entidad": "lote",
+        "obligatorio": false,
+        "por_que": "Lote vendido; exigido si el producto maneja lote",
+        "fuente": "receta lotes"
+      },
+      "origen": "lotes",
+      "desde": "2026-11-22",
+      "cumplido": "2026-11-22"
+    }
+  ],
+  "reglas": [
+    {
+      "id": "RN-001",
+      "texto": "Si el producto tiene maneja_lote = sí, el lote es obligatorio en compras, inventario y ventas; se valida en la función SQL, no solo en pantalla.",
+      "origen": "receta:lotes",
+      "desde": "2026-11-22"
+    },
+    {
+      "id": "RN-002",
+      "texto": "Al vender, el sistema asigna el lote con caducidad más próxima que tenga existencia (FEFO).",
+      "origen": "receta:lotes",
+      "desde": "2026-11-22"
+    },
+    {
+      "id": "RN-003",
+      "texto": "No se permite sacar más de la existencia del lote; se bloquea en la función SQL.",
+      "origen": "receta:lotes",
+      "desde": "2026-11-22"
+    },
+    {
+      "id": "RN-004",
+      "texto": "No se venden lotes caducados.",
+      "origen": "receta:lotes",
+      "desde": "2026-11-22"
+    }
+  ],
+  "decisiones": [
+    {
+      "id": "D-001",
+      "fecha": "2026-11-22",
+      "modulo": null,
+      "texto": "¿Lo vas a rentar a varias empresas o es para un solo negocio? → Varias empresas (rentar)",
+      "origen": "gancho multiempresa"
+    },
+    {
+      "id": "D-002",
+      "fecha": "2026-11-22",
+      "modulo": null,
+      "texto": "¿Vas a facturar CFDI desde el sistema? → Sí",
+      "origen": "gancho cfdi"
+    },
+    {
+      "id": "D-003",
+      "fecha": "2026-11-22",
+      "modulo": null,
+      "texto": "¿El inventario se controla en más de un almacén? → Un solo inventario",
+      "origen": "gancho almacenes"
+    },
+    {
+      "id": "D-004",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "productos.categoria: tabla — CR-03 / CR-04",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-005",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "productos.marca: lista (se recomendaba tabla) — CR-03 / CR-04",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-006",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "productos.unidad: tabla — CR-06: tiene atributos propios (abreviatura, clave SAT)",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-007",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "productos: quitar imagen",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-008",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "productos: agregar stock_minimo (cantidad) — Avisar cuándo reordenar",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-009",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "Tabla categorias aprobada (4 campos)",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-010",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "Tabla unidades aprobada (5 campos)",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-011",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "Tabla productos aprobada (12 campos)",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-012",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "Módulo productos cerrado: productos, categorias, unidades",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-013",
+      "fecha": "2026-11-22",
+      "modulo": null,
+      "texto": "Receta lotes aplicada: alcance=algunos, caducidad=si, salida=fefo, negativos=no",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-014",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "Tabla productos aprobada (13 campos)",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-015",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "Tabla lotes aprobada (4 campos)",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-016",
+      "fecha": "2026-11-22",
+      "modulo": "productos",
+      "texto": "Módulo productos cerrado: productos, categorias, unidades, lotes",
+      "origen": "dueño"
+    },
+    {
+      "id": "D-017",
+      "fecha": "2026-11-22",
+      "modulo": "ventas",
+      "texto": "Tabla nueva ventas_detalle (venta_detalle) — Partidas de cada venta",
+      "origen": "dueño"
+    }
+  ],
+  "recetas_aplicadas": [
+    {
+      "receta": "lotes",
+      "respuestas": {
+        "alcance": "algunos",
+        "caducidad": "si",
+        "salida": "fefo",
+        "negativos": "no"
+      },
+      "fecha": "2026-11-22"
+    }
+  ],
+  "sql_emitido": [
+    "categorias",
+    "categorias.nombre",
+    "categorias.color",
+    "categorias.orden",
+    "categorias.es_sistema",
+    "unidades",
+    "unidades.nombre",
+    "unidades.abreviatura",
+    "unidades.permite_decimales",
+    "unidades.clave_unidad_sat",
+    "unidades.es_sistema",
+    "productos",
+    "productos.codigo",
+    "productos.nombre",
+    "productos.descripcion",
+    "productos.codigo_barras",
+    "productos.categoria_id",
+    "productos.marca",
+    "productos.unidad_id",
+    "productos.precio_venta",
+    "productos.costo",
+    "productos.tasa_iva",
+    "productos.clave_prod_serv_sat",
+    "productos.stock_minimo",
+    "productos.maneja_lote",
+    "lotes",
+    "lotes.producto_id",
+    "lotes.numero",
+    "lotes.fecha_entrada",
+    "lotes.fecha_caducidad"
+  ],
+  "migraciones": [
+    {
+      "numero": "001",
+      "nombre": "productos",
+      "archivo": "migraciones/001_productos.sql",
+      "fecha": "2026-11-22",
+      "elementos": 24
+    },
+    {
+      "numero": "002",
+      "nombre": "lotes",
+      "archivo": "migraciones/002_lotes.sql",
+      "fecha": "2026-11-22",
+      "elementos": 6
+    }
+  ],
+  "contadores": {
+    "decision": 17,
+    "pendiente": 3,
+    "regla": 4,
+    "historial": 26
+  },
+  "historial": [
+    {
+      "n": 1,
+      "fecha": "2026-11-22",
+      "comando": "init",
+      "args": {
+        "nombre": "Ferretería Demo",
+        "giro": "ferreteria"
+      }
+    },
+    {
+      "n": 2,
+      "fecha": "2026-11-22",
+      "comando": "condicion",
+      "args": {
+        "clave": "multiempresa",
+        "valor": "si"
+      }
+    },
+    {
+      "n": 3,
+      "fecha": "2026-11-22",
+      "comando": "condicion",
+      "args": {
+        "clave": "cfdi",
+        "valor": "si"
+      }
+    },
+    {
+      "n": 4,
+      "fecha": "2026-11-22",
+      "comando": "condicion",
+      "args": {
+        "clave": "almacenes",
+        "valor": "no"
+      }
+    },
+    {
+      "n": 5,
+      "fecha": "2026-11-22",
+      "comando": "proceso-agregar",
+      "args": {
+        "proceso": "ventas en mostrador"
+      }
+    },
+    {
+      "n": 6,
+      "fecha": "2026-11-22",
+      "comando": "proceso-agregar",
+      "args": {
+        "proceso": "compras a proveedores"
+      }
+    },
+    {
+      "n": 7,
+      "fecha": "2026-11-22",
+      "comando": "modulo-agregar",
+      "args": {
+        "id": "productos",
+        "nombre": "Productos",
+        "depende": []
+      }
+    },
+    {
+      "n": 8,
+      "fecha": "2026-11-22",
+      "comando": "modulo-agregar",
+      "args": {
+        "id": "clientes",
+        "nombre": "Clientes",
+        "depende": []
+      }
+    },
+    {
+      "n": 9,
+      "fecha": "2026-11-22",
+      "comando": "modulo-agregar",
+      "args": {
+        "id": "ventas",
+        "nombre": "Ventas",
+        "depende": [
+          "productos",
+          "clientes"
+        ]
+      }
+    },
+    {
+      "n": 10,
+      "fecha": "2026-11-22",
+      "comando": "proponer",
+      "args": {
+        "entidad": "producto",
+        "modulo": "productos"
+      }
+    },
+    {
+      "n": 11,
+      "fecha": "2026-11-22",
+      "comando": "decidir",
+      "args": {
+        "tabla": "productos",
+        "campo": "categoria",
+        "opcion": "tabla",
+        "valores": null
+      }
+    },
+    {
+      "n": 12,
+      "fecha": "2026-11-22",
+      "comando": "decidir",
+      "args": {
+        "tabla": "productos",
+        "campo": "marca",
+        "opcion": "lista",
+        "valores": "truper,urrea,generica"
+      }
+    },
+    {
+      "n": 13,
+      "fecha": "2026-11-22",
+      "comando": "decidir",
+      "args": {
+        "tabla": "productos",
+        "campo": "unidad",
+        "opcion": "tabla",
+        "valores": null
+      }
+    },
+    {
+      "n": 14,
+      "fecha": "2026-11-22",
+      "comando": "quitar",
+      "args": {
+        "tabla": "productos",
+        "campo": "imagen"
+      }
+    },
+    {
+      "n": 15,
+      "fecha": "2026-11-22",
+      "comando": "agregar",
+      "args": {
+        "tabla": "productos",
+        "campo": "stock_minimo",
+        "tipo": "cantidad",
+        "obligatorio": false,
+        "por_que": "Avisar cuándo reordenar",
+        "ref": null,
+        "de": null,
+        "valores": null
+      }
+    },
+    {
+      "n": 16,
+      "fecha": "2026-11-22",
+      "comando": "aprobar",
+      "args": {
+        "tabla": "categorias"
+      }
+    },
+    {
+      "n": 17,
+      "fecha": "2026-11-22",
+      "comando": "aprobar",
+      "args": {
+        "tabla": "unidades"
+      }
+    },
+    {
+      "n": 18,
+      "fecha": "2026-11-22",
+      "comando": "aprobar",
+      "args": {
+        "tabla": "productos"
+      }
+    },
+    {
+      "n": 19,
+      "fecha": "2026-11-22",
+      "comando": "cerrar-modulo",
+      "args": {
+        "id": "productos"
+      }
+    },
+    {
+      "n": 20,
+      "fecha": "2026-11-22",
+      "comando": "migracion",
+      "args": {
+        "nombre": "productos"
+      }
+    },
+    {
+      "n": 21,
+      "fecha": "2026-11-22",
+      "comando": "aplicar-receta",
+      "args": {
+        "receta": "lotes",
+        "respuestas": {
+          "alcance": "algunos",
+          "caducidad": "si",
+          "salida": "fefo",
+          "negativos": "no"
+        }
+      }
+    },
+    {
+      "n": 22,
+      "fecha": "2026-11-22",
+      "comando": "aprobar",
+      "args": {
+        "tabla": "productos"
+      }
+    },
+    {
+      "n": 23,
+      "fecha": "2026-11-22",
+      "comando": "aprobar",
+      "args": {
+        "tabla": "lotes"
+      }
+    },
+    {
+      "n": 24,
+      "fecha": "2026-11-22",
+      "comando": "cerrar-modulo",
+      "args": {
+        "id": "productos"
+      }
+    },
+    {
+      "n": 25,
+      "fecha": "2026-11-22",
+      "comando": "migracion",
+      "args": {
+        "nombre": "lotes"
+      }
+    },
+    {
+      "n": 26,
+      "fecha": "2026-11-22",
+      "comando": "tabla-nueva",
+      "args": {
+        "tabla": "ventas_detalle",
+        "entidad": "venta_detalle",
+        "modulo": "ventas",
+        "por_que": "Partidas de cada venta"
+      }
+    }
+  ]
+}

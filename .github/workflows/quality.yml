@@ -19,6 +19,7 @@ jobs:
           node-version: '22'
       - run: node scripts/build.cjs
       - run: node scripts/test-guardian.cjs
+      - run: node --test cerebro/pruebas/cerebro.test.cjs
       - run: node scripts/test-autoprompter.cjs
       - run: node scripts/test-supabase-enterprise.cjs
       - run: node scripts/test-quality-gate.cjs
