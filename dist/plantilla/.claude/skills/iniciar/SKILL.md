@@ -282,7 +282,7 @@ Copias fijas y revisadas (cada carpeta trae LICENSE y ORIGEN.md con repo, versi�
 | web-quality-audit, accessibility, performance, core-web-vitals, web-best-practices | Addy Osmani | Auditoría tipo Lighthouse, WCAG 2.2 | QA, auditor |
 
 ## Ejemplo lleno de referencia
-En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra el recorrido completo con preguntas y respuestas (Caja Chica es un sistema de una sola rebanada). Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
+En proyectos con agentes instalados: `.claude/ejemplos/caja-chica/` tiene TODOS los archivos de /docs llenos para una app sencilla, y `.claude/ejemplos/caja-chica-recorrido.md` muestra el recorrido completo con preguntas y respuestas (Caja Chica es un sistema de una sola rebanada y es anterior al cerebro: tómalo solo como formato de /docs; el diseño de tablas por mundos está en `.claude/ejemplos/cerebro-productos/recorrido.md`). Cuando dudes del formato de un archivo, cópialo de ahí (estructura, nivel de detalle, certezas y orígenes), nunca el contenido.
 
 ## Estructura de /docs
 ```

@@ -1,0 +1,12 @@
+{
+  "entidad": "unidad",
+  "tabla": "unidades",
+  "descripcion": "Unidades de medida (pieza, kg, litro).",
+  "campos": [
+    { "nombre": "nombre", "tipo": "texto", "obligatorio": true, "unico": true, "por_que": "Nombre visible (Pieza, Kilogramo)", "fuente": "CR-14" },
+    { "nombre": "abreviatura", "tipo": "texto", "obligatorio": true, "por_que": "Se muestra junto a cantidades (pz, kg)", "fuente": "CR-06" },
+    { "nombre": "permite_decimales", "tipo": "si_no", "obligatorio": true, "default": "false", "por_que": "Pieza no admite 1.5; kilo sí. Valida cantidades en ventas e inventario", "fuente": "CR-06" },
+    { "nombre": "clave_unidad_sat", "tipo": "texto", "obligatorio": true, "solo_si": { "cfdi": "si" }, "por_que": "Obligatoria en cada concepto del CFDI 4.0 (H87 pieza, KGM kilo)", "fuente": "cfdi-mexico" },
+    { "nombre": "es_sistema", "tipo": "si_no", "obligatorio": true, "default": "false", "por_que": "Los valores iniciales del sistema no se borran", "fuente": "CR-03" }
+  ]
+}

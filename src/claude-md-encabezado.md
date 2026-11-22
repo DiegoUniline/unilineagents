@@ -31,6 +31,9 @@ Antes de diseñar, desarrollar, auditar, crear contenido o ejecutar tareas, lee 
 ## AutoPrompter v3.1: primera propuesta visible (seis apartados)
 Ante cualquier cambio IMPORTANTE, investiga en solo lectura y **ANTES DE EDITAR** presenta al usuario, brevemente y en este orden: **ENTENDÍ / COMPROBÉ / PROPONGO / TAMBIÉN AFECTARÁ / RESULTADO / NECESITO QUE DECIDAS**. Usa evidencia o «No comprobado», impactos confirmados/posibles, pruebas dentro de RESULTADO y una sola decisión material (o «Ninguna»). Después dialoga sin repetir todos los títulos por turno, solicita autorización cuando proceda y verifica antes de declarar éxito. Conversación, consulta y trivialidades exentas. No uses nueve apartados. Para UX/UI usa `.claude/skills/ux-ui-jerarquia-saas/SKILL.md`; para contexto largo, `contexto-eficiente` y `continuidad-proyecto`.
 
+## Cerebro del proyecto (diseño determinista por mundos)
+Para proponer tablas y campos, decidir tabla o lista, cambios grandes (lotes…) o impacto, carga `.claude/skills/cerebro/SKILL.md` y usa `node .claude/cerebro/cerebro.cjs`. `docs/cerebro.json` solo cambia con comandos; el script propone con su porqué, el dueño decide y el SQL de esas tablas sale de `migracion`. Nada de campos inventados de memoria.
+
 ## Antes de responder CUALQUIER mensaje
 1. Si la petición requiere trabajo sobre el proyecto, lee /docs/00-estado.md; si falta, ofrece /iniciar cuando corresponda. No crees archivos ante una simple conversación o pregunta informativa.
 2. Identifica qué quiere el dueño y carga el rol correspondiente leyendo su archivo COMPLETO antes de actuar:
@@ -47,7 +50,7 @@ Ante cualquier cambio IMPORTANTE, investiga en solo lectura y **ANTES DE EDITAR*
 | Saber cómo va, /estado | — | `/docs/00-estado.md` |
 
 ## Candados que NUNCA se rompen
-- **Método por vueltas y rebanadas.** Vuelta 0 arranque (investigación, condiciones, base fija) → Vuelta 1 entender cuánto se quiere ("cuéntame cómo trabajas", historias, rebanadas) → Vuelta 2 esqueleto (tablas, relaciones, diseño) → por rebanada: impacto, campos, reglas, qué pasa si, pantallas, `APROBADO R<n>`, construir, probar, demo. Prohibido escribir código de una rebanada antes de su `APROBADO R<n>`.
+- **Método por vueltas y rebanadas (rebanada = mundo).** Vuelta 0 arranque (investigación, condiciones y ganchos, base fija) → Vuelta 1 entender cuánto se quiere ("cuéntame cómo trabajas", historias, mundos y su orden) → Vuelta 2 base visual (sistema de diseño) → por mundo (un módulo con sus tablas relacionadas): impacto, campos con el cerebro, tabla o lista, reglas, qué pasa si, pantallas, `APROBADO R<n>`, cerrar mundo, construir, probar, demo. Prohibido escribir código de una rebanada antes de su `APROBADO R<n>`.
 - **Criterio Uniline.** Lo que `.claude/skills/criterio-uniline/SKILL.md` resuelve se decide y se avisa (`🧭 Criterio: … — porque …`); solo se pregunta lo que depende del negocio.
 - **La tecnología también se pregunta.** No elijas Apps Script, Supabase, React ni nada sin preguntarlo.
 - **Una pregunta material por turno cuando haga falta.** En la entrevista presenta opciones y recomendación, adapta según lo respondido; nunca interrogues por rutina ni repitas decisiones aprobadas.

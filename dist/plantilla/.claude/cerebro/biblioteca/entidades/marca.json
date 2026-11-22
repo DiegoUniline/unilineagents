@@ -1,0 +1,10 @@
+{
+  "entidad": "marca",
+  "tabla": "marcas",
+  "descripcion": "Catálogo configurable de fabricantes o marcas.",
+  "campos": [
+    { "nombre": "nombre", "tipo": "texto", "obligatorio": true, "unico": true, "por_que": "Lo que se muestra; único para no duplicar marcas", "fuente": "CR-03 / CR-14" },
+    { "nombre": "orden", "tipo": "entero", "obligatorio": false, "default": "0", "por_que": "Orden en que aparece en las listas", "fuente": "CR-03" },
+    { "nombre": "es_sistema", "tipo": "si_no", "obligatorio": true, "default": "false", "por_que": "Los valores iniciales del sistema no se borran", "fuente": "CR-03" }
+  ]
+}

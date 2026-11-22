@@ -1,0 +1,48 @@
+{
+  "descripcion": "Preguntas gancho del mapa general: decisiones que cruzan módulos. Se responden una vez, antes del primer mundo.",
+  "ganchos": [
+    {
+      "clave": "multiempresa",
+      "pregunta": "¿Lo vas a rentar a varias empresas o es para un solo negocio?",
+      "opciones": { "si": "Varias empresas (rentar)", "no": "Un solo negocio" },
+      "recomendado": "si",
+      "afecta": "empresa_id en todas las tablas; catálogos por empresa (CR-03) o lista fija (CR-04); unicidad por empresa (CR-14)"
+    },
+    {
+      "clave": "sucursales",
+      "pregunta": "¿Tiene varias sucursales o sedes?",
+      "opciones": { "si": "Sí", "no": "No" },
+      "recomendado": "no",
+      "afecta": "sucursal_id en documentos y folios por sucursal (CR-11)"
+    },
+    {
+      "clave": "almacenes",
+      "pregunta": "¿El inventario se controla en más de un almacén?",
+      "opciones": { "si": "Sí, varios almacenes", "no": "Un solo inventario" },
+      "recomendado": "no",
+      "afecta": "existencias por almacén; traspasos entre almacenes"
+    },
+    {
+      "clave": "lotes",
+      "pregunta": "¿Algún producto se controla por lote (con o sin caducidad)?",
+      "opciones": { "si": "Sí", "no": "No" },
+      "recomendado": "no",
+      "afecta": "productos, inventario, compras y ventas",
+      "receta": "lotes"
+    },
+    {
+      "clave": "listas_precios",
+      "pregunta": "¿Manejas varios precios para un mismo producto (mayoreo, menudeo, por cliente)?",
+      "opciones": { "si": "Sí, varias listas", "no": "Un solo precio" },
+      "recomendado": "no",
+      "afecta": "precio en productos o tabla de listas de precios"
+    },
+    {
+      "clave": "cfdi",
+      "pregunta": "¿Vas a facturar CFDI desde el sistema?",
+      "opciones": { "si": "Sí", "no": "No" },
+      "recomendado": "si",
+      "afecta": "claves SAT en productos y unidades; datos fiscales de clientes (skill cfdi-mexico)"
+    }
+  ]
+}

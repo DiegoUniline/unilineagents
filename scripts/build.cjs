@@ -124,6 +124,8 @@ for (const f of fs.readdirSync(path.join(R, 'commands'))) {
 wr('dist/proyecto/CLAUDE.md', rd('src/claude-md-encabezado.md') + '\n\nLee `.claude/core/principios.md` cuando necesites las políticas completas. Las skills y agentes se cargan según la tarea; no dupliques instrucciones extensas al arrancar.\n');
 for (const s of SKILLS) cpDir(`skills/${s}`, `${P}/skills/${s}`);
 wr(`${P}/scripts/contexto.cjs`, rd('scripts/contexto.cjs'));
+// Cerebro: memoria estructurada y determinista por mundos (script, biblioteca, recetas y pruebas).
+cpDir('cerebro', `${P}/cerebro`);
 wr(`${P}/hooks/guardian.cjs`, rd('hooks/guardian.cjs'));
 wr(`${P}/hooks/sesion.cjs`, rd('hooks/sesion.cjs'));
 wr(`${P}/hooks/recordatorio.cjs`, rd('hooks/recordatorio.cjs'));
@@ -139,6 +141,7 @@ wr('dist/proyecto/AGENTS.md', rd('dist/AGENTS.md'));
 // Ejemplo lleno de referencia para que los agentes copien el formato
 fs.cpSync(path.join(R, 'docs/ejemplo-caja-chica/docs'), path.join(R, P, 'ejemplos/caja-chica'), { recursive: true });
 fs.cpSync(path.join(R, 'docs/ejemplo-caja-chica.md'), path.join(R, P, 'ejemplos/caja-chica-recorrido.md'));
+cpDir('docs/ejemplo-cerebro-productos', `${P}/ejemplos/cerebro-productos`);
 
 // ---------- Plantilla de proyecto nuevo (repo 'Use this template') ----------
 const T = 'dist/plantilla';

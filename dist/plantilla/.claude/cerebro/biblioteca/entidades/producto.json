@@ -1,0 +1,22 @@
+{
+  "entidad": "producto",
+  "tabla": "productos",
+  "descripcion": "Lo que el negocio vende o compra.",
+  "campos": [
+    { "nombre": "codigo", "tipo": "texto", "obligatorio": true, "unico": true, "por_que": "Identifica el producto sin ambigüedad (SKU) en ventas, compras e inventario", "fuente": "CR-14" },
+    { "nombre": "nombre", "tipo": "texto", "obligatorio": true, "por_que": "Lo que ve el usuario en pantallas y tickets", "fuente": "base" },
+    { "nombre": "descripcion", "tipo": "texto_largo", "obligatorio": false, "por_que": "Detalle para cotizaciones o catálogo", "fuente": "base" },
+    { "nombre": "codigo_barras", "tipo": "texto", "obligatorio": false, "unico": true, "por_que": "Venta rápida con lector; único para no confundir productos", "fuente": "CR-14" },
+    { "nombre": "categoria", "tipo": "referencia", "obligatorio": false, "por_que": "Agrupar para reportes y búsqueda", "fuente": "base",
+      "decision": { "entidad": "categoria", "pregunta": "¿Categoría es tabla (el cliente agrega las suyas) o lista fija?", "recomendacion": { "si_multiempresa": "tabla", "si_no": "lista" }, "regla": "CR-03 / CR-04", "valores_sugeridos": ["general"] } },
+    { "nombre": "marca", "tipo": "referencia", "obligatorio": false, "por_que": "Filtrar y reportar por fabricante", "fuente": "base",
+      "decision": { "entidad": "marca", "pregunta": "¿Marca es tabla o lista fija?", "recomendacion": { "si_multiempresa": "tabla", "si_no": "lista" }, "regla": "CR-03 / CR-04", "valores_sugeridos": ["sin_marca"] } },
+    { "nombre": "unidad", "tipo": "referencia", "obligatorio": true, "por_que": "Cómo se mide (pieza, kg, litro); necesaria para inventario y factura", "fuente": "base",
+      "decision": { "entidad": "unidad", "pregunta": "¿Unidad es tabla o lista fija?", "recomendacion": "tabla", "regla": "CR-06: tiene atributos propios (abreviatura, clave SAT)", "valores_sugeridos": ["pieza", "kg", "litro"] } },
+    { "nombre": "precio_venta", "tipo": "dinero", "obligatorio": true, "por_que": "Precio base que se copia a la venta al momento; nunca se lee el precio vivo", "fuente": "CR-10 / CR-12" },
+    { "nombre": "costo", "tipo": "dinero", "obligatorio": false, "por_que": "Calcular utilidad; se actualiza con las compras", "fuente": "CR-12" },
+    { "nombre": "tasa_iva", "tipo": "lista", "obligatorio": true, "valores": ["16", "8", "0", "exento"], "default": "16", "por_que": "Impuesto explícito por producto; valores fijos de ley", "fuente": "CR-01 / CR-12" },
+    { "nombre": "clave_prod_serv_sat", "tipo": "texto", "obligatorio": true, "solo_si": { "cfdi": "si" }, "por_que": "Obligatoria en cada concepto del CFDI 4.0", "fuente": "cfdi-mexico" },
+    { "nombre": "imagen", "tipo": "archivo", "obligatorio": false, "por_que": "Foto en catálogo y POS; se guarda en Storage, no en BD", "fuente": "base fija: archivos" }
+  ]
+}

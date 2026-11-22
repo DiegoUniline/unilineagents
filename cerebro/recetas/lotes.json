@@ -1,0 +1,47 @@
+{
+  "id": "lotes",
+  "nombre": "Control por lotes",
+  "descripcion": "Rastrear existencias por lote (y caducidad) desde la compra hasta la venta.",
+  "requiere_entidades": ["producto"],
+  "preguntas": [
+    { "clave": "alcance", "texto": "¿Todos los productos se manejan por lote o solo algunos?", "opciones": { "algunos": "Solo algunos (se marca en cada producto)", "todos": "Todos los productos" }, "recomendado": "algunos" },
+    { "clave": "caducidad", "texto": "¿Los lotes tienen fecha de caducidad?", "opciones": { "si": "Sí", "no": "No" }, "recomendado": "si" },
+    { "clave": "salida", "texto": "¿Cómo se elige el lote al vender o sacar mercancía?", "opciones": { "fefo": "Automático: primero el que caduca antes", "fifo": "Automático: primero el que entró antes", "manual": "Lo elige quien vende" }, "recomendado": "fefo" },
+    { "clave": "negativos", "texto": "¿Se puede sacar más de lo que hay en un lote?", "opciones": { "no": "No, se bloquea", "si": "Sí, queda en negativo" }, "recomendado": "no" }
+  ],
+  "restricciones": [
+    { "si": { "salida": "fefo" }, "requiere": { "caducidad": "si" }, "mensaje": "«Primero el que caduca antes» necesita que los lotes tengan caducidad." }
+  ],
+  "acciones": [
+    { "cuando": { "alcance": "algunos" }, "tipo": "agregar_campo", "entidad": "producto",
+      "campo": { "nombre": "maneja_lote", "tipo": "si_no", "obligatorio": true, "default": "false", "por_que": "Indica qué productos exigen lote en compras, inventario y ventas", "fuente": "receta lotes" } },
+    { "tipo": "crear_tabla", "entidad": "lote", "tabla": "lotes", "modulo_igual_que": "producto",
+      "unicos": [["producto_id", "numero"]],
+      "campos": [
+        { "nombre": "producto", "tipo": "referencia", "ref_entidad": "producto", "obligatorio": true, "por_que": "Cada lote pertenece a un producto", "fuente": "receta lotes" },
+        { "nombre": "numero", "tipo": "texto", "obligatorio": true, "por_que": "Número de lote del proveedor; único por producto", "fuente": "receta lotes" },
+        { "nombre": "fecha_entrada", "tipo": "fecha", "obligatorio": true, "por_que": "Cuándo entró; base para «primero el que entró»", "fuente": "receta lotes" }
+      ] },
+    { "cuando": { "caducidad": "si" }, "tipo": "agregar_campo", "entidad": "lote",
+      "campo": { "nombre": "fecha_caducidad", "tipo": "fecha", "obligatorio": true, "por_que": "Avisos de por vencer y salida por caducidad", "fuente": "receta lotes" } },
+    { "cuando": { "alcance": "todos" }, "tipo": "agregar_campo", "entidad": "movimiento_inventario",
+      "campo": { "nombre": "lote", "tipo": "referencia", "ref_entidad": "lote", "obligatorio": true, "por_que": "Todo movimiento de inventario indica su lote", "fuente": "receta lotes" } },
+    { "cuando": { "alcance": "algunos" }, "tipo": "agregar_campo", "entidad": "movimiento_inventario",
+      "campo": { "nombre": "lote", "tipo": "referencia", "ref_entidad": "lote", "obligatorio": false, "por_que": "Lote del movimiento; exigido si el producto maneja lote", "fuente": "receta lotes" } },
+    { "cuando": { "alcance": "todos" }, "tipo": "agregar_campo", "entidad": "compra_detalle",
+      "campo": { "nombre": "lote", "tipo": "referencia", "ref_entidad": "lote", "obligatorio": true, "por_que": "Al recibir mercancía se captura su lote", "fuente": "receta lotes" } },
+    { "cuando": { "alcance": "algunos" }, "tipo": "agregar_campo", "entidad": "compra_detalle",
+      "campo": { "nombre": "lote", "tipo": "referencia", "ref_entidad": "lote", "obligatorio": false, "por_que": "Lote recibido; exigido si el producto maneja lote", "fuente": "receta lotes" } },
+    { "cuando": { "alcance": "todos" }, "tipo": "agregar_campo", "entidad": "venta_detalle",
+      "campo": { "nombre": "lote", "tipo": "referencia", "ref_entidad": "lote", "obligatorio": true, "por_que": "Cada partida vendida descuenta de un lote", "fuente": "receta lotes" } },
+    { "cuando": { "alcance": "algunos" }, "tipo": "agregar_campo", "entidad": "venta_detalle",
+      "campo": { "nombre": "lote", "tipo": "referencia", "ref_entidad": "lote", "obligatorio": false, "por_que": "Lote vendido; exigido si el producto maneja lote", "fuente": "receta lotes" } },
+    { "cuando": { "alcance": "algunos" }, "tipo": "regla", "texto": "Si el producto tiene maneja_lote = sí, el lote es obligatorio en compras, inventario y ventas; se valida en la función SQL, no solo en pantalla." },
+    { "cuando": { "salida": "fefo" }, "tipo": "regla", "texto": "Al vender, el sistema asigna el lote con caducidad más próxima que tenga existencia (FEFO)." },
+    { "cuando": { "salida": "fifo" }, "tipo": "regla", "texto": "Al vender, el sistema asigna el lote más antiguo por fecha de entrada que tenga existencia (FIFO)." },
+    { "cuando": { "salida": "manual" }, "tipo": "regla", "texto": "Al vender, quien vende elige el lote; solo se muestran lotes con existencia." },
+    { "cuando": { "negativos": "no" }, "tipo": "regla", "texto": "No se permite sacar más de la existencia del lote; se bloquea en la función SQL." },
+    { "cuando": { "negativos": "si" }, "tipo": "regla", "texto": "Se permite existencia negativa por lote y se avisa al usuario." },
+    { "cuando": { "caducidad": "si" }, "tipo": "regla", "texto": "No se venden lotes caducados." }
+  ]
+}
